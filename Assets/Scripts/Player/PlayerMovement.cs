@@ -35,6 +35,13 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
+        if (MouseLook.instance.thirdPerson)
+        {
+            // TODO: change movement when in the third person mode... (don't make vector movements based on last first person angled position?)
+            // reset the transform.right into a hard 90 degree angle to line up with the walls and hallways, make it easy for the player to know which way to go
+            move = Vector3.right * x + Vector3.forward * z;
+        }
+
         controller.Move(move * speed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;

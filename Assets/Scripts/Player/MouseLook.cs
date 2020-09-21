@@ -8,11 +8,22 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 
+    public static MouseLook instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public float mouseSensitivity = 100f;
 
     public Transform playerBody;
 
     float xRotation = 0f;
+
+    float yOffset = 14f;
+    float xRotationOffset = 59f;
+
+    public bool thirdPerson = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +34,24 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        if (!thirdPerson)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        playerBody.Rotate(Vector3.up * mouseX);
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+            playerBody.Rotate(Vector3.up * mouseX);
+        } else
+        {
+            transform.position = playerBody.position + new Vector3(0, 20, 0);
+            transform.LookAt(playerBody.position);
+
+        }
+        
     }
 }
