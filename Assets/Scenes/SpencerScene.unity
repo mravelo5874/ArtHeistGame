@@ -1297,9 +1297,10 @@ GameObject:
   - component: {fileID: 595990633}
   - component: {fileID: 595990632}
   - component: {fileID: 595990631}
+  - component: {fileID: 595990634}
   m_Layer: 0
   m_Name: Painting
-  m_TagString: Untagged
+  m_TagString: Painting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1380,6 +1381,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595990629}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &595990634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595990629}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.528178, y: 1.8674793, z: 1.7067604}
+  m_Center: {x: 3.26409, y: -0.43373778, z: -0.07046127}
 --- !u!1 &630804904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,7 +1965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 1766303533}
-  thirdPerson: 0
+  thirdPerson: 1
+  painting: {fileID: 0}
 --- !u!1 &984985202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,7 +3578,7 @@ GameObject:
   - component: {fileID: 1766303534}
   m_Layer: 0
   m_Name: First Person Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

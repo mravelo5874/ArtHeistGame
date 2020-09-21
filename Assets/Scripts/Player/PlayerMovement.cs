@@ -47,5 +47,33 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        // pressed x and near a painting in first person mode
+        if (Input.GetKeyDown(KeyCode.X) && !MouseLook.instance.thirdPerson)
+        {
+            // do something when your click it...
+        }
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Painting"))
+        {
+            MouseLook.instance.painting = other.gameObject;
+            MouseLook.instance.thirdPerson = false;
+            //transform.LookAt(other.transform);
+            
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Painting"))
+        {
+            MouseLook.instance.thirdPerson = true;
+        }
+    }
+
+
 }
