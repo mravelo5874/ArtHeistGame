@@ -45,8 +45,8 @@ public class MouseLook : MonoBehaviour
                 Debug.Log("templookat");
                 transform.position = playerBody.position;
                 transform.rotation.Set(0,0,0,0);
-                transform.LookAt(painting.transform);
-                transform.rotation.SetFromToRotation(transform.position, painting.transform.position);
+                //transform.LookAt(painting.transform);
+                //transform.rotation.SetFromToRotation(transform.position, painting.transform.position);
                 tempLookat = true;
             } else
             {

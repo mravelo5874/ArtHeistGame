@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: TestPainting2_obj
+  m_EditorClassIdentifier: 
+  title: Fighters
+  artist: Notch
+  medium: Pixel
+  dateMade: 9-22-2020
+  size: {x: 4, y: 2}
+  mat: {fileID: 2100000, guid: c20abe261140e9f46a732f1c153b8b57, type: 2}
