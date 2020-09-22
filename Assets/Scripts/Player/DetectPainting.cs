@@ -5,6 +5,7 @@ using UnityEngine;
 public class DetectPainting : MonoBehaviour
 {
     public bool showRay;
+    private CanvasObject mostRecentCanvas;
 
     [SerializeField] private Camera cam;
 
@@ -20,13 +21,25 @@ public class DetectPainting : MonoBehaviour
         {
             if (hit.collider.tag == "Painting")
             {
-                Painting painting = hit.transform.GetComponentInParent<CanvasObject>().painting;
+                // get canvas object
+                mostRecentCanvas = hit.transform.GetComponentInParent<CanvasObject>();
+
+                // set painting 'looked at' bool to true
+                mostRecentCanvas.SetLookedAt(true);
+
+                // send out painting data and activate UI
+                Painting painting = mostRecentCanvas.painting;
                 PaintingInfoDisplayHelper.SetInfoDisplayActive(true);
                 PaintingInfoDisplayHelper.SetPaintingInfo(painting);
             }
         }
-        else
+        else // no longer looking at painting
         {
+            // set painting 'looked at' bool to false
+            if (mostRecentCanvas)
+                mostRecentCanvas.SetLookedAt(false);
+
+            // deactivate ui
             PaintingInfoDisplayHelper.SetInfoDisplayActive(false);
         }
     }
