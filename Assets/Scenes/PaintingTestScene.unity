@@ -208,7 +208,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7847144916659204417, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6001
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 7847144917348545376, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: m_Name
@@ -284,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: c5d37cd2c956c344884219aafadcad0d, type: 2}
     - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: outlineWidth
-      value: 1.2
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: outlineSpeed
@@ -653,11 +653,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357213448}
   m_CullTransparentMesh: 0
---- !u!23 &525519214 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7847144916659204419, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-  m_PrefabInstance: {fileID: 7847144916838332461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &632723302
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,11 +787,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632723302}
   m_CullTransparentMesh: 0
---- !u!23 &649808719 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7847144917348545378, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-  m_PrefabInstance: {fileID: 7847144916838332461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &682113060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,7 +1502,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7847144916659204417, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6001
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 7847144917348545376, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: m_Name
@@ -1580,7 +1570,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 4a8247cb015943f4283d6ee6e46cf8fb, type: 2}
     - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: outlineWidth
-      value: 1.2
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: outlineSpeed
@@ -1749,23 +1739,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7847144916659204417, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6001
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 7847144917348545376, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847144917348545378, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a5e232985ab09564dad4a36c239da755, type: 2}
-    - target: {fileID: 7847144917348545378, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847144917348545378, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-      propertyPath: m_CastShadows
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847144917348545404, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1811,25 +1789,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-      propertyPath: painting
-      value: 
-      objectReference: {fileID: 11400000, guid: 885689e37d8d9db43b682eaa77aa351a, type: 2}
-    - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-      propertyPath: outlineWidth
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-      propertyPath: outlineSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-      propertyPath: canvasMeshRenderer
-      value: 
-      objectReference: {fileID: 649808719}
-    - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
-      propertyPath: paintingMeshRenderer
-      value: 
-      objectReference: {fileID: 525519214}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
