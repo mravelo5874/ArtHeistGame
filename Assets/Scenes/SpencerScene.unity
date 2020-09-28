@@ -3941,6 +3941,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7941299186281115685, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
+      propertyPath: showRay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8943438084187815187, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
       propertyPath: m_Name
       value: First Person Player

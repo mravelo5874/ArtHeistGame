@@ -77,8 +77,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && !MouseLook.instance.thirdPerson)
         {
             // do something when your click it.
-            Debug.Log("You've taken the painting!");
+            MouseLook.instance.thirdPerson = true;
+            
+        } else if (Input.GetKeyDown(KeyCode.X) && MouseLook.instance.thirdPerson)
+        {
+            MouseLook.instance.thirdPerson = false;
         }
+
+        
     }
 
 
@@ -86,8 +92,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Painting"))
         {
-            MouseLook.instance.painting = other.gameObject;
-            MouseLook.instance.thirdPerson = false;
+            //MouseLook.instance.painting = other.gameObject;
+            //MouseLook.instance.thirdPerson = false;
             //transform.LookAt(other.transform);
             
         }
@@ -97,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Painting"))
         {
-            MouseLook.instance.thirdPerson = true;
+            //MouseLook.instance.thirdPerson = true;
         }
     }
 
