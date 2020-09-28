@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-
     public static MouseLook instance;
     private void Awake()
     {
@@ -42,7 +41,6 @@ public class MouseLook : MonoBehaviour
             // transform.position = playerBody.position;
             if (!tempLookat)
             {
-                Debug.Log("templookat");
                 transform.position = playerBody.position;
                 transform.rotation.Set(0,0,0,0);
                 //transform.LookAt(painting.transform);

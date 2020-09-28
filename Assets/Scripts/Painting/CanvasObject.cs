@@ -14,6 +14,7 @@ public class CanvasObject : MonoBehaviour
     private bool firstTimeLooking;
     private float timer;
     public float timeToAddToList;
+    public float minPaintingFOV;
     
     [SerializeField] private MeshRenderer canvasMeshRenderer;
     [SerializeField] private MeshRenderer paintingMeshRenderer;
@@ -49,10 +50,14 @@ public class CanvasObject : MonoBehaviour
             // player must hold down mouse button for certain amount of time
             if (Input.GetMouseButton(0))
             {
+                PlayerMovementHelper.ToggleMovement(true); // restrict player movement
+
                 timer += Time.deltaTime;
                 if (timer > timeToAddToList)
                 {
+                    PlayerMovementHelper.ToggleMovement(true);
                     CircleFillHelper.SetFillAmount(0f);
+                    CameraHelper.ResetFOV();
                     GameHelper.AddPaintingToList(painting);
                     addedToList = true;
 
@@ -62,16 +67,25 @@ public class CanvasObject : MonoBehaviour
                 }
 
                 CircleFillHelper.SetFillAmount(timer / timeToAddToList);
+                CameraHelper.SetFOV(Mathf.Lerp(CameraController.defaultFOV, minPaintingFOV, timer / timeToAddToList));
             }
             else
             {
                 timer = 0f; // reset timer if player stops holding down button
+                PlayerMovementHelper.ToggleMovement(false);
                 CircleFillHelper.SetFillAmount(0f);
+                CameraHelper.ResetFOV();
             }
         }
         else
         {
-            firstTimeLooking = true;
+            if (!firstTimeLooking)
+            {
+                PlayerMovementHelper.ToggleMovement(false);
+                CircleFillHelper.SetFillAmount(0f);
+                CameraHelper.ResetFOV();
+                firstTimeLooking = true;
+            }
         }
     }
 

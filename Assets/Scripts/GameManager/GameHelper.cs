@@ -61,6 +61,12 @@ public static class GameHelper
         gm.ClearPaintingList();
     }
 
+    public static List<Painting> GetPaintingList()
+    {
+        FindGameManager();
+        return gm.GetPaintingList();
+    }
+
     private static void FindGameManager()
     {
         if (gm == null) gm = GameObject.Find("TheGameManager").GetComponent<GameManager>();

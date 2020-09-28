@@ -210,6 +210,7 @@ MonoBehaviour:
   outlineSpeed: 0.2
   outlineCompletedColor: {r: 0, g: 1, b: 0.57301307, a: 1}
   timeToAddToList: 3
+  minPaintingFOV: 45
   canvasMeshRenderer: {fileID: 7847144917348545378}
   paintingMeshRenderer: {fileID: 7847144916659204419}
   canvasThickness: 0.2

@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8943438084187815188}
-  speed: 12
+  speed: 8
   gravity: -9.81
   groundCheck: {fileID: 8943438084252921451}
   groundDistance: 0.4
@@ -211,8 +211,9 @@ GameObject:
   - component: {fileID: 8943438084991121227}
   - component: {fileID: 8943438084991121226}
   - component: {fileID: 8943438084991121229}
+  - component: {fileID: 732876386}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: FPS_Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +243,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -255,7 +256,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -295,7 +296,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6df0495a38b3ea45af1f52d9a823a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 1000
   playerBody: {fileID: 8943438084187815189}
-  thirdPerson: 1
+  thirdPerson: 0
   painting: {fileID: 0}
+--- !u!114 &732876386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943438084991121225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df9d84edec02954c88da6c2d60bef9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetFOVTime: 0.5

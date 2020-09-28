@@ -103,10 +103,18 @@ public class GameManager : DontDestroy<GameManager>
     {
         if (!paintings.Contains(painting))
             paintings.Add(painting);
+
+        PaintingListDisplayHelper.UpdateList();
     }
 
     public void ClearPaintingList()
     {
         paintings.Clear();
+        PaintingListDisplayHelper.UpdateList();
+    }
+
+    public List<Painting> GetPaintingList()
+    {
+        return paintings;
     }
 }

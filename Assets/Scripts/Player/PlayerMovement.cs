@@ -5,9 +5,17 @@ using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
 
+public static class PlayerMovementHelper
+{
+    public static void ToggleMovement(bool opt)
+    {
+        var info = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        info.ToggleMovement(opt);
+    }
+}
+
 public class PlayerMovement : MonoBehaviour
 {
-
     public CharacterController controller;
 
     public float speed = 8f;
@@ -19,10 +27,18 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    bool restrictMovement;
+
+    void Awake()
+    {
+        restrictMovement = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (restrictMovement) return; // no move if restrictMovement == true
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
@@ -85,6 +101,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
+    }
+
+    public void ToggleMovement(bool opt)
+    {
+        restrictMovement = opt;
     }
 
 
