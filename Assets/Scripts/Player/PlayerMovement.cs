@@ -76,7 +76,8 @@ public class PlayerMovement : MonoBehaviour
         // pressed x and near a painting in first person mode
         if (Input.GetKeyDown(KeyCode.X) && !MouseLook.instance.thirdPerson)
         {
-            // do something when your click it...
+            // do something when your click it.
+            Debug.Log("You've taken the painting!");
         }
     }
 
