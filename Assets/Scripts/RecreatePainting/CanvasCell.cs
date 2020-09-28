@@ -9,9 +9,13 @@ public class CanvasCell : MonoBehaviour
 
     private MeshRenderer mr;
 
-    void Start() 
+    void Awake()
     {
         mr = GetComponent<MeshRenderer>();
+    }
+
+    void Start() 
+    {   
         SetColor(CellColorHelper.GetColor("WHITE")); // initalize color as WHITE
     }
 
@@ -33,6 +37,10 @@ public class CanvasCell : MonoBehaviour
         Debug.Log("Looking at cell? -> " + opt);
 
         isLookedAt = opt;
-        //StartCoroutine(SmoothSetOutline(opt, outlineSpeed));
+    }
+
+    public void SetOutlineWidth(float width)
+    {
+        mr.material.SetFloat("_OutlineWidth", width);
     }
 }
