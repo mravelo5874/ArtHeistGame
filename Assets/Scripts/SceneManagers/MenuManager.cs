@@ -14,7 +14,8 @@ public class MenuManager : MonoBehaviour
     public void OnPlayPressed()
     {
         //SoundHelper.PlaySound(Sound.Blip1);
-        SceneManager.LoadScene("SpencerScene");
+        SceneManager.LoadScene("XchelScene");
+        Debug.Log("Should have loaded the spencer scene...");
     }
 
     public void OnOptionsPressed()

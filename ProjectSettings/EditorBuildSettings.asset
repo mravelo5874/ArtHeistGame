@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 8f00aa1dea2db8642854b5ad7dc80bb7
+  - enabled: 1
+    path: Assets/Scenes/SpencerScene.unity
+    guid: 9fbb9e8654a427246acb1587c74051d6
+  - enabled: 1
+    path: Assets/Scenes/XchelScene.unity
+    guid: 5d63873b93f1f1b45a9c858f16fdcf0a
   m_configObjects: {}
