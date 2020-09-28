@@ -7,8 +7,13 @@ public class CanvasObject : MonoBehaviour
     public Painting painting;
     public float outlineWidth;
     public float outlineSpeed;
+    public Color outlineCompletedColor;
     
     private bool isLookedAt;
+    private bool addedToList;
+    private bool firstTimeLooking;
+    private float timer;
+    public float timeToAddToList;
     
     [SerializeField] private MeshRenderer canvasMeshRenderer;
     [SerializeField] private MeshRenderer paintingMeshRenderer;
@@ -23,9 +28,51 @@ public class CanvasObject : MonoBehaviour
         }
 
         isLookedAt = false;
+        addedToList = false;
+        firstTimeLooking = true;
 
         transform.localScale = new Vector3(painting.size.x, painting.size.y, canvasThickness); // set canvas size
         paintingMeshRenderer.material = painting.mat; // set painting material
+    }
+
+    void Update()
+    {
+        // how to add painting to player list
+        if (isLookedAt && !addedToList)
+        {
+            if (firstTimeLooking)
+            {
+                firstTimeLooking = false;
+                timer = 0f;
+            }
+
+            // player must hold down mouse button for certain amount of time
+            if (Input.GetMouseButton(0))
+            {
+                timer += Time.deltaTime;
+                if (timer > timeToAddToList)
+                {
+                    CircleFillHelper.SetFillAmount(0f);
+                    GameHelper.AddPaintingToList(painting);
+                    addedToList = true;
+
+                    canvasMeshRenderer.material.SetFloat("_OutlineWidth", outlineWidth);
+                    canvasMeshRenderer.material.SetColor("_OutlineColor", outlineCompletedColor);
+                    return;
+                }
+
+                CircleFillHelper.SetFillAmount(timer / timeToAddToList);
+            }
+            else
+            {
+                timer = 0f; // reset timer if player stops holding down button
+                CircleFillHelper.SetFillAmount(0f);
+            }
+        }
+        else
+        {
+            firstTimeLooking = true;
+        }
     }
 
     public void SetLookedAt(bool opt)
@@ -36,7 +83,10 @@ public class CanvasObject : MonoBehaviour
         Debug.Log("Looking at painting? -> " + opt);
 
         isLookedAt = opt;
-        StartCoroutine(SmoothSetOutline(opt, outlineSpeed));
+
+        // only outline painting if it is not added to the list
+        if (!addedToList)
+            StartCoroutine(SmoothSetOutline(opt, outlineSpeed));
     }
 
     private IEnumerator SmoothSetOutline(bool opt, float duration)
