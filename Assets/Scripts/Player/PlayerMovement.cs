@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController controller;
 
-    public float speed = 12f;
+    public float speed = 8f;
     public float gravity = -9.81f;
 
     public Transform groundCheck;
@@ -40,6 +40,31 @@ public class PlayerMovement : MonoBehaviour
             // TODO: change movement when in the third person mode... (don't make vector movements based on last first person angled position?)
             // reset the transform.right into a hard 90 degree angle to line up with the walls and hallways, make it easy for the player to know which way to go
             move = Vector3.right * x + Vector3.forward * z;
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            speed = speed - 0.05f;
+            if (speed < 2.5f)
+            {
+                speed = 2.5f;
+            }
+        } else if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = speed + .05f;
+            if (speed > 12f)
+            {
+                speed = 12f;
+            }
+        } else
+        {
+            if (speed > 8f)
+            {
+                speed = speed - 0.05f;
+            } else if (speed < 8f)
+            {
+                speed = speed + 0.05f;
+            }
         }
 
         controller.Move(move * speed * Time.deltaTime);
