@@ -5,28 +5,33 @@ using UnityEngine;
 
 public class PatrolMovement : MonoBehaviour
 {
-    public float speed = 4f;
+    public float speed;
     private float waitTime;
     public float startWaitTime;
 
-    public Transform[] moveSpots;
-    private int randomSpot;
+    public GameObject currentMoveSpot;
 
     void Start()
     {
         waitTime = startWaitTime;
-        randomSpot = UnityEngine.Random.Range(0, moveSpots.Length); 
     }
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, currentMoveSpot.transform.position, speed * Time.deltaTime);
 
-        if(Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.02f)
+        if(Vector3.Distance(transform.position, currentMoveSpot.transform.position) < 0.02f)
         {
             if(waitTime < 0)
             {
-                randomSpot = UnityEngine.Random.Range(0, moveSpots.Length);
+                if(UnityEngine.Random.Range(1, 10) > 1)
+                {
+                    currentMoveSpot = currentMoveSpot.GetComponent<MoveSpotScript>().adjacentMoveSpots[1];
+                } else
+                {
+                    currentMoveSpot = currentMoveSpot.GetComponent<MoveSpotScript>().adjacentMoveSpots[0];
+                }
+            
                 waitTime = startWaitTime;
             }
             else

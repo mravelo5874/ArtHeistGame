@@ -417,9 +417,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167565465}
+  - component: {fileID: 167565466}
   m_Layer: 0
-  m_Name: MoveSpot
-  m_TagString: Untagged
+  m_Name: MoveSpot_0
+  m_TagString: MoveSpot
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -438,6 +439,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167565466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167565464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e39c58383e99c140b05eaecd117d097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjacentMoveSpots:
+  - {fileID: 2114194043}
+  - {fileID: 305990811}
 --- !u!1 &210297051
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,9 +935,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305990812}
+  - component: {fileID: 305990813}
   m_Layer: 0
-  m_Name: MoveSpot (1)
-  m_TagString: Untagged
+  m_Name: MoveSpot_1
+  m_TagString: MoveSpot
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -940,6 +957,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &305990813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305990811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e39c58383e99c140b05eaecd117d097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjacentMoveSpots:
+  - {fileID: 167565464}
+  - {fileID: 964867534}
 --- !u!1 &319827074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,9 +2430,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 964867535}
+  - component: {fileID: 964867536}
   m_Layer: 0
-  m_Name: MoveSpot (2)
-  m_TagString: Untagged
+  m_Name: MoveSpot_2
+  m_TagString: MoveSpot
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2419,6 +2452,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &964867536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964867534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e39c58383e99c140b05eaecd117d097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjacentMoveSpots:
+  - {fileID: 305990811}
+  - {fileID: 2114194043}
 --- !u!1 &984985202
 GameObject:
   m_ObjectHideFlags: 0
@@ -4862,9 +4910,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114194044}
+  - component: {fileID: 2114194045}
   m_Layer: 0
-  m_Name: MoveSpot (3)
-  m_TagString: Untagged
+  m_Name: MoveSpot_3
+  m_TagString: MoveSpot
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4883,6 +4932,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2114194045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114194043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e39c58383e99c140b05eaecd117d097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjacentMoveSpots:
+  - {fileID: 964867534}
+  - {fileID: 167565464}
 --- !u!1 &2145091778
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,13 +5217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7db9bec757d0df4996ee2b065b09633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 3.5
   startWaitTime: 3
-  moveSpots:
-  - {fileID: 167565465}
-  - {fileID: 305990812}
-  - {fileID: 964867535}
-  - {fileID: 2114194044}
+  currentMoveSpot: {fileID: 167565464}
 --- !u!1001 &7947851723012797095
 PrefabInstance:
   m_ObjectHideFlags: 0
