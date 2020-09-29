@@ -7,38 +7,26 @@ public class MenuManager : MonoBehaviour
 {
     void Awake()
     {
-        //if (!SoundHelper.IsMusicPlaying())
-            //SoundHelper.PlaySong();
+        GameHelper.SceneInit(); // every scene must call this in Awake()
     }
 
-    public void OnPlayPressed()
+    public void OnMuseumScenePressed()
     {
-        //SoundHelper.PlaySound(Sound.Blip1);
-        SceneManager.LoadScene("XchelScene");
-        Debug.Log("Should have loaded the spencer scene...");
+        GameHelper.LoadScene("SpencerScene", true);
     }
 
-    public void OnOptionsPressed()
+    public void OnHeistScenePressed()
     {
-        //SoundHelper.PlaySound(Sound.Blip1);
-        //SceneManager.LoadScene("OptionsScene");
+        GameHelper.LoadScene("HeistTestScene", true);
     }
 
-    public void OnExitPressed()
+    public void OnRecreateScenePressed()
     {
-        //SoundHelper.PlaySound(Sound.Blip3);
+        GameHelper.LoadScene("RecreatePaintingTestScene", true);
+    }
+
+    public void OnQuitGamePressed()
+    {
         Application.Quit();
-    }
-
-    public void GoToIntro()
-    {
-        //SoundHelper.PlaySound(Sound.Blip1);
-        //SceneManager.LoadScene("Intro");
-    }
-
-    public void GoToMenu()
-    {
-        //SoundHelper.PlaySound(Sound.Blip1);
-        //SceneManager.LoadScene("Menu");
     }
 }

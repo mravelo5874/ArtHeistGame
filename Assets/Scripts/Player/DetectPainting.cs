@@ -32,8 +32,17 @@ public class DetectPainting : MonoBehaviour
                 PaintingInfoDisplayHelper.SetInfoDisplayActive(true);
                 PaintingInfoDisplayHelper.SetPaintingInfo(painting);
             }
+            else // no longer looking at painting
+            {
+                // set painting 'looked at' bool to false
+                if (mostRecentCanvas)
+                    mostRecentCanvas.SetLookedAt(false);
+
+                // deactivate ui
+                PaintingInfoDisplayHelper.SetInfoDisplayActive(false);
+            }
         }
-        else // no longer looking at painting
+        else // ray does not hit an object
         {
             // set painting 'looked at' bool to false
             if (mostRecentCanvas)

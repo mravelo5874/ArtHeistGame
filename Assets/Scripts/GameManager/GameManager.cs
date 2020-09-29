@@ -19,11 +19,9 @@ public class GameManager : DontDestroy<GameManager>
     {
         if (devModeActivated)
         {
-            /* We dont have a dev menu yet :)
-            // press 'D' to go to the dev menu
-            if (Input.GetKeyDown(KeyCode.D))
-                LoadScene("DevMenu", true);
-            */
+            // press 'ESC' to return to menu
+            if (Input.GetKeyDown(KeyCode.Escape))
+                RestartGame();
         }
     }
 
@@ -35,6 +33,7 @@ public class GameManager : DontDestroy<GameManager>
 
     public void SceneInit()
     {
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(SceneInitCoroutine());
     }
 

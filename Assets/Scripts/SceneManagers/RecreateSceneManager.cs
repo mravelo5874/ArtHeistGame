@@ -34,7 +34,7 @@ public class RecreateSceneManager : MonoBehaviour
 
     void Awake()
     {
-        GameHelper.SceneInit();
+        GameHelper.SceneInit(); // every scene must call this in Awake()
     }
 
     void Start()
