@@ -34,6 +34,7 @@ public class CanvasObject : MonoBehaviour
 
         transform.localScale = new Vector3(painting.size.x, painting.size.y, canvasThickness); // set canvas size
         paintingMeshRenderer.material = painting.mat; // set painting material
+        canvasMeshRenderer.material.SetColor("_OutlineColor", Color.black); // set outline color to black
     }
 
     void Update()

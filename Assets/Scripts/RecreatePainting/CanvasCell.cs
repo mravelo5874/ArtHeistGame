@@ -5,6 +5,7 @@ using UnityEngine;
 public class CanvasCell : MonoBehaviour
 {
     public bool isLookedAt;
+    public Color gridColor;
     private Vector2Int pos;
 
     private MeshRenderer mr;
@@ -12,6 +13,7 @@ public class CanvasCell : MonoBehaviour
     void Awake()
     {
         mr = GetComponent<MeshRenderer>();
+        mr.material.SetColor("_OutlineColor", gridColor);
     }
 
     void Start() 

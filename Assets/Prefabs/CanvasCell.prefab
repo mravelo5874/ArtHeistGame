@@ -109,3 +109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLookedAt: 0
+  gridColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
