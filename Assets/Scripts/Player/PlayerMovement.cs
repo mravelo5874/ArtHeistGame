@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public Transform camera;
+
     Vector3 velocity;
     bool isGrounded;
     bool restrictMovement;
@@ -55,7 +57,13 @@ public class PlayerMovement : MonoBehaviour
         {
             // TODO: change movement when in the third person mode... (don't make vector movements based on last first person angled position?)
             // reset the transform.right into a hard 90 degree angle to line up with the walls and hallways, make it easy for the player to know which way to go
-            move = Vector3.right * x + Vector3.forward * z;
+            
+            
+            //move = Vector3.right * x + Vector3.forward * z;
+
+            //move = camera.right * x + camera.forward * z;
+
+            //move = transform.
         }
 
         if (Input.GetKey(KeyCode.LeftControl))
