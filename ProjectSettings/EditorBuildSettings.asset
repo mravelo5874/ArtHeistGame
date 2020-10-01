@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RecreatePaintingTestScene.unity
     guid: 85467dace18128d4c88840dcdd4207f5
+  - enabled: 1
+    path: Assets/Scenes/MuseumTestScene.unity
+    guid: de0931e100bb84e42811c3a729aad5df
   m_configObjects: {}

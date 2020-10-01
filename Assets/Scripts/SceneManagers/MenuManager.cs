@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnMuseumScenePressed()
     {
-        GameHelper.LoadScene("SpencerScene", true);
+        GameHelper.LoadScene("MuseumTestScene", true);
     }
 
     public void OnHeistScenePressed()
