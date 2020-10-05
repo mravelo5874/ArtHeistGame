@@ -7,6 +7,7 @@ public class GameManager : DontDestroy<GameManager>
 {
     public bool devModeActivated;
     public const float transitionTime = 1f; // time to fade into and out of a scene (total transition time is: transitionTime * 2)
+    public const int canvasToPixelRatio = 16; // ratio between 1 canvas size and number of pixels
 
     private List<Painting> paintings; // list of paintings found in museum level
 

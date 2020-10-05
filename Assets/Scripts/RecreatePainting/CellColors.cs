@@ -31,6 +31,18 @@ public static class CellColorHelper
         // could not find cell colors
         if (cellColors == null) Debug.LogError("CellColorHelper could not find 'CellColors'");
     }
+
+    /*
+    #####################################
+    #   DevMakePaintingSceneManager
+    #####################################
+    */
+
+    public static List<string> GetHexColors()
+    {
+        FindCellColors();
+        return cellColors.GetHexColors();
+    }
 }
 
 public class CellColors : MonoBehaviour
@@ -69,6 +81,18 @@ public class CellColors : MonoBehaviour
     public CellColor this[string colorName]
     {
         get { return GetColor(colorName); }        
+    }
+
+    public List<string> GetHexColors()
+    {
+        List<string> colorHexs = new List<string>();
+        foreach(CellColor color in colors)
+        {
+            string hex = '#' + ColorUtility.ToHtmlStringRGBA(color.color);
+            colorHexs.Add(hex);
+        }
+
+        return colorHexs;
     }
 }
 

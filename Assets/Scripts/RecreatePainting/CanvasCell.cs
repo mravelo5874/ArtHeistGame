@@ -6,7 +6,9 @@ public class CanvasCell : MonoBehaviour
 {
     public bool isLookedAt;
     public Color gridColor;
-    private Vector2Int pos;
+    
+    public Vector2Int pos;
+    public Color color;
 
     private MeshRenderer mr;
 
@@ -14,10 +16,6 @@ public class CanvasCell : MonoBehaviour
     {
         mr = GetComponent<MeshRenderer>();
         mr.material.SetColor("_OutlineColor", gridColor);
-    }
-
-    void Start() 
-    {   
         SetColor(CellColorHelper.GetColor("WHITE")); // initalize color as WHITE
     }
 
@@ -28,7 +26,9 @@ public class CanvasCell : MonoBehaviour
 
     public void SetColor(Color color)
     {
+        this.color = color;
         mr.material.color = color;
+        print ("color set to: " + '#' + ColorUtility.ToHtmlStringRGBA(color));
     }
 
     public void SetLookedAt(bool opt)
@@ -44,5 +44,10 @@ public class CanvasCell : MonoBehaviour
     public void SetOutlineWidth(float width)
     {
         mr.material.SetFloat("_OutlineWidth", width);
+    }
+
+    public string GetHexColor()
+    {
+        return '#' + ColorUtility.ToHtmlStringRGBA(color);
     }
 }

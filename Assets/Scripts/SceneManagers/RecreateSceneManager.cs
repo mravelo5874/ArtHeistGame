@@ -24,7 +24,6 @@ public class RecreateSceneManager : MonoBehaviour
 
     private int canvasWidth;
     private int canvasHeight;
-    public int canvasRatio;
     [SerializeField] private TextMeshProUGUI widthLabel;
     [SerializeField] private TextMeshProUGUI heightLabel;
     [SerializeField] private int maxCanvasSize;
@@ -49,7 +48,9 @@ public class RecreateSceneManager : MonoBehaviour
 
     public void CreateNewCanvasFromPaintingSize(Vector2Int paintingSize)
     {
-        CreateNewCanvas(paintingSize * canvasRatio); // each 1x1 painting size is 16x16 pixels
+        canvasWidth = paintingSize.x;
+        canvasHeight = paintingSize.y;
+        CreateNewCanvas(paintingSize * GameManager.canvasToPixelRatio); // each 1x1 painting size is 16x16 pixels
     }
 
     private void CreateNewCanvas(Vector2Int size)
@@ -62,7 +63,7 @@ public class RecreateSceneManager : MonoBehaviour
             for (int y = 0; y < size.y; y++)
             {
                 canvas[x, y] = Instantiate(canvasCellObj, new Vector3(-x, y, 0f), Quaternion.identity, canvasParent).GetComponent<CanvasCell>();
-                canvas[x, y].SetPosition(new Vector2Int(size.x - x, y)); // set the position of each cell
+                canvas[x, y].SetPosition(new Vector2Int(size.x - x - 1, y)); // set the position of each cell
             }
         }
 
@@ -160,5 +161,39 @@ public class RecreateSceneManager : MonoBehaviour
             foreach(CanvasCell cell in canvas)
                 cell.SetOutlineWidth(1f);
         }
+    }
+
+    /*
+    #####################################
+    #   DevMakePaintingSceneManager
+    #####################################
+    */
+
+    public void LoadPainting(PaintingData data)
+    {
+        CreateNewCanvasFromPaintingSize(data.canvasSize);
+        
+        print ("data size: " + data.cellData.Count);
+
+        foreach (CellData cell in data.cellData)
+        {
+            Color color = new Color();
+            ColorUtility.TryParseHtmlString(cell.colorHex, out color);
+
+            //print ("cell pos: " + cell.pos.x + ", " + cell.pos.y + " --- color: " + '#' + ColorUtility.ToHtmlStringRGBA(color));
+            canvas[cell.pos.x, cell.pos.y].SetColor(color);
+        }
+
+        //SetCameraPosition();
+    }
+
+    public Vector2Int GetWidthHeight()
+    {
+        return new Vector2Int(canvasWidth, canvasHeight);
+    }
+
+    public CanvasCell[,] GetCanvasCells()
+    {
+        return canvas;
     }
 }
