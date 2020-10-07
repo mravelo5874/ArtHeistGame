@@ -15,6 +15,24 @@ public class MenuManager : MonoBehaviour
         GameHelper.LoadScene("MuseumTestScene", true);
     }
 
+    public void OnLevel1ScenePressed()
+    {
+        GameHelper.LoadScene("MuseumScene", true);
+        // do other level setup things, call a static function somewhere else?
+    }
+
+    public void OnLevel2ScenePressed()
+    {
+        GameHelper.LoadScene("MuseumScene", true);
+        // do other level setup things, call a static function somewhere else?
+    }
+
+    public void OnLevel3ScenePressed()
+    {
+        GameHelper.LoadScene("MuseumScene", true);
+        // do other level setup things, call a static function somewhere else?
+    }
+
     public void OnHeistScenePressed()
     {
         GameHelper.LoadScene("HeistTestScene", true);
@@ -23,6 +41,26 @@ public class MenuManager : MonoBehaviour
     public void OnRecreateScenePressed()
     {
         GameHelper.LoadScene("RecreatePaintingTestScene", true);
+    }
+
+    public void OnMainMenuScenePressed()
+    {
+        GameHelper.LoadScene("StartMenu", true);
+    }
+
+    public void OnLevelSelectorScenePressed()
+    {
+        GameHelper.LoadScene("LevelSelectorScene", true);
+    }
+
+    public void OnShopScenePressed()
+    {
+        GameHelper.LoadScene("ShopScene", true); ;
+    }
+
+    public void OnOptionsScenePressed()
+    {
+        GameHelper.LoadScene("OptionsScene", true);
     }
 
     public void OnQuitGamePressed()

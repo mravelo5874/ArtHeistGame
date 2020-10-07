@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MuseumTestScene.unity
     guid: de0931e100bb84e42811c3a729aad5df
+  - enabled: 1
+    path: Assets/Scenes/LevelSelectorScene.unity
+    guid: 3dc389c553888654dab35d5e49f58b58
+  - enabled: 1
+    path: Assets/Scenes/ShopScene.unity
+    guid: dce0c9b4144317e4cba84ed31b53f40d
+  - enabled: 1
+    path: Assets/Scenes/OptionsScene.unity
+    guid: 421d1cfc41e046c4091ef134c338b8e5
+  - enabled: 1
+    path: Assets/Scenes/MuseumScene.unity
+    guid: 444cad9ac02797147a0df7efb787eb49
   m_configObjects: {}
