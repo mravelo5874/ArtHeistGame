@@ -6,6 +6,6 @@ public class HeistTestSceneManager : MonoBehaviour
 {
     void Awake()
     {
-        GameHelper.SceneInit(); // every scene must call this in Awake()
+        GameHelper.SceneInit(true); // every scene must call this in Awake()
     }
 }

@@ -13,10 +13,10 @@ public static class GameHelper
     }
 
     // every scene must call this function in Awake()
-    public static void SceneInit()
+    public static void SceneInit(bool fadeIn)
     {
         FindGameManager();
-        gm.SceneInit();
+        gm.SceneInit(fadeIn);
     }
 
     /* 
@@ -65,6 +65,12 @@ public static class GameHelper
     {
         FindGameManager();
         return gm.GetPaintingList();
+    }
+
+    public static List<Painting> GetTestPaintingList()
+    {
+        FindGameManager();
+        return gm.GetTestPaintingList();
     }
 
     private static void FindGameManager()

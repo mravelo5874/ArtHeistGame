@@ -11,6 +11,8 @@ public class GameManager : DontDestroy<GameManager>
 
     private List<Painting> paintings; // list of paintings found in museum level
 
+    [SerializeField] private List<Painting> testPaintings; // painting to be used for testing (recreate scene/dev mode)
+
     new void Awake()
     {
         paintings = new List<Painting>();    
@@ -32,10 +34,11 @@ public class GameManager : DontDestroy<GameManager>
     ################################################
     */
 
-    public void SceneInit()
+    public void SceneInit(bool fadeIn)
     {
         Cursor.lockState = CursorLockMode.None;
-        StartCoroutine(SceneInitCoroutine());
+
+        if (fadeIn) StartCoroutine(SceneInitCoroutine());
     }
 
     private IEnumerator SceneInitCoroutine()
@@ -116,5 +119,10 @@ public class GameManager : DontDestroy<GameManager>
     public List<Painting> GetPaintingList()
     {
         return paintings;
+    }
+
+    public List<Painting> GetTestPaintingList()
+    {
+        return testPaintings;
     }
 }

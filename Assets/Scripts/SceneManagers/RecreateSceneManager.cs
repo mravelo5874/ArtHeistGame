@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
@@ -12,68 +13,115 @@ public class vec2_vec3
 
 public class RecreateSceneManager : MonoBehaviour
 {
+    public bool isDevMode;
+
     [SerializeField] private List<vec2_vec3> canvasSize2CamPosDictionary;
 
     [SerializeField] private Camera cam;
     public float timeChangeCameraPos;
     private IEnumerator moveCamCoroutine;
 
-    [SerializeField] private GameObject canvasCellObj;
-    [SerializeField] private Transform canvasParent;
-    private CanvasCell[,] canvas;
-
-    private int canvasWidth;
-    private int canvasHeight;
     [SerializeField] private TextMeshProUGUI widthLabel;
     [SerializeField] private TextMeshProUGUI heightLabel;
     [SerializeField] private int maxCanvasSize;
 
-    private bool showGrid;
+    [SerializeField] private Color darkColor;
+    [SerializeField] private Color lightColor;
+
+    private bool showGrid = false;
     [SerializeField] private TextMeshProUGUI showGridLabel;
+    [SerializeField] private Image gridButton;
+
+    [SerializeField] private TextMeshProUGUI fillToolLabel;
+    [SerializeField] private Image fillButton;
+
+    [SerializeField] private TextMeshProUGUI brushSizeLabel;
+    
+    private List<Painting> paintings;
+    private List<RecreateCanvasObject> canvases;
+    private RecreateCanvasObject currCanvas;
+    private int currCanvasIndex;
+    [SerializeField] private CanvasParentManager cpm;
+    [SerializeField] private GameObject recreateCanvasObject;
+    [SerializeField] private Transform canvasParent;
 
     void Awake()
     {
-        GameHelper.SceneInit(); // every scene must call this in Awake()
+        GameHelper.SceneInit(true); // every scene must call this in Awake()
     }
 
     void Start()
     {
-        showGrid = false;
-        canvasWidth = 1;
-        canvasHeight = 1;
-        widthLabel.text = canvasWidth.ToString();
-        heightLabel.text = canvasHeight.ToString();
-        CreateNewCanvasFromPaintingSize(new Vector2Int(canvasWidth, canvasHeight));
-    }
+        if (isDevMode)
+            paintings = GameHelper.GetTestPaintingList();
+        else
+            paintings = GameHelper.GetPaintingList();
 
-    public void CreateNewCanvasFromPaintingSize(Vector2Int paintingSize)
-    {
-        canvasWidth = paintingSize.x;
-        canvasHeight = paintingSize.y;
-        CreateNewCanvas(paintingSize * GameManager.canvasToPixelRatio); // each 1x1 painting size is 16x16 pixels
-    }
-
-    private void CreateNewCanvas(Vector2Int size)
-    {
-        DestroyCanvas();
-        canvas = new CanvasCell[size.x, size.y]; // create a canvas of cells
-
-        for (int x = 0; x < size.x; x++)
+        // create canvas objects
+        canvases = new List<RecreateCanvasObject>();
+        foreach(Painting painting in paintings)
         {
-            for (int y = 0; y < size.y; y++)
-            {
-                canvas[x, y] = Instantiate(canvasCellObj, new Vector3(-x, y, 0f), Quaternion.identity, canvasParent).GetComponent<CanvasCell>();
-                canvas[x, y].SetPosition(new Vector2Int(size.x - x - 1, y)); // set the position of each cell
-            }
+            GameObject newCanvas = Instantiate(recreateCanvasObject);
+            cpm.AddCanvas(newCanvas);
+
+            RecreateCanvasObject script = newCanvas.GetComponent<RecreateCanvasObject>();
+            script.Constructor(painting);
+            canvases.Add(script);
         }
 
+        // set the first canvas
+        currCanvas = canvases[0];
+        currCanvasIndex = 0;
         SetCameraPosition();
+
+        // set brush size
+        PaintbrushHelper.SetBrushSize(1);
+        brushSizeLabel.text = PaintbrushHelper.GetBrushSize().ToString();
+
+        // set grid tool
         SetGrid(showGrid);
+
+        // set fill tool
+        SetFillLabels();
+
+        // set colors
+    }
+
+    public void GoToLeftCanvas()
+    {
+        currCanvasIndex--;
+        if (currCanvasIndex < 0)
+        {
+            currCanvasIndex = 0;
+        }
+        else
+        {
+            cpm.MoveToLeftCanvas();
+            currCanvas = canvases[currCanvasIndex];
+            currCanvas.SetGrid(showGrid);
+            SetCameraPosition();
+        }
+    }
+
+    public void GoToRightCanvas()
+    {
+        currCanvasIndex++;
+        if (currCanvasIndex > canvases.Count - 1)
+        {
+            currCanvasIndex = canvases.Count - 1;
+        }
+        else
+        {
+            cpm.MoveToRightCanvas();
+            currCanvas = canvases[currCanvasIndex];
+            currCanvas.SetGrid(showGrid);
+            SetCameraPosition();
+        }
     }
 
     private void SetCameraPosition()
     {
-        Vector3 pos = GetCamPosFromCanvasSize(new Vector2(canvasWidth, canvasHeight));
+        Vector3 pos = GetCamPosFromCanvasSize(currCanvas.GetPaintingSize());
 
         if (moveCamCoroutine != null)
             StopCoroutine(moveCamCoroutine);
@@ -110,17 +158,13 @@ public class RecreateSceneManager : MonoBehaviour
         cam.transform.position = newPos;
     }
 
-    private void DestroyCanvas()
-    {
-        if (canvas != null)
-        {
-            foreach(CanvasCell cell in canvas)
-            {
-                Destroy(cell.gameObject);
-            }
-        }
-    }
-
+    /*
+    #####################################
+    #   TOOL METHODS
+    #####################################
+    */
+    
+    /*
     public void ToggleCanvasWidth()
     {
         canvasWidth++;
@@ -140,6 +184,7 @@ public class RecreateSceneManager : MonoBehaviour
         heightLabel.text = canvasHeight.ToString();
         CreateNewCanvasFromPaintingSize(new Vector2Int(canvasWidth, canvasHeight));
     }
+    */
 
     public void ToggleShowGrid()
     {
@@ -149,18 +194,50 @@ public class RecreateSceneManager : MonoBehaviour
 
     private void SetGrid(bool opt)
     {
-        if (showGrid)
+        if (showGrid) 
         {
             showGridLabel.text = "on";
-            foreach(CanvasCell cell in canvas)
-                cell.SetOutlineWidth(1.1f);
+            showGridLabel.color = darkColor;
+            gridButton.color = lightColor;
         }
-        else
+        else 
         {
             showGridLabel.text = "off";
-            foreach(CanvasCell cell in canvas)
-                cell.SetOutlineWidth(1f);
+            showGridLabel.color = lightColor;
+            gridButton.color = darkColor;
         }
+        currCanvas.SetGrid(opt);
+    }
+
+    public void ToggleSetFill()
+    {
+        PaintbrushHelper.ToggleSetFill();
+        SetFillLabels();
+    }
+
+    private void SetFillLabels()
+    {
+        bool fillTool = PaintbrushHelper.GetFillTool();
+        if (fillTool)
+        {
+            fillToolLabel.text = "on";
+            fillToolLabel.color = darkColor;
+            fillButton.color = lightColor;
+        }
+        else 
+        {
+            fillToolLabel.text = "off";
+            fillToolLabel.color = lightColor;
+            fillButton.color = darkColor;
+        }
+    }
+    
+    public void ToggleBrushSize()
+    {
+        int brushSize = PaintbrushHelper.GetBrushSize();
+        brushSize++;
+        PaintbrushHelper.SetBrushSize(brushSize);
+        brushSizeLabel.text = PaintbrushHelper.GetBrushSize().ToString();
     }
 
     /*
@@ -171,29 +248,18 @@ public class RecreateSceneManager : MonoBehaviour
 
     public void LoadPainting(PaintingData data)
     {
-        CreateNewCanvasFromPaintingSize(data.canvasSize);
-        
-        print ("data size: " + data.cellData.Count);
-
-        foreach (CellData cell in data.cellData)
-        {
-            Color color = new Color();
-            ColorUtility.TryParseHtmlString(cell.colorHex, out color);
-
-            //print ("cell pos: " + cell.pos.x + ", " + cell.pos.y + " --- color: " + '#' + ColorUtility.ToHtmlStringRGBA(color));
-            canvas[cell.pos.x, cell.pos.y].SetColor(color);
-        }
-
-        //SetCameraPosition();
+        currCanvas = new RecreateCanvasObject();
+        currCanvas.LoadData(data);
+        SetCameraPosition();
     }
 
     public Vector2Int GetWidthHeight()
     {
-        return new Vector2Int(canvasWidth, canvasHeight);
+        return currCanvas.GetPaintingSize();
     }
 
     public CanvasCell[,] GetCanvasCells()
     {
-        return canvas;
+        return currCanvas.canvas;
     }
 }

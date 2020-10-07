@@ -6,6 +6,9 @@ public class CanvasCell : MonoBehaviour
 {
     public bool isLookedAt;
     public Color gridColor;
+    public Color lookedAtColor;
+    public float lookedAtWidth;
+    private float prevWidth;
     
     public Vector2Int pos;
     public Color color;

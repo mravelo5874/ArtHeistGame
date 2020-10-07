@@ -12,6 +12,30 @@ public static class PaintbrushHelper
         pb.SetCurrentCell(cell);
     }
 
+    public static void SetBrushSize(int size)
+    {
+        FindPaintbrush();
+        pb.ChangeBrushSize(size);
+    }
+
+    public static int GetBrushSize()
+    {
+        FindPaintbrush();
+        return pb.GetBrushSize();
+    }
+
+    public static void ToggleSetFill()
+    {
+        FindPaintbrush();
+        pb.ToggleSetFill();
+    }
+
+    public static bool GetFillTool()
+    {
+        FindPaintbrush();
+        return pb.GetFillTool();
+    }
+
     private static void FindPaintbrush()
     {
         if (pb == null) pb = GameObject.Find("Paintbrush").GetComponent<Paintbrush>();
@@ -26,6 +50,7 @@ public class Paintbrush : MonoBehaviour
     private Color currBrushColor;
     private int currbrushSize;
     [SerializeField] private Vector2Int brushSizeRange;
+    private bool fillTool = false;
 
     private CanvasCell currCell;
 
@@ -43,7 +68,15 @@ public class Paintbrush : MonoBehaviour
             {
                 if (currCell.isLookedAt) // curr cell is being looked at (mouse is over it)
                 {
-                    currCell.SetColor(currBrushColor); // color cell
+                    if (fillTool)
+                    {
+                        // do fill tool stuff
+                    }
+                    else
+                    {
+                        // use brush size to color cell(s)
+                        currCell.SetColor(currBrushColor); // color cell
+                    }
                 }   
             }
         }
@@ -59,11 +92,25 @@ public class Paintbrush : MonoBehaviour
         currBrushColor = CellColorHelper.GetColor(colorName);
     }
 
+    public int GetBrushSize()
+    {
+        return currbrushSize;
+    }
+
     public void ChangeBrushSize(int size)
     {
-        if (size >= brushSizeRange.x && size <= brushSizeRange.y) // check to see if size is within range
-        {
-            currbrushSize = size;
-        }
+        if (size > brushSizeRange.y)
+            size = 1;
+        currbrushSize = size;
+    }
+
+    public void ToggleSetFill()
+    {
+        fillTool = !fillTool;
+    }
+
+    public bool GetFillTool()
+    {
+        return fillTool;
     }
 }
