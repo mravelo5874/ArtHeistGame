@@ -5,13 +5,13 @@ using UnityEngine;
 public class CanvasCell : MonoBehaviour
 {
     public bool isLookedAt;
+    public bool isFilled;
     public Color gridColor;
-    public Color lookedAtColor;
-    public float lookedAtWidth;
     private float prevWidth;
     
     public Vector2Int pos;
     public Color color;
+    public GameObject highlightCellObject;
 
     private MeshRenderer mr;
 
@@ -20,6 +20,7 @@ public class CanvasCell : MonoBehaviour
         mr = GetComponent<MeshRenderer>();
         mr.material.SetColor("_OutlineColor", gridColor);
         SetColor(CellColorHelper.GetColor("WHITE")); // initalize color as WHITE
+        SetHighlightCell(false); // start cell as not highlighted
     }
 
     public void SetPosition(Vector2Int pos)
@@ -31,7 +32,7 @@ public class CanvasCell : MonoBehaviour
     {
         this.color = color;
         mr.material.color = color;
-        print ("color set to: " + '#' + ColorUtility.ToHtmlStringRGBA(color));
+        //print ("color set to: " + '#' + ColorUtility.ToHtmlStringRGBA(color));
     }
 
     public void SetLookedAt(bool opt)
@@ -39,9 +40,14 @@ public class CanvasCell : MonoBehaviour
         if (opt == isLookedAt)
             return;
 
-        Debug.Log("Looking at cell? -> " + opt);
+        //Debug.Log("Looking at cell? -> " + opt);
 
         isLookedAt = opt;
+    }
+
+    public void SetHighlightCell(bool opt)
+    {
+        highlightCellObject.SetActive(opt);
     }
 
     public void SetOutlineWidth(float width)

@@ -21,6 +21,15 @@ public class DetectCell : MonoBehaviour
         {
             if (hit.collider.tag == "Cell")
             {
+                // set previous cell SetLookedAt to false
+                if (mostRecentCell)
+                {
+                    if (hit.transform.GetComponentInParent<CanvasCell>() != mostRecentCell)
+                    {
+                        mostRecentCell.SetLookedAt(false);
+                    }
+                }
+
                 // get cell object
                 mostRecentCell = hit.transform.GetComponentInParent<CanvasCell>();
 
@@ -30,10 +39,16 @@ public class DetectCell : MonoBehaviour
                 // send out cell data
                 PaintbrushHelper.SetCurrentCell(mostRecentCell);
             }
+            else // no longer looking at cell
+            {
+                // set cell 'looked at' bool to false
+                if (mostRecentCell)
+                    mostRecentCell.SetLookedAt(false);
+            }
         }
         else // no longer looking at cell
         {
-            // set painting 'looked at' bool to false
+            // set cell 'looked at' bool to false
             if (mostRecentCell)
                 mostRecentCell.SetLookedAt(false);
         }

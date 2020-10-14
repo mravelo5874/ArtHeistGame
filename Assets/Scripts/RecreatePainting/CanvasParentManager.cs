@@ -20,7 +20,7 @@ public class CanvasParentManager : MonoBehaviour
         canvas.transform.parent = this.transform;
         Vector3 newPos = this.transform.position;
         newPos.x += (distanceBtwnCanvases * canvases.Count);
-        print ("new pos: " + newPos);
+        //print ("new pos: " + newPos);
         canvas.transform.position = newPos;
         canvases.Add(canvas);
     }

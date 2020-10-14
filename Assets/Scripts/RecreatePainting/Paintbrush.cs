@@ -53,6 +53,9 @@ public class Paintbrush : MonoBehaviour
     private bool fillTool = false;
 
     private CanvasCell currCell;
+    [SerializeField] private RecreateSceneManager rcm;
+    private const int maxRecursiveCalls = 256;
+    private CanvasCell[,] canvas;
 
     void Start()
     {
@@ -68,9 +71,16 @@ public class Paintbrush : MonoBehaviour
             {
                 if (currCell.isLookedAt) // curr cell is being looked at (mouse is over it)
                 {
+                    canvas = rcm.GetCanvasCells();
+
                     if (fillTool)
                     {
                         // do fill tool stuff
+                        StartCoroutine(RecurssiveFillDelay(currCell.pos, currCell.color, currBrushColor, maxRecursiveCalls));
+
+                        // reset isFilled bools
+                        foreach(CanvasCell cell in canvas)
+                            cell.isFilled = false;
                     }
                     else
                     {
@@ -81,6 +91,35 @@ public class Paintbrush : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator RecurssiveFillDelay(Vector2Int pos, Color prevColor, Color newColor, int itteration)
+    {
+        if (itteration < 0)
+            yield break;
+        itteration--;
+
+        if (pos.x >= canvas.GetLength(0) || pos.y >= canvas.GetLength(1) || pos.x < 0 || pos.y < 0)
+            yield break;
+        
+        CanvasCell cell = canvas[pos.x, pos.y];
+
+        yield return new WaitForSeconds(0f);
+
+        if (cell.isFilled)
+            yield break;
+        cell.isFilled = true;
+
+        if (cell.color != prevColor)
+            yield break;
+        
+        cell.SetColor(newColor);
+        
+        StartCoroutine(RecurssiveFillDelay(new Vector2Int(pos.x + 1, pos.y), prevColor, newColor, itteration));
+        StartCoroutine(RecurssiveFillDelay(new Vector2Int(pos.x - 1, pos.y), prevColor, newColor, itteration));
+        StartCoroutine(RecurssiveFillDelay(new Vector2Int(pos.x, pos.y + 1), prevColor, newColor, itteration));
+        StartCoroutine(RecurssiveFillDelay(new Vector2Int(pos.x, pos.y - 1), prevColor, newColor, itteration));
+    }
+
 
     public void SetCurrentCell(CanvasCell cell)
     {

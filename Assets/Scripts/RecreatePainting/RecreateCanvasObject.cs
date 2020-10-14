@@ -32,7 +32,7 @@ public class RecreateCanvasObject : MonoBehaviour
             {
                 float xPos = this.transform.position.x - x;
                 canvas[x, y] = Instantiate(canvasCellObj, new Vector3(xPos, y, 0f), Quaternion.identity, canvasParent).GetComponent<CanvasCell>();
-                canvas[x, y].SetPosition(new Vector2Int(size.x - x - 1, y)); // set the position of each cell
+                canvas[x, y].SetPosition(new Vector2Int(x, y)); // set the position of each cell
             }
         }
 

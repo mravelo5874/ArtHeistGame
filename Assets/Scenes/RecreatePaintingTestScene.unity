@@ -1549,8 +1549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7194358a656b0d49962983c3db56301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currbrushSize: 0
   brushSizeRange: {x: 1, y: 5}
+  rcm: {fileID: 1060560118}
 --- !u!1 &759045447
 GameObject:
   m_ObjectHideFlags: 0
