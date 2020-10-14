@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : DontDestroy<GameManager>
 {
@@ -15,7 +16,7 @@ public class GameManager : DontDestroy<GameManager>
 
     new void Awake()
     {
-        paintings = new List<Painting>();    
+        paintings = new List<Painting>();
     }
 
     private void Update() 
@@ -26,6 +27,15 @@ public class GameManager : DontDestroy<GameManager>
             if (Input.GetKeyDown(KeyCode.Escape))
                 RestartGame();
         }
+    }
+
+    public int money = 1000;
+    public TextMeshProUGUI moneyText;
+    
+    public void buySomething(int itemCost)
+    {
+        money -= itemCost;
+        moneyText.text = "Money: $" + money;
     }
 
     /* 

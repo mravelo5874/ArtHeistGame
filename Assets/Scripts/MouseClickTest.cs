@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MouseClickTest : MonoBehaviour
 {
+    public int itemCost = 100;
+
     private void OnMouseDown()
     {
-        print("clicked on super pills");
+        //GameManager.buySomething(itemCost);
     }
 }
