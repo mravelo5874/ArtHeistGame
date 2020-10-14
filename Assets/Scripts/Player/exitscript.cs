@@ -20,7 +20,8 @@ public class exitscript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameHelper.LoadScene("StartMenu", true);
+            // TODO: change to next recreation scene...bring over any details about paintings you gathered...
+            GameHelper.LoadScene("MuseumSceneStartCopy", true);
         }
     }
 }

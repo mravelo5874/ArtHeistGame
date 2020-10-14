@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnLevel1ScenePressed()
     {
+        //GameHelper.LoadScene("MuseumScene", true);
         GameHelper.LoadScene("MuseumScene", true);
         // do other level setup things, call a static function somewhere else? (below line doesn't work...can't find it)
         //PlayerMovement.instance.transform.position.Set(-1, 1, -44);
@@ -46,7 +47,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnMainMenuScenePressed()
     {
-        GameHelper.LoadScene("StartMenu", true);
+        GameHelper.LoadScene("MuseumSceneStartCopy", true);
     }
 
     public void OnLevelSelectorScenePressed()
