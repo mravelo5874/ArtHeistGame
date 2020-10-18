@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7194358a656b0d49962983c3db56301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brushSizeRange: {x: 1, y: 5}
+  brushSizeRange: {x: 1, y: 4}
   rcm: {fileID: 1060560118}
 --- !u!1 &759045447
 GameObject:
@@ -1814,6 +1814,8 @@ MonoBehaviour:
   fillToolLabel: {fileID: 2131431479}
   fillButton: {fileID: 57795663}
   brushSizeLabel: {fileID: 1098334294}
+  brushButton: {fileID: 253656316}
+  currCanvas: {fileID: 0}
   cpm: {fileID: 422622925}
   recreateCanvasObject: {fileID: 4125274625697342435, guid: 3d49419f81e36054abd1ff9020757c0e, type: 3}
   canvasParent: {fileID: 422622926}

@@ -36,10 +36,11 @@ public class RecreateSceneManager : MonoBehaviour
     [SerializeField] private Image fillButton;
 
     [SerializeField] private TextMeshProUGUI brushSizeLabel;
+    [SerializeField] private Button brushButton;
     
     private List<Painting> paintings;
     private List<RecreateCanvasObject> canvases;
-    private RecreateCanvasObject currCanvas;
+    [HideInInspector] public RecreateCanvasObject currCanvas;
     private int currCanvasIndex;
     [SerializeField] private CanvasParentManager cpm;
     [SerializeField] private GameObject recreateCanvasObject;
@@ -223,12 +224,16 @@ public class RecreateSceneManager : MonoBehaviour
             fillToolLabel.text = "on";
             fillToolLabel.color = darkColor;
             fillButton.color = lightColor;
+
+            brushButton.interactable = false;
         }
         else 
         {
             fillToolLabel.text = "off";
             fillToolLabel.color = lightColor;
             fillButton.color = darkColor;
+
+            brushButton.interactable = true;
         }
     }
     

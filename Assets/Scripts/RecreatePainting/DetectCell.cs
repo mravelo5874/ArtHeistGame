@@ -36,14 +36,20 @@ public class DetectCell : MonoBehaviour
                 // set cell 'looked at' bool to true
                 mostRecentCell.SetLookedAt(true);
 
-                // send out cell data
+                // send out cell data to paintbrush 
                 PaintbrushHelper.SetCurrentCell(mostRecentCell);
+
+                // highlight cell
+                PaintbrushHelper.SetBrushHighlight(true);
             }
             else // no longer looking at cell
             {
                 // set cell 'looked at' bool to false
                 if (mostRecentCell)
                     mostRecentCell.SetLookedAt(false);
+                
+                // unhighlight cell
+                PaintbrushHelper.SetBrushHighlight(false);
             }
         }
         else // no longer looking at cell
@@ -51,6 +57,9 @@ public class DetectCell : MonoBehaviour
             // set cell 'looked at' bool to false
             if (mostRecentCell)
                 mostRecentCell.SetLookedAt(false);
+
+            // unhighlight cell
+            PaintbrushHelper.SetBrushHighlight(false);
         }
     }
 }

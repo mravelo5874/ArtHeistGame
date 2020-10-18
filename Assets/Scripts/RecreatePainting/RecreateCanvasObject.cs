@@ -70,6 +70,12 @@ public class RecreateCanvasObject : MonoBehaviour
         }
     }
 
+    public void UnhighlightAllCells()
+    {
+        foreach(CanvasCell cell in canvas)
+            cell.SetHighlightCell(false);
+    }
+
     /*
     #####################################
     #   DevMakePaintingSceneManager

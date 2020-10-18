@@ -36,6 +36,12 @@ public static class PaintbrushHelper
         return pb.GetFillTool();
     }
 
+    public static void SetBrushHighlight(bool opt)
+    {
+        FindPaintbrush();
+        pb.SetBrushHighlight(opt);
+    }
+
     private static void FindPaintbrush()
     {
         if (pb == null) pb = GameObject.Find("Paintbrush").GetComponent<Paintbrush>();
@@ -85,10 +91,26 @@ public class Paintbrush : MonoBehaviour
                     else
                     {
                         // use brush size to color cell(s)
-                        currCell.SetColor(currBrushColor); // color cell
+                        SetColorUsingBrushSize();
                     }
                 }   
             }
+        }
+    }
+
+    private void SetColorUsingBrushSize()
+    {
+        List<Vector2Int> brushDeltaPos = GetBrushDeltaPositions(currbrushSize);
+        Vector2Int origin = currCell.pos;
+        foreach (Vector2Int pos in brushDeltaPos)
+        {
+            Vector2Int newPos = origin + pos;
+
+            if (newPos.x >= canvas.GetLength(0) || newPos.y >= canvas.GetLength(1) || newPos.x < 0 || newPos.y < 0)
+                continue;
+
+            CanvasCell cell = canvas[newPos.x, newPos.y];
+            cell.SetColor(currBrushColor);
         }
     }
 
@@ -120,6 +142,101 @@ public class Paintbrush : MonoBehaviour
         StartCoroutine(RecurssiveFillDelay(new Vector2Int(pos.x, pos.y - 1), prevColor, newColor, itteration));
     }
 
+    public void SetBrushHighlight(bool opt)
+    {
+        rcm.currCanvas.UnhighlightAllCells();
+
+        if (opt)
+        {
+            List<Vector2Int> brushDeltaPos;
+            if (fillTool)
+                brushDeltaPos = GetBrushDeltaPositions(1);
+            else
+                brushDeltaPos = GetBrushDeltaPositions(currbrushSize);
+            
+            canvas = rcm.GetCanvasCells();
+            Vector2Int origin = currCell.pos;
+            foreach (Vector2Int pos in brushDeltaPos)
+            {
+                Vector2Int newPos = origin + pos;
+
+                if (newPos.x >= canvas.GetLength(0) || newPos.y >= canvas.GetLength(1) || newPos.x < 0 || newPos.y < 0)
+                    continue;
+
+                CanvasCell cell = canvas[newPos.x, newPos.y];
+                cell.SetHighlightCell(true);
+            }
+        }
+    }
+
+    private List<Vector2Int> GetBrushDeltaPositions(int brushSize)
+    {
+        if (brushSize < brushSizeRange.x || brushSize > brushSizeRange.y)
+            brushSize = 1; // set brush size to 1 if invalid brush size
+
+        List<Vector2Int> list = new List<Vector2Int>();
+
+        switch (brushSize)
+        {
+            // #
+            default:
+            case 1:
+                list.Add(new Vector2Int(0, 0));
+                break;
+            // # #
+            // # #
+            case 2:
+                list.Add(new Vector2Int(0, 0));
+
+                list.Add(new Vector2Int(-1, 0));
+                list.Add(new Vector2Int(0, 1));
+                list.Add(new Vector2Int(-1, 1));
+                break;
+            // # # #
+            // # # #
+            // # # #
+            case 3:
+                list.Add(new Vector2Int(0, 0));
+
+                list.Add(new Vector2Int(-1, 0));
+                list.Add(new Vector2Int(0, 1));
+                list.Add(new Vector2Int(-1, 1));
+
+                list.Add(new Vector2Int(0, 2));
+                list.Add(new Vector2Int(-1, 2));
+                list.Add(new Vector2Int(-2, 2));
+                list.Add(new Vector2Int(-2, 0));
+                list.Add(new Vector2Int(-2, 1));
+                break;
+            // # # # #
+            // # # # #
+            // # # # #
+            // # # # #
+            case 4:
+                list.Add(new Vector2Int(0, 0));
+
+                list.Add(new Vector2Int(-1, 0));
+                list.Add(new Vector2Int(0, 1));
+                list.Add(new Vector2Int(-1, 1));
+
+                list.Add(new Vector2Int(0, 2));
+                list.Add(new Vector2Int(-1, 2));
+                list.Add(new Vector2Int(-2, 2));
+                list.Add(new Vector2Int(-2, 0));
+                list.Add(new Vector2Int(-2, 1));
+
+                list.Add(new Vector2Int(0, 3));
+                list.Add(new Vector2Int(-1, 3));
+                list.Add(new Vector2Int(-2, 3));
+                list.Add(new Vector2Int(-3, 3));
+                list.Add(new Vector2Int(-3, 0));
+                list.Add(new Vector2Int(-3, 1));
+                list.Add(new Vector2Int(-3, 2));
+                break;
+        }
+
+        return list;
+    }
 
     public void SetCurrentCell(CanvasCell cell)
     {
