@@ -10,6 +10,11 @@ public class RecreateCanvasObject : MonoBehaviour
     [SerializeField] private GameObject canvasCellObj;
     [SerializeField] private Transform canvasParent;
 
+    public void DevConstructor()
+    {
+        CreateNewCanvasFromPaintingSize(new Vector2Int(1, 1));
+    }
+
     public void Constructor(Painting _painting)
     {
         this.painting = _painting;

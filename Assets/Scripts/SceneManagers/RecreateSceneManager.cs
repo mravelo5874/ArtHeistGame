@@ -14,6 +14,7 @@ public class vec2_vec3
 public class RecreateSceneManager : MonoBehaviour
 {
     public bool isDevMode;
+    public bool useTestPaintings;
 
     [SerializeField] private List<vec2_vec3> canvasSize2CamPosDictionary;
 
@@ -53,27 +54,43 @@ public class RecreateSceneManager : MonoBehaviour
 
     void Start()
     {
-        if (isDevMode)
+        if (useTestPaintings)
             paintings = GameHelper.GetTestPaintingList();
         else
             paintings = GameHelper.GetPaintingList();
 
-        // create canvas objects
-        canvases = new List<RecreateCanvasObject>();
-        foreach(Painting painting in paintings)
+        if (isDevMode)
         {
             GameObject newCanvas = Instantiate(recreateCanvasObject);
             cpm.AddCanvas(newCanvas);
 
             RecreateCanvasObject script = newCanvas.GetComponent<RecreateCanvasObject>();
-            script.Constructor(painting);
+            //script.
             canvases.Add(script);
+            currCanvas = canvases[0];
+            currCanvasIndex = 0;
+            SetCameraPosition();
         }
+        else
+        {
+            // create canvas objects
+            canvases = new List<RecreateCanvasObject>();
 
-        // set the first canvas
-        currCanvas = canvases[0];
-        currCanvasIndex = 0;
-        SetCameraPosition();
+            foreach(Painting painting in paintings)
+            {
+                GameObject newCanvas = Instantiate(recreateCanvasObject);
+                cpm.AddCanvas(newCanvas);
+
+                RecreateCanvasObject script = newCanvas.GetComponent<RecreateCanvasObject>();
+                script.Constructor(painting);
+                canvases.Add(script);
+            }
+
+            // set the first canvas
+            currCanvas = canvases[0];
+            currCanvasIndex = 0;
+            SetCameraPosition();
+        }
 
         // set brush size
         PaintbrushHelper.SetBrushSize(1);

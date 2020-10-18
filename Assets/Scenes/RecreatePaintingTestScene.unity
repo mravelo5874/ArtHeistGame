@@ -1768,7 +1768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86cf272e65b46ff48b5e4cd39d7b7db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDevMode: 1
+  isDevMode: 0
+  useTestPaintings: 1
   canvasSize2CamPosDictionary:
   - size: {x: 1, y: 1}
     position: {x: -6, y: 4, z: -16}
