@@ -79,7 +79,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        controller.Move(move * speed * Time.deltaTime);
+        // if they have items that boost their speed
+        float boost = InventoryScript.hasSpeedOnePills ? 100 : 0;
+
+        controller.Move(move * (speed + boost) * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
 

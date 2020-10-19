@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseClickTest : MonoBehaviour
+public class BuySpeedOne : MonoBehaviour
 {
-    public int itemCost = 100;
-
     private void OnMouseDown()
     {
-        //GameManager.buySomething(itemCost);
+        InventoryScript.buySpeedOne();
     }
 }

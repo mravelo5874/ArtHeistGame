@@ -31,15 +31,6 @@ public class GameManager : DontDestroy<GameManager>
         }
     }
 
-    public int money = 1000;
-    public TextMeshProUGUI moneyText;
-    
-    public void buySomething(int itemCost)
-    {
-        money -= itemCost;
-        moneyText.text = "Money: $" + money;
-    }
-
     /* 
     ################################################
     #   SCENE INITIALIZATION

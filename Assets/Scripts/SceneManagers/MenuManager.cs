@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnMainMenuScenePressed()
     {
-        GameHelper.LoadScene("StartMenu", true);
+        GameHelper.LoadScene("MuseumSceneStartCopy", true);
     }
 
     public void OnLevelSelectorScenePressed()
