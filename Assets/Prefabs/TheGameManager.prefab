@@ -81,6 +81,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 885689e37d8d9db43b682eaa77aa351a, type: 2}
   - {fileID: 11400000, guid: 4a8247cb015943f4283d6ee6e46cf8fb, type: 2}
   - {fileID: 11400000, guid: c5d37cd2c956c344884219aafadcad0d, type: 2}
+  money: 1000
+  moneyText: {fileID: 0}
 --- !u!1 &2217028598074138127
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -260,7 +262,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!114 &7362223293701828606
 MonoBehaviour:

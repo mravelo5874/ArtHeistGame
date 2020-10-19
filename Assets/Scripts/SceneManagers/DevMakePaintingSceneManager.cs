@@ -32,10 +32,25 @@ public class CellData
     }
 }
 
+public static class PaintingDataHelper
+{
+    public static PaintingData GetPaintingData(Painting painting)
+    {
+        if (File.Exists(DevMakePaintingSceneManager.jsonSavePath + painting.title + "_data.txt"))
+        {            
+            string fileString = File.ReadAllText(DevMakePaintingSceneManager.jsonSavePath + painting.title + "_data.txt");
+            PaintingData paintingData = JsonUtility.FromJson<PaintingData>(fileString);
+
+            return paintingData;
+        }
+        return null;
+    }
+}
+
 public class DevMakePaintingSceneManager : MonoBehaviour
 {
     [SerializeField] private RecreateSceneManager rsm;
-    public string jsonSavePath;
+    public const string jsonSavePath = "Assets/PaintingDataExportFile/";
     [SerializeField] private TMP_InputField paintingNameInput;
 
     public void ExportPaintingData()

@@ -10,8 +10,12 @@ public class RecreateCanvasObject : MonoBehaviour
     [SerializeField] private GameObject canvasCellObj;
     [SerializeField] private Transform canvasParent;
 
-    public void DevConstructor()
+    public void DevModeConstructor()
     {
+        this.painting = new Painting();
+        this.painting.title = "dev_canvas";
+        this.painting.size = new Vector2Int(1, 1);
+
         CreateNewCanvasFromPaintingSize(new Vector2Int(1, 1));
     }
 
@@ -40,9 +44,6 @@ public class RecreateCanvasObject : MonoBehaviour
                 canvas[x, y].SetPosition(new Vector2Int(x, y)); // set the position of each cell
             }
         }
-
-        //SetCameraPosition();
-        //SetGrid(showGrid);
     }
 
     private void DestroyCanvas()
@@ -54,6 +55,12 @@ public class RecreateCanvasObject : MonoBehaviour
                 Destroy(cell.gameObject);
             }
         }
+    }
+
+    public void DestroyObject()
+    {
+        DestroyCanvas();
+        Destroy(this.gameObject);
     }
 
     public Vector2Int GetPaintingSize()
@@ -87,17 +94,29 @@ public class RecreateCanvasObject : MonoBehaviour
     #####################################
     */
 
+    public void SetCanvasSize(Vector2Int size)
+    {
+        CreateNewCanvasFromPaintingSize(size);
+        this.painting.size = size;
+    }
+
     public void LoadData(PaintingData data)
     {
         CreateNewCanvasFromPaintingSize(data.canvasSize);
 
         foreach (CellData cell in data.cellData)
         {
+            string[] splitValue = cell.colorHex.Split('~');
             Color color = new Color();
-            ColorUtility.TryParseHtmlString(cell.colorHex, out color);
+            ColorUtility.TryParseHtmlString(splitValue[0], out color);
 
             //print ("cell pos: " + cell.pos.x + ", " + cell.pos.y + " --- color: " + '#' + ColorUtility.ToHtmlStringRGBA(color));
             canvas[cell.pos.x, cell.pos.y].SetColor(color);
         }
+
+        this.painting = new Painting();
+        this.painting.title = "edit_canvas";
+        this.painting.size = data.canvasSize;
+
     }
 }

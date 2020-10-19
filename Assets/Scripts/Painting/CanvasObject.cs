@@ -95,7 +95,7 @@ public class CanvasObject : MonoBehaviour
         if (opt == isLookedAt)
             return;
 
-        Debug.Log("Looking at painting? -> " + opt);
+        //Debug.Log("Looking at painting? -> " + opt);
 
         isLookedAt = opt;
 

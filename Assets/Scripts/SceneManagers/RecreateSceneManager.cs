@@ -13,7 +13,7 @@ public class vec2_vec3
 
 public class RecreateSceneManager : MonoBehaviour
 {
-    public bool isDevMode;
+    public bool isDevRecreateMode;
     public bool useTestPaintings;
 
     [SerializeField] private List<vec2_vec3> canvasSize2CamPosDictionary;
@@ -45,7 +45,13 @@ public class RecreateSceneManager : MonoBehaviour
     private int currCanvasIndex;
     [SerializeField] private CanvasParentManager cpm;
     [SerializeField] private GameObject recreateCanvasObject;
-    [SerializeField] private Transform canvasParent;
+
+    [SerializeField] private GameObject leftNavButton;
+    [SerializeField] private GameObject rightNavButton;
+
+    // dev mode variables
+    private int canvasWidth = 1;
+    private int canvasHeight = 1;
 
     void Awake()
     {
@@ -54,18 +60,19 @@ public class RecreateSceneManager : MonoBehaviour
 
     void Start()
     {
-        if (useTestPaintings)
-            paintings = GameHelper.GetTestPaintingList();
-        else
-            paintings = GameHelper.GetPaintingList();
+        if (useTestPaintings) paintings = GameHelper.GetTestPaintingList();
+        else paintings = GameHelper.GetPaintingList();
 
-        if (isDevMode)
+        // create canvas objects list
+        canvases = new List<RecreateCanvasObject>();
+
+        if (isDevRecreateMode) // used in DevRecreateScene to make json data for panitnings
         {
             GameObject newCanvas = Instantiate(recreateCanvasObject);
             cpm.AddCanvas(newCanvas);
 
             RecreateCanvasObject script = newCanvas.GetComponent<RecreateCanvasObject>();
-            //script.
+            script.DevModeConstructor();
             canvases.Add(script);
             currCanvas = canvases[0];
             currCanvasIndex = 0;
@@ -73,9 +80,7 @@ public class RecreateSceneManager : MonoBehaviour
         }
         else
         {
-            // create canvas objects
-            canvases = new List<RecreateCanvasObject>();
-
+            // create canvas object from painting list
             foreach(Painting painting in paintings)
             {
                 GameObject newCanvas = Instantiate(recreateCanvasObject);
@@ -89,7 +94,24 @@ public class RecreateSceneManager : MonoBehaviour
             // set the first canvas
             currCanvas = canvases[0];
             currCanvasIndex = 0;
+
             SetCameraPosition();
+
+            // set colors
+            print ("paintings: " + paintings[0]);
+            PaintingData data =  PaintingDataHelper.GetPaintingData(paintings[0]);
+            print ("data: " + data);
+            print (data.canvasSize);
+            print (data.colorHexValues);
+            PaintbrushHelper.RemoveAllColors();
+            CellColorHelper.ImportPaintingColors(data);
+        }
+
+        // disable nav buttons if only one painting
+        if (canvases.Count == 1)
+        {
+            leftNavButton.SetActive(false);
+            rightNavButton.SetActive(false);
         }
 
         // set brush size
@@ -101,12 +123,18 @@ public class RecreateSceneManager : MonoBehaviour
 
         // set fill tool
         SetFillLabels();
+    }
 
-        // set colors
+    public void OnFinshedButtonPressed()
+    {
+        print ("nice job! your painting was " + Random.Range(30f, 100f) + "% accurate to the original!");
+        GameHelper.LoadScene("StartMenu", true);
     }
 
     public void GoToLeftCanvas()
     {
+        if (isDevRecreateMode) return; // disable when in dev recreate mode
+
         currCanvasIndex--;
         if (currCanvasIndex < 0)
         {
@@ -117,12 +145,19 @@ public class RecreateSceneManager : MonoBehaviour
             cpm.MoveToLeftCanvas();
             currCanvas = canvases[currCanvasIndex];
             currCanvas.SetGrid(showGrid);
+
+            PaintingData data =  PaintingDataHelper.GetPaintingData(paintings[0]);
+            PaintbrushHelper.RemoveAllColors();
+            CellColorHelper.ImportPaintingColors(data);
+
             SetCameraPosition();
         }
     }
 
     public void GoToRightCanvas()
     {
+        if (isDevRecreateMode) return; // disable when in dev recreate mode
+
         currCanvasIndex++;
         if (currCanvasIndex > canvases.Count - 1)
         {
@@ -133,6 +168,11 @@ public class RecreateSceneManager : MonoBehaviour
             cpm.MoveToRightCanvas();
             currCanvas = canvases[currCanvasIndex];
             currCanvas.SetGrid(showGrid);
+
+            PaintingData data =  PaintingDataHelper.GetPaintingData(paintings[0]);
+            PaintbrushHelper.RemoveAllColors();
+            CellColorHelper.ImportPaintingColors(data);
+
             SetCameraPosition();
         }
     }
@@ -182,7 +222,7 @@ public class RecreateSceneManager : MonoBehaviour
     #####################################
     */
     
-    /*
+    
     public void ToggleCanvasWidth()
     {
         canvasWidth++;
@@ -190,7 +230,8 @@ public class RecreateSceneManager : MonoBehaviour
             canvasWidth = 1;
 
         widthLabel.text = canvasWidth.ToString();
-        CreateNewCanvasFromPaintingSize(new Vector2Int(canvasWidth, canvasHeight));
+        currCanvas.SetCanvasSize(new Vector2Int(canvasWidth, canvasHeight));
+        SetCameraPosition();
     }
 
     public void ToggleCanvasHeight()
@@ -200,9 +241,10 @@ public class RecreateSceneManager : MonoBehaviour
             canvasHeight = 1;
 
         heightLabel.text = canvasHeight.ToString();
-        CreateNewCanvasFromPaintingSize(new Vector2Int(canvasWidth, canvasHeight));
+        currCanvas.SetCanvasSize(new Vector2Int(canvasWidth, canvasHeight));
+        SetCameraPosition();
     }
-    */
+
 
     public void ToggleShowGrid()
     {
@@ -270,8 +312,24 @@ public class RecreateSceneManager : MonoBehaviour
 
     public void LoadPainting(PaintingData data)
     {
-        currCanvas = new RecreateCanvasObject();
-        currCanvas.LoadData(data);
+        currCanvas.DestroyObject();
+        cpm.DeleteAllCanvases();
+        canvases.Clear();
+
+        GameObject newCanvas = Instantiate(recreateCanvasObject);
+        cpm.AddCanvas(newCanvas);
+
+        RecreateCanvasObject script = newCanvas.GetComponent<RecreateCanvasObject>();
+        script.LoadData(data);
+        canvases.Add(script);
+
+        // set the first canvas
+        currCanvas = canvases[0];
+        currCanvasIndex = 0;
+
+        // set colors
+        CellColorHelper.ImportPaintingColors(data);
+
         SetCameraPosition();
     }
 

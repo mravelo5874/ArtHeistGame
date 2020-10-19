@@ -25,6 +25,11 @@ public class CanvasParentManager : MonoBehaviour
         canvases.Add(canvas);
     }
 
+    public void DeleteAllCanvases()
+    {
+        canvases.Clear();
+    }
+
     public void MoveToLeftCanvas()
     {
         if (isMoving) return;

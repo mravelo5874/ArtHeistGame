@@ -42,6 +42,24 @@ public static class PaintbrushHelper
         pb.SetBrushHighlight(opt);
     }
 
+    public static void ChangeBrushColor(string color)
+    {
+        FindPaintbrush();
+        pb.ChangeBrushColor(color);
+    }
+
+    public static void AddColorButton(CellColor cellColor)
+    {
+        FindPaintbrush();
+        pb.AddColorButton(cellColor);
+    }
+
+    public static void RemoveAllColors()
+    {
+        FindPaintbrush();
+        pb.RemoveAllColors();
+    }
+
     private static void FindPaintbrush()
     {
         if (pb == null) pb = GameObject.Find("Paintbrush").GetComponent<Paintbrush>();
@@ -62,6 +80,9 @@ public class Paintbrush : MonoBehaviour
     [SerializeField] private RecreateSceneManager rcm;
     private const int maxRecursiveCalls = 256;
     private CanvasCell[,] canvas;
+
+    [SerializeField] private GameObject colorButtonObject;
+    [SerializeField] private Transform colorButtonParent;
 
     void Start()
     {
@@ -144,6 +165,9 @@ public class Paintbrush : MonoBehaviour
 
     public void SetBrushHighlight(bool opt)
     {
+        if (rcm.currCanvas == null)
+            return;
+        
         rcm.currCanvas.UnhighlightAllCells();
 
         if (opt)
@@ -236,6 +260,20 @@ public class Paintbrush : MonoBehaviour
         }
 
         return list;
+    }
+
+    public void AddColorButton(CellColor cellColor)
+    {
+        PaintColorButton cb = Instantiate(colorButtonObject, colorButtonParent).GetComponent<PaintColorButton>();
+        cb.Constructor(cellColor.colorName, cellColor.color);
+    }
+
+    public void RemoveAllColors()
+    {
+        foreach (Transform child in colorButtonParent.transform) 
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 
     public void SetCurrentCell(CanvasCell cell)

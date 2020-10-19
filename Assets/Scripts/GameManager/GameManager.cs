@@ -14,7 +14,7 @@ public class GameManager : DontDestroy<GameManager>
 
     [SerializeField] private List<Painting> testPaintings; // painting to be used for testing (recreate scene/dev mode)
 
-    new void Awake()
+    void Start()
     {
         paintings = new List<Painting>();
     }
@@ -124,6 +124,11 @@ public class GameManager : DontDestroy<GameManager>
     {
         paintings.Clear();
         PaintingListDisplayHelper.UpdateList();
+    }
+
+    public int GetPaintingCount()
+    {
+        return paintings.Count;
     }
 
     public List<Painting> GetPaintingList()

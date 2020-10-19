@@ -67,6 +67,12 @@ public static class GameHelper
         return gm.GetPaintingList();
     }
 
+    public static int GetPaintingCount()
+    {
+        FindGameManager();
+        return gm.GetPaintingCount();
+    }
+
     public static List<Painting> GetTestPaintingList()
     {
         FindGameManager();

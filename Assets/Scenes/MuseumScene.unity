@@ -2111,7 +2111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2217028596534136350, guid: 2e48ac280be31654f89b5db4b88f781a, type: 3}
       propertyPath: devModeActivated
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e48ac280be31654f89b5db4b88f781a, type: 3}
@@ -5814,6 +5814,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1166310287, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 104.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166310287, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 209.2008
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166310288, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_text
+      value: 'Controls:
+
+        - WASD to move
+
+        - X to switch between POVs
+
+        -
+        Hold left mouse button to add painting to list
+
+        - Press ESC to return
+        to main menu
+
+
+        Demo Instructions:
+
+        - Find  "smile" painting
+        and add it to your list
+
+        - Find the exit (Green Circle)'
+      objectReference: {fileID: 0}
     - target: {fileID: 1941925521236034158, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -7020,6 +7050,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7847144917348545407, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
+      propertyPath: painting
+      value: 
+      objectReference: {fileID: 11400000, guid: 258f7a34865d68444a3cb7f1822fb344, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
 --- !u!1 &1162631100

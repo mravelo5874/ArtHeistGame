@@ -7,6 +7,12 @@ public class CellColor
 {
     public string colorName;
     public Color color;
+
+    public CellColor(string _colorName, Color _color)
+    {
+        this.colorName = _colorName;
+        this.color = _color;
+    }
 }
 
 public static class CellColorHelper
@@ -22,6 +28,18 @@ public static class CellColorHelper
     {
         FindCellColors();
         return cellColors[colorName];
+    }
+
+    public static void AddColor(string name, Color color)
+    {
+        FindCellColors();
+        cellColors.AddColor(name, color);
+    }
+
+    public static void ImportPaintingColors(PaintingData data)
+    {
+        FindCellColors();
+        cellColors.ImportPaintingColors(data);
     }
 
     private static void FindCellColors()
@@ -65,6 +83,33 @@ public class CellColors : MonoBehaviour
         }
     }
 
+    public void ImportPaintingColors(PaintingData data)
+    {
+        colors.Clear();
+        colorLookup.Clear();
+
+        foreach(string hexValue in data.colorHexValues)
+        {
+            string[] splitValue = hexValue.Split('~');
+            Color color = new Color();
+            ColorUtility.TryParseHtmlString(splitValue[0], out color);
+            AddColor(splitValue[1], color);
+        }
+    }
+
+    public void AddColor(string name, Color color)
+    {
+        if (!colorLookup.ContainsKey(name))
+        {
+            CellColor newCellColor = new CellColor(name, color);
+            colors.Add(newCellColor);
+            colorLookup.Add(name, newCellColor);
+
+            // create color button
+            PaintbrushHelper.AddColorButton(newCellColor);
+        }
+    }
+
     //Method to get CellColor by name.
     //Returns null if there is no spell with matching name.    
     public CellColor GetColor(string colorName)
@@ -88,7 +133,7 @@ public class CellColors : MonoBehaviour
         List<string> colorHexs = new List<string>();
         foreach(CellColor color in colors)
         {
-            string hex = '#' + ColorUtility.ToHtmlStringRGBA(color.color);
+            string hex = '#' + ColorUtility.ToHtmlStringRGBA(color.color) + '~' + color.colorName;
             colorHexs.Add(hex);
         }
 

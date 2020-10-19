@@ -4,24 +4,15 @@ using UnityEngine;
 
 public class exitscript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && GameHelper.GetPaintingCount() >= 1)
         {
-            // TODO: change to next recreation scene...bring over any details about paintings you gathered...
-            GameHelper.LoadScene("MuseumSceneStartCopy", true);
+            GameHelper.LoadScene("RecreatePaintingTestScene", true);
+        }
+        else
+        {
+            print ("Find a painting before exiting the level!");
         }
     }
 }
