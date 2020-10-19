@@ -128,7 +128,7 @@ public class RecreateSceneManager : MonoBehaviour
     public void OnFinshedButtonPressed()
     {
         print ("nice job! your painting was " + Random.Range(30f, 100f) + "% accurate to the original!");
-        GameHelper.LoadScene("StartMenu", true);
+        GameHelper.LoadScene("MuseumSceneStartCopy", true);
     }
 
     public void GoToLeftCanvas()

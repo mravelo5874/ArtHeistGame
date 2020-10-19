@@ -8,6 +8,7 @@ public class MouseClickTest : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //GameManager.buySomething(itemCost);
+        // TODO: call a specific method for buying a specific item...
+        InventoryScript.setMoney(InventoryScript.money - itemCost);
     }
 }
