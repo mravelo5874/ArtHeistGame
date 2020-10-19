@@ -49,6 +49,24 @@ public static class GameHelper
     ################################################
     */
 
+    public static void ClearRecreatedPaintingList()
+    {
+        FindGameManager();
+        gm.ClearRecreatedPaintingList();
+    }
+
+    public static void AddPaintingToRecreatedList(PaintingData data)
+    {
+        FindGameManager();
+        gm.AddPaintingToRecreatedList(data);
+    }
+
+    public static List<PaintingData> GetRecreatedPaintingList()
+    {
+        FindGameManager();
+        return gm.GetRecreatedPaintingList();
+    }
+
     public static void AddPaintingToList(Painting painting)
     {
         FindGameManager();

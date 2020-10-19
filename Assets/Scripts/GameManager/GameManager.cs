@@ -11,12 +11,14 @@ public class GameManager : DontDestroy<GameManager>
     public const int canvasToPixelRatio = 16; // ratio between 1 canvas size and number of pixels
 
     private List<Painting> paintings; // list of paintings found in museum level
+    private List<PaintingData> recreatedPaintings; // list of paintings player recreated
 
     [SerializeField] private List<Painting> testPaintings; // painting to be used for testing (recreate scene/dev mode)
 
     void Start()
     {
         paintings = new List<Painting>();
+        recreatedPaintings = new List<PaintingData>();
     }
 
     private void Update() 
@@ -112,6 +114,23 @@ public class GameManager : DontDestroy<GameManager>
     ################################################
     */
 
+    public void ClearRecreatedPaintingList()
+    {
+        recreatedPaintings.Clear();
+    }
+
+    public void AddPaintingToRecreatedList(PaintingData data)
+    {
+        if (!recreatedPaintings.Contains(data))
+            recreatedPaintings.Add(data);
+    }
+
+    public List<PaintingData> GetRecreatedPaintingList()
+    {
+        if (recreatedPaintings == null) recreatedPaintings = new List<PaintingData>();
+        return recreatedPaintings;
+    }
+
     public void AddPaintingToList(Painting painting)
     {
         if (!paintings.Contains(painting))
@@ -133,6 +152,7 @@ public class GameManager : DontDestroy<GameManager>
 
     public List<Painting> GetPaintingList()
     {
+        if (paintings == null) paintings = new List<Painting>();
         return paintings;
     }
 

@@ -78,7 +78,7 @@ public class RecreateSceneManager : MonoBehaviour
             currCanvasIndex = 0;
             SetCameraPosition();
         }
-        else
+        else if (paintings.Count > 0)
         {
             // create canvas object from painting list
             foreach(Painting painting in paintings)
@@ -98,17 +98,17 @@ public class RecreateSceneManager : MonoBehaviour
             SetCameraPosition();
 
             // set colors
-            print ("paintings: " + paintings[0]);
             PaintingData data =  PaintingDataHelper.GetPaintingData(paintings[0]);
-            print ("data: " + data);
-            print (data.canvasSize);
-            print (data.colorHexValues);
+
+            if (data == null) print ("painting helper returned null!");
+            else print ("painting helper returned data!");
+
             PaintbrushHelper.RemoveAllColors();
             CellColorHelper.ImportPaintingColors(data);
         }
 
         // disable nav buttons if only one painting
-        if (canvases.Count == 1)
+        if (canvases.Count > 1)
         {
             leftNavButton.SetActive(false);
             rightNavButton.SetActive(false);
@@ -127,8 +127,14 @@ public class RecreateSceneManager : MonoBehaviour
 
     public void OnFinshedButtonPressed()
     {
-        print ("nice job! your painting was " + Random.Range(30f, 100f) + "% accurate to the original!");
-        GameHelper.LoadScene("StartMenu", true);
+        // save player painting data in GameManager
+        GameHelper.ClearRecreatedPaintingList();
+        foreach (RecreateCanvasObject canvas in canvases)
+        {
+            GameHelper.AddPaintingToRecreatedList(canvas.GetPaintingData());
+        }
+        
+        GameHelper.LoadScene("PaintingJudgingScene", true);
     }
 
     public void GoToLeftCanvas()
@@ -266,7 +272,9 @@ public class RecreateSceneManager : MonoBehaviour
             showGridLabel.color = lightColor;
             gridButton.color = darkColor;
         }
-        currCanvas.SetGrid(opt);
+
+        if (currCanvas)
+            currCanvas.SetGrid(opt);
     }
 
     public void ToggleSetFill()

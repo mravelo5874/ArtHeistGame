@@ -119,4 +119,19 @@ public class RecreateCanvasObject : MonoBehaviour
         this.painting.size = data.canvasSize;
 
     }
+
+    public PaintingData GetPaintingData()
+    {
+        Vector2Int canvasSize = this.painting.size;
+
+        List<CellData> canvasCells = new List<CellData>();
+        foreach(CanvasCell cell in canvas)
+        {
+            canvasCells.Add(new CellData(cell.pos, cell.GetHexColor()));
+        }
+
+        List<string> hexColors = CellColorHelper.GetHexColors();
+
+        return new PaintingData(canvasSize, hexColors, canvasCells);
+    }
 }

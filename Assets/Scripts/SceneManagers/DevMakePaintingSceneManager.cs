@@ -36,14 +36,9 @@ public static class PaintingDataHelper
 {
     public static PaintingData GetPaintingData(Painting painting)
     {
-        if (File.Exists(DevMakePaintingSceneManager.jsonSavePath + painting.title + "_data.txt"))
-        {            
-            string fileString = File.ReadAllText(DevMakePaintingSceneManager.jsonSavePath + painting.title + "_data.txt");
-            PaintingData paintingData = JsonUtility.FromJson<PaintingData>(fileString);
-
-            return paintingData;
-        }
-        return null;
+        string fileString = painting.paintingData_Json.text;
+        PaintingData paintingData = JsonUtility.FromJson<PaintingData>(fileString);
+        return paintingData;
     }
 }
 
