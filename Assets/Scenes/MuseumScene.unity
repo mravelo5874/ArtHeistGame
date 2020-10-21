@@ -9726,6 +9726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWaitTime: 3
+  startLostTime: 8
   currentMoveSpot: {fileID: 1307136159}
   playerToChase: {fileID: 751582843}
 --- !u!143 &1553156815

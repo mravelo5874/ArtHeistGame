@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
 {
     private float waitTime;
     public float startWaitTime;
+    private float lostTime; // Tracks how long since the player has last been seen.
+    public float startLostTime;
     public static bool isChasing;
 
     public GameObject currentMoveSpot;
@@ -77,6 +79,32 @@ public class Movement : MonoBehaviour
                 
                 
             }
+
+            // Checks if too far from intended position and if player has been lost for half of lostTime.
+            if(Vector3.Distance(transform.position, currentMoveSpot.transform.position) > 100f && lostTime <= startLostTime / 2)
+            {
+                Debug.Log("Too far from movespot and lost player for a bit! Heading back.");
+                stopUpdating = false;
+                StopChasing();
+            }
+            
+            // Checks if the player has been out of the guard's cone of vision.
+            if (!VisionScript.playerInSight)
+            {
+                if (lostTime < 0f)
+                {
+                    Debug.Log("Lost for longer than LostTime.");
+                    stopUpdating = false;
+                    StopChasing();
+                }
+                else
+                {
+                    lostTime = lostTime - Time.deltaTime;
+                }
+            } else {
+                lostTime = startLostTime;
+            }
+            
         }
 
     }

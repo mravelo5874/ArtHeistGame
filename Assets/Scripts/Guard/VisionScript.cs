@@ -8,10 +8,11 @@ public class VisionScript : MonoBehaviour
 
     public GameObject player;
     float fovAngle;
+    public static bool playerInSight;
 
     void Start()
     {
-        fovAngle = 110f;
+        fovAngle = 160f;
     }
 
     void Update()
@@ -29,7 +30,14 @@ public class VisionScript : MonoBehaviour
                 if (hit.collider.gameObject == player)
                 {
                     Debug.Log("RUN.");
-                    Movement.StartChasing();
+                    if(!playerInSight)
+                    {
+                        Movement.StartChasing();
+                        playerInSight = true;
+                    }
+                } else
+                {
+                    playerInSight = false;
                 }
 
             }
