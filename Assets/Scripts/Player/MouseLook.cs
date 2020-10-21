@@ -26,6 +26,8 @@ public class MouseLook : MonoBehaviour
     bool tempLookat = false;
     public GameObject painting = null;
 
+    public float cameraHeightFirstPersonValue = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,7 @@ public class MouseLook : MonoBehaviour
             // transform.position = playerBody.position;
             if (!tempLookat)
             {
-                transform.position = playerBody.position;
+                transform.position = playerBody.position + new Vector3(0, cameraHeightFirstPersonValue, 0);
                 transform.rotation.Set(0,0,0,0);
                 //transform.LookAt(painting.transform);
                 //transform.rotation.SetFromToRotation(transform.position, painting.transform.position);
