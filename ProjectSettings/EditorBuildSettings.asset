@@ -6,23 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OldScenes/StartMenu.unity
-    guid: 8f00aa1dea2db8642854b5ad7dc80bb7
-  - enabled: 1
-    path: Assets/Scenes/MuseumSceneStartCopy.unity
+    path: Assets/Scenes/MainMenuScene.unity
     guid: 990dbf779167e66428b8ae75200fac7a
   - enabled: 1
-    path: Assets/Scenes/SpencerScene.unity
-    guid: 9fbb9e8654a427246acb1587c74051d6
-  - enabled: 1
-    path: Assets/Scenes/OldScenes/HeistTestScene.unity
-    guid: d267aad55f6d9c94b9d10df8e818f1ca
-  - enabled: 1
-    path: Assets/Scenes/RecreatePaintingTestScene.unity
+    path: Assets/Scenes/RecreatePaintingScene.unity
     guid: 85467dace18128d4c88840dcdd4207f5
-  - enabled: 1
-    path: Assets/Scenes/MuseumTestScene.unity
-    guid: de0931e100bb84e42811c3a729aad5df
   - enabled: 1
     path: Assets/Scenes/LevelSelectorScene.unity
     guid: 3dc389c553888654dab35d5e49f58b58
@@ -36,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MuseumScene.unity
     guid: 444cad9ac02797147a0df7efb787eb49
   - enabled: 1
-    path: Assets/Scenes/OptionsInGameScene.unity
-    guid: eebffc562d53e584b993ecef6666bfbb
+    path: Assets/Scenes/PaintingJudgingScene.unity
+    guid: a8f63573a13c2fa42adad36edae0394a
   m_configObjects: {}

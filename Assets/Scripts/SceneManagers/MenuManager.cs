@@ -12,7 +12,8 @@ public class MenuManager : MonoBehaviour
 
     public void OnMuseumScenePressed()
     {
-        GameHelper.LoadScene("MuseumTestScene", true);
+        Debug.Log("LINE 15 OF MENUMANAGER SCRIPT");
+        //GameHelper.LoadScene("MuseumTestScene", true);
     }
 
     public void OnLevel1ScenePressed()
@@ -42,12 +43,12 @@ public class MenuManager : MonoBehaviour
 
     public void OnRecreateScenePressed()
     {
-        GameHelper.LoadScene("RecreatePaintingTestScene", true);
+        GameHelper.LoadScene("RecreatePaintingScene", true);
     }
 
     public void OnMainMenuScenePressed()
     {
-        GameHelper.LoadScene("MuseumSceneStartCopy", true);
+        GameHelper.LoadScene("MainMenuScene", true);
     }
 
     public void OnLevelSelectorScenePressed()

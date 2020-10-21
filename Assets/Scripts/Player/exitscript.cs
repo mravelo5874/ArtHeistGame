@@ -8,7 +8,7 @@ public class exitscript : MonoBehaviour
     {
         if (other.CompareTag("Player") && GameHelper.GetPaintingCount() >= 1)
         {
-            GameHelper.LoadScene("RecreatePaintingTestScene", true);
+            GameHelper.LoadScene("RecreatePaintingScene", true);
         }
         else
         {
