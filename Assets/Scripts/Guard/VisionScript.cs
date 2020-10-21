@@ -12,7 +12,7 @@ public class VisionScript : MonoBehaviour
 
     void Start()
     {
-        fovAngle = 160f;
+        fovAngle = 270f;
     }
 
     void Update()
@@ -24,7 +24,7 @@ public class VisionScript : MonoBehaviour
         {
             RaycastHit hit;
 
-            if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, 10f))
+            if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, 20f))
             {
 
                 if (hit.collider.gameObject == player)
