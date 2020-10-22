@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
-  m_Name: TestPainting1_obj
+  m_Name: hotdog_obj
   m_EditorClassIdentifier: 
-  title: Sunset Dense
-  artist: Notch
-  medium: Pixel
-  dateMade: 9-22-2020
+  title: hotdog
+  artist: marco
+  medium: pixel on canvas
+  dateMade: 10-21-2020
   size: {x: 2, y: 1}
-  mat: {fileID: 2100000, guid: 7b8399b1cb91c0c4c84b666a2b3f0491, type: 2}
+  mat: {fileID: 2100000, guid: 90aca49d25b56b241adc3952e55b65d3, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: bd80f7001f3566347b3b1e8af9c93fc1, type: 3}

@@ -49,6 +49,8 @@ public class RecreateSceneManager : MonoBehaviour
     [SerializeField] private GameObject leftNavButton;
     [SerializeField] private GameObject rightNavButton;
 
+    [SerializeField] private TextMeshProUGUI paintingText;
+
     // dev mode variables
     private int canvasWidth = 1;
     private int canvasHeight = 1;
@@ -105,10 +107,11 @@ public class RecreateSceneManager : MonoBehaviour
 
             PaintbrushHelper.RemoveAllColors();
             CellColorHelper.ImportPaintingColors(data);
+            paintingText.text = paintings[0].title;
         }
 
         // disable nav buttons if only one painting
-        if (canvases.Count > 1)
+        if (canvases.Count <= 1)
         {
             leftNavButton.SetActive(false);
             rightNavButton.SetActive(false);
@@ -152,9 +155,11 @@ public class RecreateSceneManager : MonoBehaviour
             currCanvas = canvases[currCanvasIndex];
             currCanvas.SetGrid(showGrid);
 
-            PaintingData data =  PaintingDataHelper.GetPaintingData(paintings[0]);
+            PaintingData data =  PaintingDataHelper.GetPaintingData(paintings[currCanvasIndex]);
             PaintbrushHelper.RemoveAllColors();
             CellColorHelper.ImportPaintingColors(data);
+            PaintbrushHelper.SetDefault();
+            paintingText.text = paintings[currCanvasIndex].title;
 
             SetCameraPosition();
         }
@@ -175,9 +180,11 @@ public class RecreateSceneManager : MonoBehaviour
             currCanvas = canvases[currCanvasIndex];
             currCanvas.SetGrid(showGrid);
 
-            PaintingData data =  PaintingDataHelper.GetPaintingData(paintings[0]);
+            PaintingData data =  PaintingDataHelper.GetPaintingData(paintings[currCanvasIndex]);
             PaintbrushHelper.RemoveAllColors();
             CellColorHelper.ImportPaintingColors(data);
+            PaintbrushHelper.SetDefault();
+            paintingText.text = paintings[currCanvasIndex].title;
 
             SetCameraPosition();
         }

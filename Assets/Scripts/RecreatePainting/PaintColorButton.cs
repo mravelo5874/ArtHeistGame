@@ -16,18 +16,24 @@ public class PaintColorButton : MonoBehaviour
     [SerializeField] private GameObject colorPopup;
     [SerializeField] private Transform popupParent;
 
-    private Image img;
+    [SerializeField] private Image colorImage;
+    [SerializeField] private GameObject selectedImage;
 
     void Start()
     {   
+        SetSelect(false);
+
         if (isAddColorButton)
         {
             plusText.SetActive(true);
+            colorImage.gameObject.SetActive(false);
+            selectedImage.gameObject.SetActive(true);
             GetComponent<Button>().onClick.AddListener(OnNewColorButtonPressed);
         }
         else
         {
             plusText.SetActive(false);
+            colorImage.gameObject.SetActive(true);
             GetComponent<Button>().onClick.AddListener(OnColorButtonPressed);
         }
     }
@@ -39,17 +45,19 @@ public class PaintColorButton : MonoBehaviour
         this._color = _color;
         this.transform.SetSiblingIndex(0);
 
-        img = GetComponent<Image>();
-        img.color = _color;
+        colorImage.color = _color;
 
         if (isAddColorButton)
         {
             plusText.SetActive(true);
+            colorImage.gameObject.SetActive(false);
+            selectedImage.gameObject.SetActive(true);
             GetComponent<Button>().onClick.AddListener(OnNewColorButtonPressed);
         }
         else
         {
             plusText.SetActive(false);
+            colorImage.gameObject.SetActive(true);
             GetComponent<Button>().onClick.AddListener(OnColorButtonPressed);
         }
     }
@@ -57,6 +65,12 @@ public class PaintColorButton : MonoBehaviour
     private void OnColorButtonPressed()
     {
         PaintbrushHelper.ChangeBrushColor(colorName);
+        SetSelect(true);
+    }
+
+    public void SetSelect(bool opt)
+    {
+        selectedImage.SetActive(opt);
     }
 
     private void OnNewColorButtonPressed()

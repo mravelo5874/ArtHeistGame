@@ -2286,6 +2286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e03994c9f945a4cb907ac3a42736cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockRaycast: 0
   showRay: 0
   cam: {fileID: 362195516}
 --- !u!1 &1070143088
@@ -3482,6 +3483,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 402921221}
     m_Modifications:
+    - target: {fileID: 808154744, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 808154744, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 808154744, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693055719, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1703154743, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
       propertyPath: popupParent
       value: 
@@ -4873,6 +4890,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 402921221}
     m_Modifications:
+    - target: {fileID: 808154742, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1703154743, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
       propertyPath: popupParent
       value: 
@@ -4883,7 +4904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6921306374314706924, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
       propertyPath: m_Name
-      value: PaintColorButton
+      value: AddColorButton
       objectReference: {fileID: 0}
     - target: {fileID: 6921306374314706927, guid: ea24a1bc4417a9940a06b275b841df4d, type: 3}
       propertyPath: m_LocalPosition.x

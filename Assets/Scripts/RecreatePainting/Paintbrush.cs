@@ -60,6 +60,12 @@ public static class PaintbrushHelper
         pb.RemoveAllColors();
     }
 
+    public static void SetDefault()
+    {
+        FindPaintbrush();
+        pb.SetDefault();
+    }
+
     private static void FindPaintbrush()
     {
         if (pb == null) pb = GameObject.Find("Paintbrush").GetComponent<Paintbrush>();
@@ -84,10 +90,12 @@ public class Paintbrush : MonoBehaviour
     [SerializeField] private GameObject colorButtonObject;
     [SerializeField] private Transform colorButtonParent;
 
+    List<PaintColorButton> paintButtons;
+
     void Start()
     {
-        currBrushColor = CellColorHelper.GetColor("WHITE");
-        currbrushSize = 1;
+        paintButtons = new List<PaintColorButton>();
+        SetDefault();
     }
 
     void Update()
@@ -193,6 +201,17 @@ public class Paintbrush : MonoBehaviour
         }
     }
 
+    public void SetDefault()
+    {
+        foreach(PaintColorButton button in paintButtons)
+        {
+            button.SetSelect(false);
+        }
+
+        ChangeBrushColor("WHITE");
+        ChangeBrushSize(1);
+    }
+
     private List<Vector2Int> GetBrushDeltaPositions(int brushSize)
     {
         if (brushSize < brushSizeRange.x || brushSize > brushSizeRange.y)
@@ -265,11 +284,13 @@ public class Paintbrush : MonoBehaviour
     public void AddColorButton(CellColor cellColor)
     {
         PaintColorButton cb = Instantiate(colorButtonObject, colorButtonParent).GetComponent<PaintColorButton>();
+        paintButtons.Add(cb);
         cb.Constructor(cellColor.colorName, cellColor.color);
     }
 
     public void RemoveAllColors()
     {
+        paintButtons.Clear();
         foreach (Transform child in colorButtonParent.transform) 
         {
             GameObject.Destroy(child.gameObject);
@@ -283,6 +304,11 @@ public class Paintbrush : MonoBehaviour
 
     public void ChangeBrushColor(string colorName)
     {
+        foreach(PaintColorButton button in paintButtons)
+        {
+            button.SetSelect(false);
+        }
+
         currBrushColor = CellColorHelper.GetColor(colorName);
     }
 

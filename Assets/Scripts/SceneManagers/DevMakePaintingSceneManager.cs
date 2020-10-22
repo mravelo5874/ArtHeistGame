@@ -10,12 +10,14 @@ public class PaintingData
     public Vector2Int canvasSize;
     public List<string> colorHexValues;
     public List<CellData> cellData;
+    public List<CellData> originalData;
 
-    public PaintingData(Vector2Int _canvasSize, List<string> _colorHexValues, List<CellData> _cellData)
+    public PaintingData(Vector2Int _canvasSize, List<string> _colorHexValues, List<CellData> _cellData, List<CellData> _originalData = null)
     {
         this.canvasSize = _canvasSize;
         this.colorHexValues = _colorHexValues;
         this.cellData = _cellData;
+        this.originalData = _originalData;
     }
 }
 

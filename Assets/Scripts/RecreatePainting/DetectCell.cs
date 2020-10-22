@@ -2,8 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public static class DetectCellHelper
+{
+    private static DetectCell dc;
+
+    public static void BlockRaycasts(bool opt)
+    {
+        FindDetectCell();
+        dc.blockRaycast = opt;
+    }
+
+    private static void FindDetectCell()
+    {
+        if (dc == null) dc = GameObject.Find("RecreateSceneManager").GetComponent<DetectCell>();
+
+        // could not find detect cell
+        if (dc == null) Debug.LogError("DetectCellHelper could not find 'DetectCell'");
+    }
+} 
+
 public class DetectCell : MonoBehaviour
 {
+    public bool blockRaycast;
     public bool showRay;
     private CanvasCell mostRecentCell;
 
@@ -11,6 +31,9 @@ public class DetectCell : MonoBehaviour
 
     void Update() 
     {
+        if (blockRaycast)
+            return;
+
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (showRay)
             Debug.DrawRay(ray.origin, ray.direction, Color.blue, 0.1f, false);

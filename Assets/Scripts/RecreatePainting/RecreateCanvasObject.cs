@@ -123,6 +123,7 @@ public class RecreateCanvasObject : MonoBehaviour
     public PaintingData GetPaintingData()
     {
         Vector2Int canvasSize = this.painting.size;
+        List<string> hexColors = CellColorHelper.GetHexColors();
 
         List<CellData> canvasCells = new List<CellData>();
         foreach(CanvasCell cell in canvas)
@@ -130,8 +131,8 @@ public class RecreateCanvasObject : MonoBehaviour
             canvasCells.Add(new CellData(cell.pos, cell.GetHexColor()));
         }
 
-        List<string> hexColors = CellColorHelper.GetHexColors();
+        PaintingData data = PaintingDataHelper.GetPaintingData(painting);
 
-        return new PaintingData(canvasSize, hexColors, canvasCells);
+        return new PaintingData(canvasSize, hexColors, canvasCells, data.cellData);
     }
 }

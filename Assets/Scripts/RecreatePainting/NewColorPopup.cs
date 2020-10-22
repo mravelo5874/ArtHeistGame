@@ -22,6 +22,8 @@ public class NewColorPopup : MonoBehaviour
 
     void Start()
     {
+        DetectCellHelper.BlockRaycasts(true);
+
         redSlider.value = 255;
         redText.text = "255";
 
@@ -54,6 +56,7 @@ public class NewColorPopup : MonoBehaviour
 
     public void ClosePopup()
     {
+        DetectCellHelper.BlockRaycasts(false);
         Destroy(this.gameObject);
     }
 
