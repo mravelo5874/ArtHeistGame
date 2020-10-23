@@ -100,14 +100,10 @@ public class PlayerMovement : MonoBehaviour
             playerBody.SetActive(false);
             MouseLook.instance.thirdPerson = false;
         }
-
-        
     }
 
     public void ToggleMovement(bool opt)
     {
         restrictMovement = opt;
     }
-
-
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class GameManager : DontDestroy<GameManager>
 {
@@ -11,9 +10,10 @@ public class GameManager : DontDestroy<GameManager>
     public const int canvasToPixelRatio = 16; // ratio between 1 canvas size and number of pixels
 
     private List<Painting> paintings; // list of paintings found in museum level
-    private List<PaintingData> recreatedPaintings; // list of paintings player recreated
-
-    [SerializeField] private List<Painting> testPaintings; // painting to be used for testing (recreate scene/dev mode)
+    private List<PaintingData> recreatedPaintings; // list of paintings player recreated    
+    
+    [SerializeField] List<Level> levels;
+    private Level currLevel = null;
 
     void Start()
     {
@@ -147,8 +147,27 @@ public class GameManager : DontDestroy<GameManager>
         return paintings;
     }
 
-    public List<Painting> GetTestPaintingList()
+    /* 
+    ################################################
+    #   LEVEL DATA MANAGEMENT
+    ################################################
+    */
+
+    public Level SetGetLevelData(int levelIndex)
     {
-        return testPaintings;
+        if (levelIndex < levels.Count && levelIndex > 0)
+            this.currLevel = levels[levelIndex];
+        else
+        {
+            print ("Level Index does not exist, loading default level '0'");
+            this.currLevel = levels[0];
+        }
+        
+        return currLevel;
+    }
+
+    public Level GetCurrentLevel()
+    {
+        return currLevel;
     }
 }

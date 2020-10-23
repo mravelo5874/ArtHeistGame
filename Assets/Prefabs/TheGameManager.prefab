@@ -77,12 +77,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPersistant: 1
   devModeActivated: 1
-  testPaintings:
-  - {fileID: 11400000, guid: 885689e37d8d9db43b682eaa77aa351a, type: 2}
-  - {fileID: 11400000, guid: 4a8247cb015943f4283d6ee6e46cf8fb, type: 2}
-  - {fileID: 11400000, guid: c5d37cd2c956c344884219aafadcad0d, type: 2}
-  money: 1000
-  moneyText: {fileID: 0}
+  levels:
+  - {fileID: 11400000, guid: 7b435ed43bf1f5e408ae8c11975db8e1, type: 2}
+  - {fileID: 11400000, guid: 95bcc8a30e169994aa10d7620580428a, type: 2}
+  - {fileID: 11400000, guid: 74b84a119bcd34f47a9e4eb044ea5088, type: 2}
+  - {fileID: 11400000, guid: c74b85a96fbef9b4fb3f41db1716bb33, type: 2}
 --- !u!1 &2217028598074138127
 GameObject:
   m_ObjectHideFlags: 0

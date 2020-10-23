@@ -91,11 +91,29 @@ public static class GameHelper
         return gm.GetPaintingCount();
     }
 
-    public static List<Painting> GetTestPaintingList()
+    /* 
+    ################################################
+    #   LEVEL DATA MANAGEMENT
+    ################################################
+    */
+
+    public static Level SetGetLevelData(int levelIndex)
     {
         FindGameManager();
-        return gm.GetTestPaintingList();
+        return gm.SetGetLevelData(levelIndex);
     }
+
+    public static Level GetCurrentLevel()
+    {
+        FindGameManager();
+        return gm.GetCurrentLevel();
+    }
+
+    /* 
+    ################################################
+    #   FIND GAME MANAGER METHOD
+    ################################################
+    */
 
     private static void FindGameManager()
     {

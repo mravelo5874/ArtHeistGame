@@ -10,40 +10,28 @@ public class MenuManager : MonoBehaviour
         GameHelper.SceneInit(true); // every scene must call this in Awake()
     }
 
-    public void OnMuseumScenePressed()
+    public void OnDemoScenePressed()
     {
-        Debug.Log("LINE 15 OF MENUMANAGER SCRIPT");
-        //GameHelper.LoadScene("MuseumTestScene", true);
+        Level level = GameHelper.SetGetLevelData(0);
+        GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel1ScenePressed()
     {
-        //GameHelper.LoadScene("MuseumScene", true);
-        GameHelper.LoadScene("MuseumScene", true);
-        // do other level setup things, call a static function somewhere else? (below line doesn't work...can't find it)
-        //PlayerMovement.instance.transform.position.Set(-1, 1, -44);
+        Level level = GameHelper.SetGetLevelData(1);
+        GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel2ScenePressed()
     {
-        GameHelper.LoadScene("MuseumScene", true);
-        // do other level setup things, call a static function somewhere else?
+        Level level = GameHelper.SetGetLevelData(2);
+        GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel3ScenePressed()
     {
-        GameHelper.LoadScene("MuseumScene", true);
-        // do other level setup things, call a static function somewhere else?
-    }
-
-    public void OnHeistScenePressed()
-    {
-        GameHelper.LoadScene("HeistTestScene", true);
-    }
-
-    public void OnRecreateScenePressed()
-    {
-        GameHelper.LoadScene("RecreatePaintingScene", true);
+        Level level = GameHelper.SetGetLevelData(3);
+        GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnMainMenuScenePressed()

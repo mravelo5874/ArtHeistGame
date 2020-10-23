@@ -14,7 +14,6 @@ public class vec2_vec3
 public class RecreateSceneManager : MonoBehaviour
 {
     public bool isDevRecreateMode;
-    public bool useTestPaintings;
 
     [SerializeField] private List<vec2_vec3> canvasSize2CamPosDictionary;
 
@@ -62,8 +61,8 @@ public class RecreateSceneManager : MonoBehaviour
 
     void Start()
     {
-        if (useTestPaintings) paintings = GameHelper.GetTestPaintingList();
-        else paintings = GameHelper.GetPaintingList();
+        // get painting list from game manager
+        paintings = GameHelper.GetPaintingList();
 
         // create canvas objects list
         canvases = new List<RecreateCanvasObject>();
