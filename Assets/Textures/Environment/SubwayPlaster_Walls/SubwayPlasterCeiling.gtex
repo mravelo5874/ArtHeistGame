@@ -1,0 +1,100 @@
+{
+	"material":
+	{
+		"name": "SubwayPlasterCeiling",
+		"shader": "gt_product",
+		"type": "material",
+		"tiling": 1,
+		"texturemaps":
+		{
+			"basecolor": 
+			{
+				"path": "Textures/SubwayPlasterCeiling_basecolor.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"roughness":
+			{
+				"path": "Textures/SubwayPlasterCeiling_roughness.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"metallic": 
+			{
+				"path": "Textures/SubwayPlasterCeiling_metallic.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"albedo": 
+			{
+				"path": "Textures/SubwayPlasterCeiling_albedo.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"specular":
+			{
+				"path": "Textures/SubwayPlasterCeiling_specular.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"glossiness":
+			{
+				"path": "Textures/SubwayPlasterCeiling_glossiness.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"normal":
+			{
+				"path": "Textures/SubwayPlasterCeiling_normal.png",
+				"maxsize": 2048,
+				"compression": "normal",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"ambientocclusion":
+			{
+				"path": "Textures/SubwayPlasterCeiling_ambientocclusion.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"height":
+			{
+				"path": "Textures/SubwayPlasterCeiling_height.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"emissive":
+			{
+				"path": "Textures/SubwayPlasterCeiling_emissive.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			},
+			"opacity":
+			{
+				"path": "Textures/SubwayPlasterCeiling_opacity.png",
+				"maxsize": 2048,
+				"compression": "default",
+				"colorchannel": "rgb",
+				"colorspace": "srgb"
+			}
+		}
+	}
+}
