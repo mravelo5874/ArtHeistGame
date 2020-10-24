@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
 
-    public GameObject playerBody;
+    public GameObject playerBodyModel;
 
     void Awake()
     {
@@ -94,10 +94,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && !MouseLook.instance.thirdPerson)
         {
             MouseLook.instance.thirdPerson = true;
-            playerBody.SetActive(true);
+            playerBodyModel.SetActive(true);
         } else if (Input.GetKeyDown(KeyCode.X) && MouseLook.instance.thirdPerson)
         {
-            playerBody.SetActive(false);
+            playerBodyModel.SetActive(false);
             MouseLook.instance.thirdPerson = false;
         }
     }
