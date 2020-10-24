@@ -12715,6 +12715,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3151196903365604538, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dca3b725061911d4989bbe9ae74ac291, type: 2}
     - target: {fileID: 5039310786038513193, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
       propertyPath: m_Name
       value: Guard
@@ -12893,6 +12897,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1834312855415092476, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d46c2d61ffa0cca40af376c96f6f7e0f, type: 2}
     - target: {fileID: 3921970768471679855, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
       propertyPath: m_IsActive
       value: 0
