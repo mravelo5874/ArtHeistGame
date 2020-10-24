@@ -9,34 +9,42 @@ public class ObjectivesMenuScript : MonoBehaviour
     public GameObject objectiveMenu;
     Vector3 pos;
 
+    public int topValue = 300;
+    public int leftSideValue = 641;
+    public int rightSideValue = 1300;
+    public int incrementValue = 20;
+    public bool testActive = false;
+
     void Start()
     {
-        objectiveMenu.transform.position = new Vector3(1300, 500, 0);
+        objectiveMenu.transform.position = new Vector3(rightSideValue, topValue, 0);
         pos = objectiveMenu.transform.position;
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Tab))
+        if (Input.GetKey(KeyCode.Tab) || testActive)
         {
-            if(pos.x > 790)
+            if(pos.x > leftSideValue)
             {
-                pos.x -= 20;
-                if (pos.x <= 790)
+                pos.x -= incrementValue;
+                if (pos.x <= leftSideValue)
                 {
-                    pos.x = 790;
+                    pos.x = leftSideValue;
                 }
             }
             objectiveMenu.transform.position = pos;
         } else
         {
-            if (pos.x < 1300)
+            if (pos.x < rightSideValue)
             {
-                pos.x += 20;
-                if (pos.x >= 1300)
+                pos.x += incrementValue;
+                if (pos.x >= rightSideValue)
                 {
-                    pos.x = 1300;
+                    pos.x = rightSideValue;
                 }
             }
             objectiveMenu.transform.position = pos;

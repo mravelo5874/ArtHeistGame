@@ -8378,6 +8378,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveMenu: {fileID: 1247242642}
+  topValue: 300
+  leftSideValue: 641
+  rightSideValue: 1300
+  incrementValue: 20
+  testActive: 0
 --- !u!222 &1247242646
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12903,7 +12908,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d46c2d61ffa0cca40af376c96f6f7e0f, type: 2}
     - target: {fileID: 3921970768471679855, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5566296133165986686, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
       propertyPath: m_IsActive
