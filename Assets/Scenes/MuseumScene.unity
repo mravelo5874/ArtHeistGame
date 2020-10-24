@@ -6403,6 +6403,30 @@ PrefabInstance:
 
         - Find the exit (Green Circle)'
       objectReference: {fileID: 0}
+    - target: {fileID: 1166310288, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 1166310288, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 1166310288, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_fontSize
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166310288, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166310288, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_lineSpacing
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166310288, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_characterSpacing
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1941925521236034158, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
