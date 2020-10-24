@@ -42,6 +42,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            MuseumSceneStaticClass.gameIsPaused = !MuseumSceneStaticClass.gameIsPaused;
+        }
+
+        if (MuseumSceneStaticClass.gameIsPaused)
+        {
+            return;
+        }
+
+        
+
         if (restrictMovement) return; // no move if restrictMovement == true
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);

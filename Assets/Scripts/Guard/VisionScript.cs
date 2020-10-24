@@ -17,6 +17,11 @@ public class VisionScript : MonoBehaviour
 
     void Update()
     {
+        if (MuseumSceneStaticClass.gameIsPaused)
+        {
+            return;
+        }
+
         // Finds if player is within field of view and then fires a ray to check if behind something.
         Vector3 direction = player.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);

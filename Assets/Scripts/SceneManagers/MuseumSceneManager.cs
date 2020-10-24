@@ -20,3 +20,8 @@ public class MuseumSceneManager : MonoBehaviour
         }
     }
 }
+
+public static class MuseumSceneStaticClass
+{
+    public static bool gameIsPaused = false;
+}

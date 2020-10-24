@@ -37,6 +37,10 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (MuseumSceneStaticClass.gameIsPaused)
+        {
+            return;
+        }
 
         if (!thirdPerson)
         {

@@ -29,6 +29,15 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
+        if (MuseumSceneStaticClass.gameIsPaused)
+        {
+            agent.enabled = false;
+            return;
+        } else
+        {
+            agent.enabled = true;
+        }
+
         // Normal patrol movement
         if (!isChasing)
         {
