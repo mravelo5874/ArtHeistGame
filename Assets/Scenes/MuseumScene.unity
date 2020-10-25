@@ -10180,6 +10180,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3921970768471679855, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
   m_PrefabInstance: {fileID: 8943438085684812344}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1519575086
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519575085}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6ebc7874db35e2b47b43369d46d49ee1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1560043215
 GameObject:
   m_ObjectHideFlags: 0
@@ -12680,6 +12699,10 @@ PrefabInstance:
       propertyPath: playerBodyModel
       value: 
       objectReference: {fileID: 1519575085}
+    - target: {fileID: 8943438084187815190, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
+      propertyPath: thiefAnimator
+      value: 
+      objectReference: {fileID: 1519575086}
     - target: {fileID: 8943438084991121228, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.48

@@ -17,6 +17,7 @@ public static class PlayerMovementHelper
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public Animator thiefAnimator;
 
     public float speed = 8f;
     public float gravity = -9.81f;
@@ -70,6 +71,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
+            if(x == 0 && z == 0)
+            {
+                thiefAnimator.SetTrigger("Crouch");
+            } else
+            {
+                thiefAnimator.SetTrigger("CrouchMovement");
+            }
+
             speed = speed - 0.05f;
             if (speed < 2.5f)
             {
@@ -77,6 +86,14 @@ public class PlayerMovement : MonoBehaviour
             }
         } else if (Input.GetKey(KeyCode.LeftShift))
         {
+            if ((x < 0.2 && x > -0.2) && (z < 0.2 && z > -0.2))
+            {
+                thiefAnimator.SetTrigger("Stand");
+            }
+            else
+            {
+                thiefAnimator.SetTrigger("Movement");
+            }
             speed = speed + .05f;
             if (speed > 12f)
             {
@@ -84,6 +101,14 @@ public class PlayerMovement : MonoBehaviour
             }
         } else
         {
+            if ((x < 0.2 && x > -0.2) && (z < 0.2 && z > -0.2))
+            {
+                thiefAnimator.SetTrigger("Stand");
+            }
+            else
+            {
+                thiefAnimator.SetTrigger("Movement");
+            }
             if (speed > 8f)
             {
                 speed = speed - 0.05f;
