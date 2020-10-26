@@ -21,6 +21,18 @@ public static class GameHelper
 
     /* 
     ################################################
+    #   UTILITY
+    ################################################
+    */
+
+    public static PaintingPool GetGlobalPaintingPool()
+    {
+        FindGameManager();
+        return gm.GetGlobalPaintingPool();
+    }
+
+    /* 
+    ################################################
     #   SCENE MANAGEMENT
     ################################################
     */

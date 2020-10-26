@@ -9,15 +9,17 @@ public class GameManager : DontDestroy<GameManager>
     public const float transitionTime = 1f; // time to fade into and out of a scene (total transition time is: transitionTime * 2)
     public const int canvasToPixelRatio = 16; // ratio between 1 canvas size and number of pixels
 
-    private List<Painting> paintings; // list of paintings found in museum level
+    private List<Painting> playerPaintings; // list of paintings found in museum level
     private List<PaintingData> recreatedPaintings; // list of paintings player recreated    
     
-    [SerializeField] List<Level> levels;
+    [SerializeField] private List<Level> levels;
     private Level currLevel = null;
+
+    [SerializeField] private PaintingPool globalPaintingPool;
 
     void Start()
     {
-        paintings = new List<Painting>();
+        playerPaintings = new List<Painting>();
         recreatedPaintings = new List<PaintingData>();
     }
 
@@ -59,6 +61,11 @@ public class GameManager : DontDestroy<GameManager>
     public void RestartGame()
     {
         LoadScene(0, true);
+    }
+
+    public PaintingPool GetGlobalPaintingPool()
+    {
+        return globalPaintingPool;
     }
 
     /* 
@@ -124,27 +131,27 @@ public class GameManager : DontDestroy<GameManager>
 
     public void AddPaintingToList(Painting painting)
     {
-        if (!paintings.Contains(painting))
-            paintings.Add(painting);
+        if (!playerPaintings.Contains(painting))
+            playerPaintings.Add(painting);
 
         PaintingListDisplayHelper.UpdateList();
     }
 
     public void ClearPaintingList()
     {
-        paintings.Clear();
+        playerPaintings.Clear();
         PaintingListDisplayHelper.UpdateList();
     }
 
     public int GetPaintingCount()
     {
-        return paintings.Count;
+        return playerPaintings.Count;
     }
 
     public List<Painting> GetPaintingList()
     {
-        if (paintings == null) paintings = new List<Painting>();
-        return paintings;
+        if (playerPaintings == null) playerPaintings = new List<Painting>();
+        return playerPaintings;
     }
 
     /* 

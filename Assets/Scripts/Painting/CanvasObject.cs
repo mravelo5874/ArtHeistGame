@@ -22,16 +22,22 @@ public class CanvasObject : MonoBehaviour
 
     void Start()
     {
-        if (!painting)
-        {
-            Debug.LogError("No painting object found in canvas!");
-            return;
-        }
-
         isLookedAt = false;
         addedToList = false;
         firstTimeLooking = true;
 
+        if (!painting)
+        {
+            return;
+        }
+        transform.localScale = new Vector3(painting.size.x, painting.size.y, canvasThickness); // set canvas size
+        paintingMeshRenderer.material = painting.mat; // set painting material
+        canvasMeshRenderer.material.SetColor("_OutlineColor", Color.black); // set outline color to black
+    }
+
+    public void SetPainting(Painting _painting)
+    {
+        this.painting = _painting;
         transform.localScale = new Vector3(painting.size.x, painting.size.y, canvasThickness); // set canvas size
         paintingMeshRenderer.material = painting.mat; // set painting material
         canvasMeshRenderer.material.SetColor("_OutlineColor", Color.black); // set outline color to black

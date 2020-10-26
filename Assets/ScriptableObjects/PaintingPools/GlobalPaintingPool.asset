@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b4689824f329e4cbe79dfbb7ae3e31, type: 3}
+  m_Name: GlobalPaintingPool
+  m_EditorClassIdentifier: 
+  paintings:
+  - {fileID: 11400000, guid: ecbe518f3a17839489bf5f321840d31f, type: 2}
+  - {fileID: 11400000, guid: a9a0e502113b908418737442f1c8fa3c, type: 2}
+  - {fileID: 11400000, guid: 19d18990685dbb94ba2998e49b507e5d, type: 2}
+  - {fileID: 11400000, guid: 66c6bcb4d21a6954e8cd704b3d6dbaa4, type: 2}
+  - {fileID: 11400000, guid: 7f3eb57ea8642e44cbe73409ad4075fa, type: 2}
+  - {fileID: 11400000, guid: 6cf5480b8be6b4347b61675ea8dab024, type: 2}
+  - {fileID: 11400000, guid: faf6ab8ade209a04694aaf7a72e92c8f, type: 2}
+  - {fileID: 11400000, guid: e0b64894fbccf7c49a8f5fc32676c046, type: 2}
+  - {fileID: 11400000, guid: c2df799a1e1739640b3a5521b9efffdf, type: 2}
+  - {fileID: 11400000, guid: 258f7a34865d68444a3cb7f1822fb344, type: 2}
+  - {fileID: 11400000, guid: ad027afa8e08a5247908ed67b58d51c2, type: 2}
+  - {fileID: 11400000, guid: ac637b9cb3b789249852f7d1d61040e3, type: 2}

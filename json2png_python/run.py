@@ -21,10 +21,24 @@ def main():
     if (len(sys.argv) <= 0):
         print ("[ERROR] program required .txt file argument")
         return -1
+
+    # determine if all text files should be converted
+    if (sys.argv[1] == "-a"):
+        for file in os.listdir("../json2png_python/text_files/"):
+            if file.endswith(".txt"):
+                print("converting new file: " + file)
+                createPNG(file)
+    else:
+        createPNG(sys.argv[1])
     
+    
+    print("closing program...")
+    return 1
+
+def createPNG(text_file_name):
     # get correct path
     project_folder = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.abspath(os.path.join(project_folder,"../json2png_python/text_files/" + sys.argv[1]))
+    file_path = os.path.abspath(os.path.join(project_folder,"../json2png_python/text_files/" + text_file_name))
     print ("file path: " + file_path)
 
     # check to see if file exists
@@ -58,13 +72,11 @@ def main():
 
     # create and save image
     img = Image.fromarray(img_data)
-    png_name = sys.argv[1].replace('data.txt', '') + "img.png"
+    png_name = text_file_name.replace('data.txt', '') + "img.png"
     save_path = os.path.abspath(os.path.join(project_folder,"../json2png_python/image_files/" + png_name))
     img.save(save_path, format = "png")
     print ("saving image as: " + png_name + " @ " + save_path)
-
-    print("closing program...")
-    return 1
+    print ("\n")
 
 if __name__ == "__main__":
     main()
