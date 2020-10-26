@@ -54,6 +54,11 @@ public class MenuManager : MonoBehaviour
         GameHelper.LoadScene("OptionsScene", true);
     }
 
+    public void OnCreditsScenePressed()
+    {
+        GameHelper.LoadScene("CreditsScene", true);
+    }
+
     public void OnQuitGamePressed()
     {
         Application.Quit();

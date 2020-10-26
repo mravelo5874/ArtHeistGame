@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PaintingJudgingScene.unity
     guid: a8f63573a13c2fa42adad36edae0394a
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: b156c048b3237724ea79e8986822c34c
   m_configObjects: {}
