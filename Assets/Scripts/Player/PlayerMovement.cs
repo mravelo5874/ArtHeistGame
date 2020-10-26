@@ -53,13 +53,13 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        
+
 
         if (restrictMovement) return; // no move if restrictMovement == true
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -71,10 +71,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            if(x == 0 && z == 0)
+            if (x == 0 && z == 0)
             {
                 thiefAnimator.SetTrigger("Crouch");
-            } else
+            }
+            else
             {
                 thiefAnimator.SetTrigger("CrouchMovement");
             }
@@ -84,7 +85,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 speed = 2.5f;
             }
-        } else if (Input.GetKey(KeyCode.LeftShift))
+        }
+        else if (Input.GetKey(KeyCode.LeftShift))
         {
             if ((x < 0.2 && x > -0.2) && (z < 0.2 && z > -0.2))
             {
@@ -92,14 +94,15 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                thiefAnimator.SetTrigger("Movement");
+                thiefAnimator.SetTrigger("Run");
             }
             speed = speed + .05f;
             if (speed > 12f)
             {
                 speed = 12f;
             }
-        } else
+        }
+        else
         {
             if ((x < 0.2 && x > -0.2) && (z < 0.2 && z > -0.2))
             {
@@ -107,12 +110,13 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                thiefAnimator.SetTrigger("Movement");
+                thiefAnimator.SetTrigger("Walk");
             }
             if (speed > 8f)
             {
                 speed = speed - 0.05f;
-            } else if (speed < 8f)
+            }
+            else if (speed < 8f)
             {
                 speed = speed + 0.05f;
             }
@@ -132,7 +136,8 @@ public class PlayerMovement : MonoBehaviour
         {
             MouseLook.instance.thirdPerson = true;
             playerBodyModel.SetActive(true);
-        } else if (Input.GetKeyDown(KeyCode.X) && MouseLook.instance.thirdPerson)
+        }
+        else if (Input.GetKeyDown(KeyCode.X) && MouseLook.instance.thirdPerson)
         {
             playerBodyModel.SetActive(false);
             MouseLook.instance.thirdPerson = false;

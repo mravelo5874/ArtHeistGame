@@ -10,9 +10,11 @@ public class VisionScript : MonoBehaviour
     float fovAngle;
     public static bool playerInSight;
 
+    public Animator guardAnimator;
+
     void Start()
     {
-        fovAngle = 270f;
+        fovAngle = 180f;
     }
 
     void Update()
@@ -25,22 +27,24 @@ public class VisionScript : MonoBehaviour
         // Finds if player is within field of view and then fires a ray to check if behind something.
         Vector3 direction = player.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
-        if(angle < fovAngle * 0.5f)
+        if (angle < fovAngle * 0.5f)
         {
             RaycastHit hit;
 
-            if(Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, 20f))
+            if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, 20f))
             {
 
                 if (hit.collider.gameObject == player)
                 {
                     Debug.Log("RUN.");
-                    if(!playerInSight)
+                    if (!playerInSight)
                     {
                         Movement.StartChasing();
+                        guardAnimator.SetTrigger("Chase");
                         playerInSight = true;
                     }
-                } else
+                }
+                else
                 {
                     playerInSight = false;
                 }

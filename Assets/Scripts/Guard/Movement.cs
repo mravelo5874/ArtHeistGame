@@ -13,6 +13,9 @@ public class Movement : MonoBehaviour
     public float startLostTime;
     public static bool isChasing;
 
+    public Animator guardAnimator;
+    public GameObject guardBodyModel;
+
     public GameObject currentMoveSpot;
     public GameObject playerToChase;
     public static NavMeshAgent agent;
@@ -33,7 +36,8 @@ public class Movement : MonoBehaviour
         {
             agent.enabled = false;
             return;
-        } else
+        }
+        else
         {
             agent.enabled = true;
         }
@@ -49,6 +53,7 @@ public class Movement : MonoBehaviour
             {
                 if (waitTime < 0)
                 {
+                    guardAnimator.SetTrigger("Patrol");
                     if (UnityEngine.Random.Range(1, 10) > 1)
                     {
                         currentMoveSpot = currentMoveSpot.GetComponent<MoveSpotScript>().adjacentMoveSpots[1];
@@ -62,6 +67,7 @@ public class Movement : MonoBehaviour
                 }
                 else
                 {
+                    guardAnimator.SetTrigger("Stand");
                     waitTime = waitTime - Time.deltaTime;
                 }
             }
@@ -73,8 +79,9 @@ public class Movement : MonoBehaviour
                 StartChasing();
             }
 
-        // Chase Movement
-        } else
+            // Chase Movement
+        }
+        else
         {
             agent.SetDestination(playerToChase.transform.position);
             if (Vector3.Distance(transform.position, playerToChase.transform.position) < 1f)
@@ -85,18 +92,18 @@ public class Movement : MonoBehaviour
                     stopUpdating = true;
                     GameHelper.LoadScene("LevelSelectorScene", true);
                 }
-                
-                
+
+
             }
 
             // Checks if too far from intended position and if player has been lost for half of lostTime.
-            if(Vector3.Distance(transform.position, currentMoveSpot.transform.position) > 100f && lostTime <= startLostTime / 2)
+            if (Vector3.Distance(transform.position, currentMoveSpot.transform.position) > 100f && lostTime <= startLostTime / 2)
             {
                 Debug.Log("Too far from movespot and lost player for a bit! Heading back.");
                 stopUpdating = false;
                 StopChasing();
             }
-            
+
             // Checks if the player has been out of the guard's cone of vision.
             if (!VisionScript.playerInSight)
             {
@@ -110,10 +117,12 @@ public class Movement : MonoBehaviour
                 {
                     lostTime = lostTime - Time.deltaTime;
                 }
-            } else {
+            }
+            else
+            {
                 lostTime = startLostTime;
             }
-            
+
         }
 
     }

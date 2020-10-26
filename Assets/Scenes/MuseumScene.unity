@@ -11944,6 +11944,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7847144917348545404, guid: 5b0defe4075a2324fb488fce3098c5ce, type: 3}
   m_PrefabInstance: {fileID: 1556445775}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1556927767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4996532340216331847, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
+  m_PrefabInstance: {fileID: 5039310785425044707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1556927769
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556927767}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7fa5827bb6b17a148bb3ddce4ec360aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1560043215
 GameObject:
   m_ObjectHideFlags: 0
@@ -15057,10 +15081,22 @@ PrefabInstance:
       propertyPath: playerToChase
       value: 
       objectReference: {fileID: 751582843}
+    - target: {fileID: 5039310786038513197, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
+      propertyPath: guardAnimator
+      value: 
+      objectReference: {fileID: 1556927769}
+    - target: {fileID: 5039310786038513197, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
+      propertyPath: guardBodyModel
+      value: 
+      objectReference: {fileID: 1556927767}
     - target: {fileID: 5039310786038513198, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 751582843}
+    - target: {fileID: 5039310786038513198, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
+      propertyPath: guardAnimator
+      value: 
+      objectReference: {fileID: 1556927769}
     - target: {fileID: 5039310786038513203, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.4
