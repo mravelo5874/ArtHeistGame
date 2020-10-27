@@ -3,27 +3,24 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
-public class ObjectivesMenuScript : MonoBehaviour
+public class ControlMenuScript : MonoBehaviour
 {
     private Vector2 defaultPos;
     private Vector2 openPos;
     private bool isOpen;
     public float duration;
 
-    [SerializeField] private GameObject objectiveTagObject;
-    private List<ObjectiveTag> objectiveTags;
-
     private IEnumerator coroutine;
 
     void Start()
     {
         defaultPos = transform.position;
-        openPos = new Vector2(defaultPos.x - Screen.width / 2.65f, defaultPos.y);
+        openPos = new Vector2(0f, defaultPos.y);
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Tab))
+        if (Input.GetKey(KeyCode.C))
         {
             if (!isOpen)
             {
@@ -67,37 +64,5 @@ public class ObjectivesMenuScript : MonoBehaviour
         }
 
         this.transform.position = target;
-    }
-
-    public void SetObjectives(List<Painting> paintings)
-    {
-        objectiveTags = new List<ObjectiveTag>();
-
-        foreach (Painting painting in paintings)
-        {
-            ObjectiveTag tag = Instantiate(objectiveTagObject, this.transform).GetComponent<ObjectiveTag>();
-            tag.SetObjective(painting);
-            objectiveTags.Add(tag);
-        }
-    }
-
-    public void CheckCompleteObjective(Painting painting)
-    {
-        foreach (ObjectiveTag objective in objectiveTags)
-        {
-            if (objective.painting == painting && !objective.isComplete)
-            {
-                objective.CompleteObjective();
-            }
-        }
-    }
-}
-
-public static class ObjectiveHelper
-{
-    public static void CheckCompleteObjective(Painting painting)
-    {
-        ObjectivesMenuScript obj = GameObject.Find("ObjectiveMenu").GetComponent<ObjectivesMenuScript>();
-        obj.CheckCompleteObjective(painting);
     }
 }

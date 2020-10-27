@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public static class MuseumHelper
+{
+    public static void SetRoofActive(bool opt)
+    {
+        var info = GameObject.Find("MuseumSceneManager").GetComponent<MuseumSceneManager>();
+        info.SetRoofActive(opt);
+    }
+}
+
 public class MuseumSceneManager : MonoBehaviour
 {   
     public bool loadLevelData;
@@ -12,6 +21,7 @@ public class MuseumSceneManager : MonoBehaviour
     [SerializeField] private List<GameObject> doors;
     [SerializeField] private List<Painting> objectives;
     [SerializeField] private List<CanvasObject> canvasObjects;
+    [SerializeField] private GameObject roof;
 
 
     [SerializeField] private MuseumSection canvasesMuseumSection0;
@@ -85,6 +95,11 @@ public class MuseumSceneManager : MonoBehaviour
         }
 
         oms.SetObjectives(objectives);
+    }
+
+    public void SetRoofActive(bool opt)
+    {
+        roof.SetActive(opt);
     }
 }
 

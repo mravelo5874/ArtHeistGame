@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         restrictMovement = false;
         instance = this;
+        playerBodyModel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -136,11 +137,13 @@ public class PlayerMovement : MonoBehaviour
         {
             MouseLook.instance.thirdPerson = true;
             playerBodyModel.SetActive(true);
+            MuseumHelper.SetRoofActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.X) && MouseLook.instance.thirdPerson)
         {
             playerBodyModel.SetActive(false);
             MouseLook.instance.thirdPerson = false;
+            MuseumHelper.SetRoofActive(true);
         }
     }
 
