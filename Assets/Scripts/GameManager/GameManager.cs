@@ -63,9 +63,9 @@ public class GameManager : DontDestroy<GameManager>
         LoadScene(0, true);
     }
 
-    public PaintingPool GetGlobalPaintingPool()
+    public List<Painting> GetGlobalPaintings()
     {
-        return globalPaintingPool;
+        return globalPaintingPool.paintings;
     }
 
     /* 
@@ -134,6 +134,7 @@ public class GameManager : DontDestroy<GameManager>
         if (!playerPaintings.Contains(painting))
             playerPaintings.Add(painting);
 
+        ObjectiveHelper.CheckCompleteObjective(painting);
         PaintingListDisplayHelper.UpdateList();
     }
 

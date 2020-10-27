@@ -25,10 +25,10 @@ public static class GameHelper
     ################################################
     */
 
-    public static PaintingPool GetGlobalPaintingPool()
+    public static List<Painting> GetGlobalPaintings()
     {
         FindGameManager();
-        return gm.GetGlobalPaintingPool();
+        return gm.GetGlobalPaintings();
     }
 
     /* 

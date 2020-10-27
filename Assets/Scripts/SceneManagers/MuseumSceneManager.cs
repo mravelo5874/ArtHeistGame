@@ -15,6 +15,8 @@ public class MuseumSceneManager : MonoBehaviour
 
 
     [SerializeField] private MuseumSection canvasesMuseumSection0;
+
+    [SerializeField] private ObjectivesMenuScript oms;
     
 
     void Awake()
@@ -40,13 +42,12 @@ public class MuseumSceneManager : MonoBehaviour
                 canvasObjects.AddRange(canvasesMuseumSection0.canavses);
             }
 
-
             if (levelData.randomizeObjectivePaintings)
             {
-                PaintingPool global = GameHelper.GetGlobalPaintingPool();
+                List<Painting> global = GameHelper.GetGlobalPaintings();
                 List<Painting> unusedPaintings = new List<Painting>();
                 List<Painting> usedPaintings = new List<Painting>();
-                unusedPaintings.AddRange(global.paintings);
+                unusedPaintings.AddRange(global);
 
                 // set canvas paintings
                 foreach (CanvasObject canvas in canvasObjects)
@@ -55,7 +56,7 @@ public class MuseumSceneManager : MonoBehaviour
                     {
                         usedPaintings.Clear();
                         unusedPaintings.Clear();
-                        unusedPaintings.AddRange(global.paintings);
+                        unusedPaintings.AddRange(global);
                         print ("reset paintings");
                         print ("unusedPainting.count: " + unusedPaintings.Count);
                     }
@@ -67,7 +68,7 @@ public class MuseumSceneManager : MonoBehaviour
                 }
                 
                 // set objectives
-                unusedPaintings = global.paintings;
+                unusedPaintings = global;
                 usedPaintings.Clear();
                 for (int i = 0; i < levelData.objectiveCount; i++)
                 {
@@ -82,6 +83,8 @@ public class MuseumSceneManager : MonoBehaviour
 
             }
         }
+
+        oms.SetObjectives(objectives);
     }
 }
 
