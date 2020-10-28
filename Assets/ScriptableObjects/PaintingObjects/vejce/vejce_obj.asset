@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: vejce_obj
+  m_EditorClassIdentifier: 
+  title: Vejce
+  artist: Josef Sima
+  medium: Pixel on Canvas
+  dateMade: 1927
+  size: {x: 1, y: 2}
+  mat: {fileID: 2100000, guid: b464409b40c14d942a0cad8fe597657b, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 26cae9fb4c9d75448886e8687b3c287f, type: 3}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: kitty_moon_obj
+  m_EditorClassIdentifier: 
+  title: Flowers Turning into the Moon
+  artist: Charles Blackman
+  medium: Pixel on Canvas
+  dateMade: ???
+  size: {x: 1, y: 1}
+  mat: {fileID: 2100000, guid: 966a4a278cfa8344c8d033de57cb8716, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 6f5f817f8606ad4408532258a3b5e601, type: 3}

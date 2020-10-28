@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: hills_obj
+  m_EditorClassIdentifier: 
+  title: Shinnecock Hills
+  artist: William Merritt Chase
+  medium: Pixel on Canvas
+  dateMade: 1895
+  size: {x: 1, y: 1}
+  mat: {fileID: 2100000, guid: f7245083c67642148a9c635b27ea32cb, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: f89da45d97fecde448de600109429f36, type: 3}

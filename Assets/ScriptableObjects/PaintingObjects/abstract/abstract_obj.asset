@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: abstract_obj
+  m_EditorClassIdentifier: 
+  title: Abstract
+  artist: Vanessa Bell
+  medium: Pixel on Canvas
+  dateMade: 1914
+  size: {x: 1, y: 1}
+  mat: {fileID: 2100000, guid: 0cb392264eddb8149a22e64667ba3517, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 81f6f80587dd2ce4b9678c4cea8bf535, type: 3}
