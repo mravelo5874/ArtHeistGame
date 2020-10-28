@@ -57,6 +57,7 @@ public class RecreateSceneManager : MonoBehaviour
     void Awake()
     {
         GameHelper.SceneInit(true); // every scene must call this in Awake()
+        AudioHelper.PlaySong(Song.hep_cats);
     }
 
     void Start()
