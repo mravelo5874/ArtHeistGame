@@ -5337,7 +5337,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f1a8a29206902af44a11ab5b78885769, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10139,7 +10139,7 @@ MonoBehaviour:
   canvasObjects: []
   roof: {fileID: 0}
   canvasesMuseumSection0: {fileID: 1549083358}
-  oms: {fileID: 0}
+  oms: {fileID: 873612043}
 --- !u!1 &760109992
 GameObject:
   m_ObjectHideFlags: 0
@@ -11388,8 +11388,20 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 449166931, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+--- !u!114 &873612043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1247242645, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+  m_PrefabInstance: {fileID: 873612042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05e08ab5ceaee94a85b8c424da89837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &889642246
 PrefabInstance:
   m_ObjectHideFlags: 0

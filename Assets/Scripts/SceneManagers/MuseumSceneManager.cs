@@ -64,28 +64,24 @@ public class MuseumSceneManager : MonoBehaviour
                 {
                     if (unusedPaintings.Count <= 0)
                     {
-                        usedPaintings.Clear();
                         unusedPaintings.Clear();
                         unusedPaintings.AddRange(global);
-                        print ("reset paintings");
-                        print ("unusedPainting.count: " + unusedPaintings.Count);
                     }
                     int index = Random.Range(0, unusedPaintings.Count - 1);
 
                     canvas.SetPainting(unusedPaintings[index]);
-                    usedPaintings.Add(unusedPaintings[index]);
+                    if (!usedPaintings.Contains(unusedPaintings[index]))
+                    {
+                        usedPaintings.Add(unusedPaintings[index]);
+                    }
                     unusedPaintings.Remove(unusedPaintings[index]);
                 }
                 
-                // set objectives
-                unusedPaintings = global;
-                usedPaintings.Clear();
                 for (int i = 0; i < levelData.objectiveCount; i++)
                 {
-                    int index = Random.Range(0, unusedPaintings.Count - 1);
-                    objectives.Add(unusedPaintings[index]);
-                    usedPaintings.Add(unusedPaintings[index]);
-                    unusedPaintings.Remove(unusedPaintings[index]);
+                    int index = Random.Range(0, usedPaintings.Count - 1);
+                    objectives.Add(usedPaintings[index]);
+                    usedPaintings.Remove(usedPaintings[index]);
                 }
             }
             else
