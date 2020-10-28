@@ -53,7 +53,6 @@ public class Movement : MonoBehaviour
             {
                 if (waitTime < 0)
                 {
-                    guardAnimator.SetTrigger("Patrol");
                     if (UnityEngine.Random.Range(1, 10) > 1)
                     {
                         currentMoveSpot = currentMoveSpot.GetComponent<MoveSpotScript>().adjacentMoveSpots[1];
@@ -70,6 +69,9 @@ public class Movement : MonoBehaviour
                     guardAnimator.SetTrigger("Stand");
                     waitTime = waitTime - Time.deltaTime;
                 }
+            } else
+            {
+                guardAnimator.SetTrigger("Patrol");
             }
 
             // If the player bumps into the guard, the guard will initiate chase.
@@ -83,6 +85,8 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            guardAnimator.SetTrigger("Chase");
+
             agent.SetDestination(playerToChase.transform.position);
             if (Vector3.Distance(transform.position, playerToChase.transform.position) < 1f)
             {
