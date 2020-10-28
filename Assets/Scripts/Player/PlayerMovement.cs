@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                Debug.Log("X:" + x + " Z:" + z);
                 thiefAnimator.SetTrigger("Walk");
             }
             if (speed > 8f)
