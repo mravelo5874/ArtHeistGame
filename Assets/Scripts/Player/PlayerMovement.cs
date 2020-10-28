@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Animator thiefAnimator;
 
-    public float speed = 8f;
+    public static float speed = 8f;
     public float gravity = -9.81f;
 
     public Transform groundCheck;

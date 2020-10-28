@@ -91,6 +91,7 @@ public class Movement : MonoBehaviour
             if (Vector3.Distance(transform.position, playerToChase.transform.position) < 1f)
             {
                 Debug.Log("Caught.");
+                PlayerMovement.speed = 0f;
                 if (!stopUpdating)
                 {
                     stopUpdating = true;
