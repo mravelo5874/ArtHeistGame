@@ -123,6 +123,24 @@ public static class GameHelper
 
     /* 
     ################################################
+    #   GAME OPTIONS
+    ################################################
+    */
+
+    public static void SetSensitivity(float num)
+    {
+        FindGameManager();
+        gm.SetSensitivity(num);
+    }
+
+    public static float GetSensitivity()
+    {
+        FindGameManager();
+        return gm.GetSensitivity();
+    }
+
+    /* 
+    ################################################
     #   FIND GAME MANAGER METHOD
     ################################################
     */

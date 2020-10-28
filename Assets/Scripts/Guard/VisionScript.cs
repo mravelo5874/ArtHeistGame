@@ -19,7 +19,7 @@ public class VisionScript : MonoBehaviour
 
     void Update()
     {
-        if (MuseumSceneStaticClass.gameIsPaused)
+        if (MuseumHelper.GetPaused())
         {
             return;
         }

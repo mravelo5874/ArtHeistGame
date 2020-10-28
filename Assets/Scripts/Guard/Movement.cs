@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
-        if (MuseumSceneStaticClass.gameIsPaused)
+        if (MuseumHelper.GetPaused())
         {
             agent.enabled = false;
             return;

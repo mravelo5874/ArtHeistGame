@@ -9,22 +9,25 @@ public class GameManager : DontDestroy<GameManager>
     [SerializeField] private GameObject raycastBlocker;
 
 
-    public const float transitionTime = 1f; // time to fade into and out of a scene (total transition time is: transitionTime * 2)
+    public const float transitionTime = 0.5f; // time to fade into and out of a scene (total transition time is: transitionTime * 2)
     public const int canvasToPixelRatio = 16; // ratio between 1 canvas size and number of pixels
 
     private List<Painting> playerPaintings; // list of paintings found in museum level
-    private List<PaintingData> recreatedPaintings; // list of paintings player recreated    
+    private List<PaintingData> recreatedPaintings; // list of paintings player recreated 
+    [SerializeField] private PaintingPool globalPaintingPool; // all paintings in the game
     
     [SerializeField] private List<Level> levels;
     private Level currLevel = null;
 
-    [SerializeField] private PaintingPool globalPaintingPool;
+    private float mouseSensitivity;
+    public const float defaultMouseSensitivty = 500f;
 
     void Start()
     {
         playerPaintings = new List<Painting>();
         recreatedPaintings = new List<PaintingData>();
         raycastBlocker.SetActive(false);
+        mouseSensitivity = defaultMouseSensitivty;
     }
 
     private void Update() 
@@ -186,5 +189,22 @@ public class GameManager : DontDestroy<GameManager>
     public Level GetCurrentLevel()
     {
         return currLevel;
+    }
+
+    /* 
+    ################################################
+    #   GAME OPTIONS
+    ################################################
+    */
+
+    public void SetSensitivity(float num)
+    {
+        if (num > 0f && num < 1000f)
+            this.mouseSensitivity = num;
+    }
+
+    public float GetSensitivity()
+    {
+        return mouseSensitivity;
     }
 }

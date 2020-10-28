@@ -15,12 +15,19 @@ public static class MuseumHelper
         var info = GameObject.Find("MuseumSceneManager").GetComponent<MuseumSceneManager>();
         return info.AllObjectivesComplete();
     }
+
+    public static bool GetPaused()
+    {
+        var info = GameObject.Find("MuseumSceneManager").GetComponent<MuseumSceneManager>();
+        return info.GetPaused();
+    }
 }
 
 public class MuseumSceneManager : MonoBehaviour
 {   
     public bool loadLevelData;
     private Level levelData;
+    private bool isPaused = false;
 
     [SerializeField] private Transform player;
     [SerializeField] private Transform exitPos;
@@ -33,6 +40,7 @@ public class MuseumSceneManager : MonoBehaviour
     [SerializeField] private MuseumSection canvasesMuseumSection0;
 
     [SerializeField] private ObjectivesMenuScript oms;
+    [SerializeField] private GameObject pausedScreen;
     
 
     void Awake()
@@ -100,6 +108,21 @@ public class MuseumSceneManager : MonoBehaviour
         oms.SetObjectives(objectives);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            isPaused = !isPaused;
+            pausedScreen.SetActive(isPaused);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        {
+            GameHelper.RestartGame();
+        }
+    }
+       
+
     public void SetRoofActive(bool opt)
     {
         roof.SetActive(opt);
@@ -109,9 +132,9 @@ public class MuseumSceneManager : MonoBehaviour
     {
         return oms.AllObjectivesComplete();
     }
-}
 
-public static class MuseumSceneStaticClass
-{
-    public static bool gameIsPaused = false;
+    public bool GetPaused()
+    {
+        return isPaused;
+    }
 }

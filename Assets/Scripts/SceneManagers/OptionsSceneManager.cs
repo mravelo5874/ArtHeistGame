@@ -9,6 +9,8 @@ public class OptionsSceneManager : MonoBehaviour
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private TextMeshProUGUI musicVolumeValue;
 
+    [SerializeField] private Slider mouseSensitivitySlider;
+    [SerializeField] private TextMeshProUGUI mouseSensitivityValue;
 
     void Awake()
     {
@@ -20,6 +22,10 @@ public class OptionsSceneManager : MonoBehaviour
         float vol = AudioHelper.GetMusicVolume();
         musicVolumeSlider.value = vol;
         musicVolumeValue.text = Mathf.RoundToInt(vol * 100f).ToString();
+
+        float sens = GameHelper.GetSensitivity();
+        mouseSensitivitySlider.value = sens;
+        mouseSensitivityValue.text = Mathf.RoundToInt(sens).ToString();
     }
 
     public void OnVolumeSliderChanged()
@@ -27,6 +33,13 @@ public class OptionsSceneManager : MonoBehaviour
         float vol = musicVolumeSlider.value;
         AudioHelper.ChangeMusicVolume(vol);
         musicVolumeValue.text = Mathf.RoundToInt(vol * 100f).ToString();
+    }
+
+    public void OnMouseSensitivitySliderChange()
+    {
+        float sens = mouseSensitivitySlider.value;
+        GameHelper.SetSensitivity(sens);
+        mouseSensitivityValue.text = Mathf.RoundToInt(sens).ToString();
     }
 
     public void OnMainMenuScenePressed()

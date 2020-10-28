@@ -13,7 +13,7 @@ public class MouseLook : MonoBehaviour
         instance = this;
     }
 
-    public float mouseSensitivity = 100f;
+    private float mouseSensitivity;
 
     public Transform playerBody;
 
@@ -32,12 +32,13 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        mouseSensitivity = GameHelper.GetSensitivity();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (MuseumSceneStaticClass.gameIsPaused)
+        if (MuseumHelper.GetPaused())
         {
             return;
         }
