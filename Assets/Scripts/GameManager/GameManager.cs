@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : DontDestroy<GameManager>
 {
     public bool devModeActivated;
+    [SerializeField] private GameObject raycastBlocker;
+
+
     public const float transitionTime = 1f; // time to fade into and out of a scene (total transition time is: transitionTime * 2)
     public const int canvasToPixelRatio = 16; // ratio between 1 canvas size and number of pixels
 
@@ -21,6 +24,7 @@ public class GameManager : DontDestroy<GameManager>
     {
         playerPaintings = new List<Painting>();
         recreatedPaintings = new List<PaintingData>();
+        raycastBlocker.SetActive(false);
     }
 
     private void Update() 
@@ -50,6 +54,7 @@ public class GameManager : DontDestroy<GameManager>
     {
         FadeHelper.FadeIn();
         yield return new WaitForSeconds(transitionTime);
+        raycastBlocker.SetActive(false);
     }
 
     /* 
@@ -86,6 +91,8 @@ public class GameManager : DontDestroy<GameManager>
 
     private IEnumerator LoadSceneCoroutine(string sceneName, bool fadeOut, float time)
     {
+        raycastBlocker.SetActive(true);
+
         if (fadeOut)
         {
             FadeHelper.FadeOut(time);
@@ -97,6 +104,8 @@ public class GameManager : DontDestroy<GameManager>
 
     private IEnumerator LoadSceneCoroutine(int sceneNum, bool fadeOut, float time)
     {
+        raycastBlocker.SetActive(true);
+
         if (fadeOut)
         {
             FadeHelper.FadeOut(time);

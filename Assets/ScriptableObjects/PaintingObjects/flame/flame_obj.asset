@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: flame_obj
   m_EditorClassIdentifier: 
   title: Flame in the Dark
-  artist: n/a
+  artist: Marco
   medium: Pixel on Canvas
-  dateMade: 10-25-2020
+  dateMade: 2020
   size: {x: 1, y: 1}
   mat: {fileID: 2100000, guid: 1df1d6ac95b89e049b7306a9741230dc, type: 2}
   paintingData_Json: {fileID: 4900000, guid: f04c15e2e5f81de4d9d2fa60619354d9, type: 3}

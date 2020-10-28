@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: mango_obj
   m_EditorClassIdentifier: 
   title: The Mango
-  artist: n/a
+  artist: Marco
   medium: Pixel on Canvas
-  dateMade: 10-25-2020
+  dateMade: 2020
   size: {x: 1, y: 1}
   mat: {fileID: 2100000, guid: 23b8be872857ace45b0bebc6d2107a00, type: 2}
   paintingData_Json: {fileID: 4900000, guid: 1a1a1ad3bfa77b346bb67f552aaf419f, type: 3}

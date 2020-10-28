@@ -6,13 +6,13 @@ public class exitscript : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && GameHelper.GetPaintingCount() >= 1)
+        if (other.CompareTag("Player") && MuseumHelper.AllObjectivesComplete())
         {
             GameHelper.LoadScene("RecreatePaintingScene", true);
         }
         else
         {
-            print ("Find a painting before exiting the level!");
+            print ("***Complete all objectives before leaving the museum!***");
         }
     }
 }

@@ -9,6 +9,12 @@ public static class MuseumHelper
         var info = GameObject.Find("MuseumSceneManager").GetComponent<MuseumSceneManager>();
         info.SetRoofActive(opt);
     }
+
+    public static bool AllObjectivesComplete()
+    {
+        var info = GameObject.Find("MuseumSceneManager").GetComponent<MuseumSceneManager>();
+        return info.AllObjectivesComplete();
+    }
 }
 
 public class MuseumSceneManager : MonoBehaviour
@@ -97,6 +103,11 @@ public class MuseumSceneManager : MonoBehaviour
     public void SetRoofActive(bool opt)
     {
         roof.SetActive(opt);
+    }
+
+    public bool AllObjectivesComplete()
+    {
+        return oms.AllObjectivesComplete();
     }
 }
 

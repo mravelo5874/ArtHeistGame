@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: limon_obj
   m_EditorClassIdentifier: 
   title: Limon
-  artist: n/a
+  artist: Marco
   medium: Pixel on Canvas
-  dateMade: 10-25-2020
+  dateMade: 2020
   size: {x: 1, y: 1}
   mat: {fileID: 2100000, guid: 03b229f40f4d24c49a41da25d45c4c74, type: 2}
   paintingData_Json: {fileID: 4900000, guid: 2eb21f5bc7eff7b44b8db0856d5ec067, type: 3}

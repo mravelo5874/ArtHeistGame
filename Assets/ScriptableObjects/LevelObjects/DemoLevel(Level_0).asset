@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Demo
   sceneName: MuseumScene
-  startPos: {x: 64, y: 3, z: 12}
-  endPos: {x: 44, y: 1.5, z: 12}
+  startPos: {x: 64, y: 1, z: 12}
+  endPos: {x: 44, y: 0, z: 12}
   randomizeObjectivePaintings: 1
   objectiveCount: 3
   objectivePaintings: []

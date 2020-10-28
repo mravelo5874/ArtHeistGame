@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: burger_obj
   m_EditorClassIdentifier: 
   title: One Burger
-  artist: n/a
+  artist: Marco
   medium: Pixel on Canvas
-  dateMade: 10-25-2020
+  dateMade: 2020
   size: {x: 1, y: 1}
   mat: {fileID: 2100000, guid: c781b2cbf775b014f8a10f77f93d70ae, type: 2}
   paintingData_Json: {fileID: 4900000, guid: cd73f2bd18bd16e45b7c8f251552df76, type: 3}

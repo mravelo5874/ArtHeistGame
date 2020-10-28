@@ -68,7 +68,6 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = newClip;
         musicSource.loop = true;
         musicSource.Play();
-        print ("play song!");
     }
 
     private AudioClip GetClipFromEnum(Song song)

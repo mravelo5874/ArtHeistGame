@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
   m_Name: bee_obj
   m_EditorClassIdentifier: 
-  title: bee
-  artist: marco
-  medium: pixel on canvas
-  dateMade: 10-21-2020
+  title: Bumble Bee
+  artist: Marco
+  medium: Pixel on Canvas
+  dateMade: 2020
   size: {x: 1, y: 1}
   mat: {fileID: 2100000, guid: 94781922b572e4845bf52099b79a6af8, type: 2}
   paintingData_Json: {fileID: 4900000, guid: 7e3581215927aeb46a1dfd9a4a68683f, type: 3}

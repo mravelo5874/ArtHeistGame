@@ -91,6 +91,16 @@ public class ObjectivesMenuScript : MonoBehaviour
             }
         }
     }
+
+    public bool AllObjectivesComplete()
+    {
+        foreach (ObjectiveTag objective in objectiveTags)
+        {
+            if (!objective.isComplete)
+                return false;
+        }
+        return true;
+    }
 }
 
 public static class ObjectiveHelper
