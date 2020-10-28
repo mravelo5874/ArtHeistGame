@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 530561784}
   - component: {fileID: 530561783}
   m_Layer: 0
-  m_Name: MenuManager
+  m_Name: LevelSelectorManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 530561782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8986054b7c1ad79499e845766c915e83, type: 3}
+  m_Script: {fileID: 11500000, guid: d34baa7f86d7833408e697b572bdb338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &530561784
@@ -1047,7 +1047,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 530561783}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelSeletorManager, Assembly-CSharp
         m_MethodName: OnLevel2ScenePressed
         m_Mode: 1
         m_Arguments:
@@ -1587,7 +1587,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 530561783}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelSeletorManager, Assembly-CSharp
         m_MethodName: OnDemoScenePressed
         m_Mode: 1
         m_Arguments:
@@ -1719,7 +1719,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 530561783}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelSeletorManager, Assembly-CSharp
         m_MethodName: OnLevel1ScenePressed
         m_Mode: 1
         m_Arguments:
@@ -1917,7 +1917,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 530561783}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelSeletorManager, Assembly-CSharp
         m_MethodName: OnMainMenuScenePressed
         m_Mode: 1
         m_Arguments:
@@ -2049,7 +2049,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 530561783}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelSeletorManager, Assembly-CSharp
         m_MethodName: OnLevel3ScenePressed
         m_Mode: 1
         m_Arguments:

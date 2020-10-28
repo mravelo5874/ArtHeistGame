@@ -32,6 +32,7 @@ public class MuseumSceneManager : MonoBehaviour
     void Awake()
     {
         GameHelper.SceneInit(true); // every scene must call this in Awake()
+        AudioHelper.PlaySong(Song.faster_does_it);
     }
 
     void Start()
