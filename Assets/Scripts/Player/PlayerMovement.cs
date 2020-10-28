@@ -70,6 +70,28 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
+        if (Input.GetKey(KeyCode.W))
+        {
+            if(Input.GetKey(KeyCode.D)) { playerBodyModel.transform.localEulerAngles = new Vector3(0, 45, 0); }
+            else if (Input.GetKey(KeyCode.A)) { playerBodyModel.transform.localEulerAngles = new Vector3(0, 315, 0); }
+            else { playerBodyModel.transform.localEulerAngles = new Vector3(0, 0, 0); }
+        } else if (Input.GetKey(KeyCode.D))
+        {
+            if (Input.GetKey(KeyCode.W)) { playerBodyModel.transform.localEulerAngles = new Vector3(0, 45, 0); }
+            else if (Input.GetKey(KeyCode.S)) { playerBodyModel.transform.localEulerAngles = new Vector3(0, 135, 0); }
+            else { playerBodyModel.transform.localEulerAngles = new Vector3(0, 90, 0); }
+        } else if (Input.GetKey(KeyCode.S))
+        {
+            if (Input.GetKey(KeyCode.D)) { playerBodyModel.transform.localEulerAngles = new Vector3(0, 135, 0); }
+            else if (Input.GetKey(KeyCode.A)) { playerBodyModel.transform.localEulerAngles = new Vector3(0, 225, 0); }
+            else { playerBodyModel.transform.localEulerAngles = new Vector3(0, 180, 0); }
+        } else if (Input.GetKey(KeyCode.A))
+        {
+            if (Input.GetKey(KeyCode.W)) { playerBodyModel.transform.localEulerAngles = new Vector3(0, 315, 0); }
+            else if (Input.GetKey(KeyCode.S)) { playerBodyModel.transform.localEulerAngles = new Vector3(0, 225, 0); }
+            else { playerBodyModel.transform.localEulerAngles = new Vector3(0, 270, 0); }
+        }
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
             if (x == 0 && z == 0)
@@ -111,7 +133,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                Debug.Log("X:" + x + " Z:" + z);
                 thiefAnimator.SetTrigger("Walk");
             }
             if (speed > 8f)
