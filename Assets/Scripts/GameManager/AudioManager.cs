@@ -18,6 +18,12 @@ public static class AudioHelper
         am.PlaySong(song);
     }
 
+    public static float GetMusicVolume()
+    {
+        FindAudioManager();
+        return am.GetMusicVolume();
+    }
+
     private static void FindAudioManager()
     {
         if (am == null) am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -39,6 +45,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip faster_does_it;
     [SerializeField] private AudioClip hep_cats;
     [SerializeField] private AudioClip hot_swing;
+
+    public float GetMusicVolume()
+    {
+        return musicSource.volume;
+    }
 
     public void ChangeMusicVolume(float num)
     {

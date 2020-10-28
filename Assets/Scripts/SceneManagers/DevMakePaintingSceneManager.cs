@@ -47,7 +47,7 @@ public static class PaintingDataHelper
 public class DevMakePaintingSceneManager : MonoBehaviour
 {
     [SerializeField] private RecreateSceneManager rsm;
-    public const string jsonSavePath = "Assets/PaintingDataExportFile/";
+    public const string jsonSavePath = "Assets/PaintingDataExportFile/used/";
     [SerializeField] private TMP_InputField paintingNameInput;
 
     public void ExportPaintingData()
