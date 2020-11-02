@@ -43,6 +43,8 @@ public class MouseLook : MonoBehaviour
             return;
         }
 
+        mouseSensitivity = GameHelper.GetSensitivity();
+
         if (!thirdPerson)
         {
             // transform.position = playerBody.position;

@@ -119,6 +119,14 @@ public class MuseumSceneManager : MonoBehaviour
         {
             isPaused = !isPaused;
             pausedScreen.SetActive(isPaused);
+            // cursor here....
+            if (isPaused)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            } else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
