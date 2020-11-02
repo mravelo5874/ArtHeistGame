@@ -41,6 +41,7 @@ public class MuseumSceneManager : MonoBehaviour
 
     [SerializeField] private ObjectivesMenuScript oms;
     [SerializeField] private GameObject pausedScreen;
+    [SerializeField] private Level defaultLevel;
     
 
     void Awake()
@@ -57,6 +58,10 @@ public class MuseumSceneManager : MonoBehaviour
         if (loadLevelData)
         {
             levelData = GameHelper.GetCurrentLevel();
+            if (levelData == null)
+            {
+                levelData = defaultLevel;
+            }
 
             player.position = levelData.startPos;
             exitPos.position = levelData.endPos;
