@@ -6,7 +6,7 @@ public static class InventoryScript
 {
     // GLOBAL SCRIPT FOR INVENTORY -> use by simply calling 'InventoryScript.Variable' or 'InventoryScript.Function()'
 
-    public static int money = 10000;
+    public static int money = 0;
 
     public static bool hasSpeedOnePills = false;
     public static bool hasFilmCamera = false;

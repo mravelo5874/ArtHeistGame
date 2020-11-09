@@ -204,7 +204,27 @@ public class PaintingJudgingSceneManager : MonoBehaviour
     private void EndScene()
     {
         StartCoroutine(SmoothChangeAccuracyAlpha(false, 0.5f));
-        GameHelper.LoadScene(0, true);
+
+        // TODO: change their money here, cause they will earn it and then go to the shop scene
+
+        string levelName = GameHelper.GetCurrentLevel().levelName;
+
+        if (levelName == "Demo")
+        {
+            InventoryScript.money = 100;
+        } else if (levelName == "Level 1")
+        {
+            InventoryScript.money = 200;
+        } else if (levelName == "Level 2")
+        {
+            InventoryScript.money = 300;
+        } else if (levelName == "Level 3")
+        {
+            InventoryScript.money = 400;
+        }
+
+        // load the shop scene so they can buy the thing...
+        GameHelper.LoadScene(3, true);
     }
 
     private void NextPainting()
