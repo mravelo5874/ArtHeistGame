@@ -36,18 +36,24 @@ public class MuseumSceneManager : MonoBehaviour
     [SerializeField] private List<CanvasObject> canvasObjects;
     [SerializeField] private GameObject roof;
 
+    public List<CanvasObject> objectiveCanvases;
+
 
     [SerializeField] private MuseumSection canvasesMuseumSection0;
 
     [SerializeField] private ObjectivesMenuScript oms;
     [SerializeField] private GameObject pausedScreen;
     [SerializeField] private Level defaultLevel;
+
+    public static MuseumSceneManager instance;
     
 
     void Awake()
     {
         GameHelper.SceneInit(true); // every scene must call this in Awake()
         AudioHelper.PlaySong(Song.faster_does_it);
+
+        instance = this;
     }
 
     void Start()
@@ -111,6 +117,7 @@ public class MuseumSceneManager : MonoBehaviour
         }
 
         oms.SetObjectives(objectives);
+        assignObjectiveCanvases(); // need to keep track of the actual objects that have the paintings we are looking for
     }
 
     void Update()
@@ -132,6 +139,41 @@ public class MuseumSceneManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
         {
             GameHelper.RestartGame();
+        }
+    }
+
+    public void assignObjectiveCanvases()
+    {
+        // need to look through the canvases and pick out which ones are the objectives
+        // weird, but the top part was done weird so idk
+
+        foreach (Painting painting in objectives)
+        {
+            foreach (CanvasObject canvas in canvasObjects)
+            {
+                if (canvas.painting == painting) // if the canvas object has the matching objective painting info?
+                {
+                    objectiveCanvases.Add(canvas);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void removeObjectiveCanvas(Painting painting)
+    {
+        // remove from the list of objectiveCanvases the painting that was just aquired
+        //Debug.Log("remove me from the list!");
+        //don't know if its even in the list, but can try to remove anyways
+
+        for (int i = 0; i < objectiveCanvases.Count; i++)
+        {
+            CanvasObject currentCanvas = objectiveCanvases[i];
+            if (currentCanvas.painting == painting)
+            {
+                objectiveCanvases.RemoveAt(i);
+                break;
+            }
         }
     }
        

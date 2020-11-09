@@ -4058,6 +4058,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1456602221, guid: 2e48ac280be31654f89b5db4b88f781a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2217028596534136320, guid: 2e48ac280be31654f89b5db4b88f781a, type: 3}
       propertyPath: m_Name
       value: TheGameManager
@@ -12637,6 +12641,7 @@ MonoBehaviour:
   objectives: []
   canvasObjects: []
   roof: {fileID: 758412128}
+  objectiveCanvases: []
   canvasesMuseumSection0: {fileID: 1549083358}
   oms: {fileID: 873612043}
   pausedScreen: {fileID: 31255701}
@@ -14170,7 +14175,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8574349635605347932, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: distanceText
+      value: 
+      objectReference: {fileID: 873612045}
+    - target: {fileID: 8574349635605347932, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 751582843}
+    m_RemovedComponents:
+    - {fileID: 7109942439817206297, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
 --- !u!114 &873612043 stripped
 MonoBehaviour:
@@ -14188,6 +14202,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 31255702, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
   m_PrefabInstance: {fileID: 873612042}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &873612045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1021803867069886661, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+  m_PrefabInstance: {fileID: 873612042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &879227859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 75e56097e27af3243b1ad4d5f4b4df7b, type: 3}
@@ -29681,6 +29706,10 @@ PrefabInstance:
     - target: {fileID: 5039310786038513193, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
       propertyPath: m_Name
       value: Guard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039310786038513193, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5039310786038513197, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
       propertyPath: currentMoveSpot

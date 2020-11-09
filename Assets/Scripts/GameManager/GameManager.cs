@@ -148,6 +148,7 @@ public class GameManager : DontDestroy<GameManager>
 
         ObjectiveHelper.CheckCompleteObjective(painting);
         PaintingListDisplayHelper.UpdateList();
+        MuseumSceneManager.instance.removeObjectiveCanvas(painting);
     }
 
     public void ClearPaintingList()

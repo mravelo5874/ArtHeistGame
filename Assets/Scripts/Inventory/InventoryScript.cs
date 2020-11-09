@@ -19,16 +19,7 @@ public static class InventoryScript
     public static bool hasBlinker = false;
     public static bool hasDonut = false;
 
-    public static void setMoney(int newAmount) // TODO: don't use this method... (use specific item methods instead)
-    {
-        if (newAmount < 0)
-        {
-            Debug.Log("negative money not allowed");
-        } else
-        {
-            money = newAmount;
-        }
-    }
+    public static bool hasHotCold = false;
 
     public static void buySpeedOne()
     {
@@ -44,6 +35,7 @@ public static class InventoryScript
         hasSpeedOnePills = true;
         money -= 100; // TODO: could make the cost of 'speedOnePills' into a variable listed at the top for easy access
     }
+
 
     public static void buyFilmCamera()
     {
@@ -133,5 +125,17 @@ public static class InventoryScript
         }
         hasDonut = true;
         money -= 100;
+    }
+    public static void buyHotCold()
+    {
+        if (hasHotCold)
+        {
+            return; // feedback to user if any check fails...
+        }
+
+        // other checks for if they have the money...
+
+        hasHotCold = true;
+        money -= 100; // TODO: use constant instead of value
     }
 }
