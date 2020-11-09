@@ -17,7 +17,7 @@ public class GameManager : DontDestroy<GameManager>
     [SerializeField] private PaintingPool globalPaintingPool; // all paintings in the game
     
     [SerializeField] private List<Level> levels;
-    private Level currLevel = null;
+    public Level currLevel = null;
 
     private float mouseSensitivity;
     public const float defaultMouseSensitivty = 500f;
@@ -28,6 +28,11 @@ public class GameManager : DontDestroy<GameManager>
         recreatedPaintings = new List<PaintingData>();
         raycastBlocker.SetActive(false);
         mouseSensitivity = defaultMouseSensitivty;
+    }
+
+    public Level getCurrLevel()
+    {
+        return this.currLevel;
     }
 
     private void Update() 
