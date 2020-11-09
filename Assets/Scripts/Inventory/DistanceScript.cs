@@ -44,7 +44,8 @@ public class DistanceScript : MonoBehaviour
             float distance = Vector3.Distance(playerPosition, canvasPosition);
 
             distanceText.text = "Distance = " + distance; // use smallestDistance if looping through all objectives at once to find nearest...
-        } else
+        } 
+        else
         {
             distanceText.text = "";
         }

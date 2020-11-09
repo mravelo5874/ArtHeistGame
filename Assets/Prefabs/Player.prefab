@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &1519575086
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3921970768471679855}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6ebc7874db35e2b47b43369d46d49ee1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5566296133165986686
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +32,7 @@ GameObject:
   - component: {fileID: 179354898440085035}
   - component: {fileID: 5687805231606189897}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Cylinder(UseForBuggyModel)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,6 +127,7 @@ GameObject:
   - component: {fileID: 8943438084187815188}
   - component: {fileID: 8943438084187815190}
   - component: {fileID: 7941299186281115685}
+  - component: {fileID: 751582848}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -144,7 +164,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -164,14 +184,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8943438084187815188}
-  speed: 8
+  thiefAnimator: {fileID: 1519575086}
   gravity: -9.81
   groundCheck: {fileID: 8943438084252921451}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  playerBodyModel: {fileID: 0}
+  playerBodyModel: {fileID: 3921970768471679855}
 --- !u!114 &7941299186281115685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +206,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showRay: 0
   cam: {fileID: 8943438084991121227}
+--- !u!136 &751582848
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943438084187815187}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8943438084252921450
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8943438084991121225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8943438084187815189}
@@ -313,11 +347,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6df0495a38b3ea45af1f52d9a823a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1000
   playerBody: {fileID: 8943438084187815189}
   thirdPerson: 0
   painting: {fileID: 0}
-  cameraHeightFirstPersonValue: 5
+  cameraHeightFirstPersonValue: 1.5
 --- !u!114 &732876386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,16 +427,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: -6640553659328910654, guid: ba0b1881a1672284cb23b352663bc976, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d46c2d61ffa0cca40af376c96f6f7e0f, type: 2}
     - target: {fileID: 919132149155446097, guid: ba0b1881a1672284cb23b352663bc976, type: 3}
       propertyPath: m_Name
       value: thief_Idle
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ba0b1881a1672284cb23b352663bc976, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba0b1881a1672284cb23b352663bc976, type: 3}
+--- !u!1 &3921970768471679855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ba0b1881a1672284cb23b352663bc976, type: 3}
+  m_PrefabInstance: {fileID: 4227976747849965118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4406335793430804949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba0b1881a1672284cb23b352663bc976, type: 3}
