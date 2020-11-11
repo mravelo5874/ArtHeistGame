@@ -18,7 +18,7 @@ public class DistanceScript : MonoBehaviour
     void Update()
     {
         // update the distance calculation if they do have it...
-        if (InventoryScript.hasHotCold)
+        if (InventoryScript.hasHotCold && MuseumSceneManager.instance.objectiveCanvases.Count != 0)
         {
             // figure out the distance to the nearest canvas
 
@@ -42,8 +42,8 @@ public class DistanceScript : MonoBehaviour
             // CODE FOR FIRST ONE IN THE LIST (PROBABLY BETTER TO STICK WITH ONE AT A TIME)
             Vector3 canvasPosition = MuseumSceneManager.instance.objectiveCanvases[0].transform.position;
             float distance = Vector3.Distance(playerPosition, canvasPosition);
-
-            distanceText.text = "Distance = " + distance; // use smallestDistance if looping through all objectives at once to find nearest...
+            
+            distanceText.text = "Distance = " + Mathf.Max(distance - 1.9f, 0).ToString("F2"); // use smallestDistance if looping through all objectives at once to find nearest...
         } 
         else
         {
