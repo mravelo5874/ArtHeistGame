@@ -6,7 +6,7 @@ public class exitscript : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && MuseumHelper.AllObjectivesComplete())
+        if (other.CompareTag("Player")) //  && MuseumHelper.AllObjectivesComplete()
         {
             GameHelper.LoadScene("RecreatePaintingScene", true);
         }

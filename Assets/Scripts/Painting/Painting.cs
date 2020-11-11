@@ -13,4 +13,5 @@ public class Painting : ScriptableObject
     public Vector2Int size;
     public Material mat;
     public TextAsset paintingData_Json;
+    public Texture2D texture;
 }

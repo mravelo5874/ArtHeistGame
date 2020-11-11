@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
     private Camera fps_cam;
     private bool camOn;
     public const float defaultFOV = 60f;
-    public const float cameraFOV = 30f;
+    public const float cameraFOV = 45f;
     [SerializeField] private float resetFOVTime;
 
     void Awake() 

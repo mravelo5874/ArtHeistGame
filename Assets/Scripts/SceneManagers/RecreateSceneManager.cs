@@ -126,18 +126,29 @@ public class RecreateSceneManager : MonoBehaviour
 
         // set fill tool
         SetFillLabels();
+
+        // show painting intro
+        PaintingIntroManager.SetStartPainting_static(paintings[currCanvasIndex]);
     }
 
     public void OnFinshedButtonPressed()
     {
-        // save player painting data in GameManager
-        GameHelper.ClearRecreatedPaintingList();
-        foreach (RecreateCanvasObject canvas in canvases)
+        if (currCanvasIndex != paintings.Count - 1) // go to next canvas
         {
-            GameHelper.AddPaintingToRecreatedList(canvas.GetPaintingData());
+            GoToRightCanvas();
+            PaintingIntroManager.SetStartPainting_static(paintings[currCanvasIndex]);
         }
-        
-        GameHelper.LoadScene("PaintingJudgingScene", true);
+        else // go to judging scene
+        {
+            // save player painting data in GameManager
+            GameHelper.ClearRecreatedPaintingList();
+            foreach (RecreateCanvasObject canvas in canvases)
+            {
+                GameHelper.AddPaintingToRecreatedList(canvas.GetPaintingData());
+            }
+            
+            GameHelper.LoadScene("PaintingJudgingScene", true);
+        }
     }
 
     public void GoToLeftCanvas()
