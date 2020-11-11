@@ -25,8 +25,8 @@ public class InventoryUIScript : MonoBehaviour
         PillsImageEmpty.SetActive(!InventoryScript.hasSpeedOnePills);
         PillsImage.SetActive(InventoryScript.hasSpeedOnePills);
 
-        GameItem2Empty.SetActive(true);
-        GameItem2.SetActive(false);
+        GameItem2Empty.SetActive(!InventoryScript.hasHotCold);
+        GameItem2.SetActive(InventoryScript.hasHotCold);
 
         GameItem3Empty.SetActive(true);
         GameItem3.SetActive(false);
@@ -42,8 +42,8 @@ public class InventoryUIScript : MonoBehaviour
         PillsImageEmpty.SetActive(!InventoryScript.hasSpeedOnePills);
         PillsImage.SetActive(InventoryScript.hasSpeedOnePills);
 
-        GameItem2Empty.SetActive(true);
-        GameItem2.SetActive(false);
+        GameItem2Empty.SetActive(!InventoryScript.hasHotCold);
+        GameItem2.SetActive(InventoryScript.hasHotCold);
 
         GameItem3Empty.SetActive(true);
         GameItem3.SetActive(false);
