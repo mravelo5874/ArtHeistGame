@@ -207,20 +207,23 @@ public class PaintingJudgingSceneManager : MonoBehaviour
 
         // TODO: change their money here, cause they will earn it and then go to the shop scene
 
-        string levelName = GameHelper.GetCurrentLevel().levelName;
+        // string levelName = GameHelper.GetCurrentLevel().levelName;
 
-        if (levelName == "Demo")
+        // TODO: figure out if they did well enough to progress through to the next level...
+        // also figure out based on if it is easy mode or hard mode (or anything else that might affect it...)
+
+        if (LevelTrackerStaticClass.levelNum == 0)
         {
+            LevelTrackerStaticClass.levelNum = 1;
             InventoryScript.money = 100;
-        } else if (levelName == "Level 1")
+        } else if (LevelTrackerStaticClass.levelNum == 1)
         {
+            LevelTrackerStaticClass.levelNum = 2;
             InventoryScript.money = 200;
-        } else if (levelName == "Level 2")
+        } else if (LevelTrackerStaticClass.levelNum == 2)
         {
+            LevelTrackerStaticClass.levelNum = 3;
             InventoryScript.money = 300;
-        } else if (levelName == "Level 3")
-        {
-            InventoryScript.money = 400;
         }
 
         // load the shop scene so they can buy the thing...
