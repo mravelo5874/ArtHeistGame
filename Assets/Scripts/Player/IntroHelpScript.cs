@@ -46,7 +46,7 @@ public class IntroHelpScript : MonoBehaviour
             currentTask = 5;
         }
 
-        if (GameHelper.GetCurrentLevel().levelName == "Demo")
+        if (GameHelper.GetCurrentLevel().levelName == "Level 1")
         {
             if (currentTask == 0)
             {
