@@ -12,6 +12,12 @@ public static class CameraHelper
         cc.SetFOV(num);
     }
 
+    public static void SetCameraFOV(bool opt)
+    {
+        FindCameraController();
+        cc.SetCameraFOV(opt);
+    }
+
     public static void ResetFOV()
     {
         FindCameraController();
@@ -28,7 +34,9 @@ public static class CameraHelper
 public class CameraController : MonoBehaviour
 {
     private Camera fps_cam;
+    private bool camOn;
     public const float defaultFOV = 60f;
+    public const float cameraFOV = 30f;
     [SerializeField] private float resetFOVTime;
 
     void Awake() 
@@ -39,12 +47,33 @@ public class CameraController : MonoBehaviour
 
     public void SetFOV(float num)
     {
-        fps_cam.fieldOfView = num;
+        if (!camOn)
+        {
+            fps_cam.fieldOfView = num;
+            print ("setting FOV to: " + num);
+        }
+    }
+
+    public void SetCameraFOV(bool opt)
+    {
+        if (opt)
+        {
+            StopAllCoroutines();
+            SetFOV(cameraFOV);
+            this.camOn = opt;
+        }
+        else
+        {
+            StopAllCoroutines();
+            this.camOn = opt;
+            SetFOV(defaultFOV);
+        }
     }
 
     public void ResetFOV()
     {
-        StartCoroutine(SmoothResetFOV());
+        if (!camOn)
+            StartCoroutine(SmoothResetFOV());
     }
 
     private IEnumerator SmoothResetFOV()
@@ -53,7 +82,7 @@ public class CameraController : MonoBehaviour
         while (true)
         {
             timer += Time.deltaTime;
-            fps_cam.fieldOfView = Mathf.Lerp(fps_cam.fieldOfView, defaultFOV, timer / resetFOVTime);
+            SetFOV(Mathf.Lerp(fps_cam.fieldOfView, defaultFOV, timer / resetFOVTime));
 
             if (timer > resetFOVTime)
             {

@@ -4,52 +4,73 @@ using UnityEngine;
 
 public class CameraItem : MonoBehaviour
 {
-    [SerializeField] private Camera playerCamera;
-    [SerializeField] private Transform cameraObject;
+    [SerializeField] private Camera cam;
+    [SerializeField] private GameObject cameraOverlay;
+    [SerializeField] private CanvasGroup flash;
     [SerializeField] private MouseLook lookScript;
+    [SerializeField] private PlayerMovement playerScript;
+    public static bool cameraOn;
+    public static int photoCount = 0;
 
-    private bool cameraActive;
-    public float distance;
+    private const float flashFadeDuration = 2f;
+    private bool takeScreenShotNextFrame;
+
+    void Start()
+    {
+        cameraOn = false;
+        cameraOverlay.SetActive(false);
+        flash.alpha = 0f;
+    }
 
     void Update()
     {
-        if (!lookScript.thirdPerson && Input.GetKeyDown(KeyCode.LeftShift))
-        {   
-            MoveCameraToFace();
-        }
-        else
+        if (!cameraOn && !lookScript.thirdPerson && Input.GetKeyDown(KeyCode.LeftShift)) // turn cam on
         {
-            PutCameraBack();
+            cameraOn = true;
+            CameraHelper.SetCameraFOV(true);
+            playerScript.ToggleMovement(true);
+            cameraOverlay.SetActive(true);
         }
-    }
-
-    public void MoveCameraToFace()
-    {
-        if (!cameraActive)
+        else if (cameraOn && Input.GetKeyDown(KeyCode.LeftShift)) // turn cam off
         {
-            cameraActive = true;
-            StartCoroutine(MoveCameraToFaceCoroutine());
-        }
-    }
+            // remove any flashes
+            StopAllCoroutines();
+            flash.alpha = 0f;
 
-    public void PutCameraBack()
-    {
-        if (cameraActive)
+            cameraOn = false;
+            CameraHelper.SetCameraFOV(false);
+            playerScript.ToggleMovement(false);
+            cameraOverlay.SetActive(false);
+        }
+
+        if (cameraOn && Input.GetMouseButtonDown(0)) // take picture
         {
-            cameraActive = false;
+            // get screenshot
+            ScreenShotHandler.TakeScreenShot_static(450, 450);
+
+            // flash
+            StartCoroutine(Flash());
         }
     }
 
-    private IEnumerator MoveCameraToFaceCoroutine()
-    {
-        cameraObject.gameObject.SetActive(true);
-        cameraObject.position = playerCamera.transform.position + playerCamera.transform.forward * distance;
-        yield return null;
-    }
+    
 
-    private IEnumerator PutCameraBackCoroutine()
-    {
-        cameraObject.gameObject.SetActive(false);
-        yield return null;
-    }
+   private IEnumerator Flash()
+   {
+       flash.alpha = 1f;
+       yield return new WaitForSeconds(0.2f);
+       
+       float timer = 0f;
+       while (true)
+       {
+           timer += Time.deltaTime;
+           if (timer >= flashFadeDuration)
+           {
+               break;
+           }
+           flash.alpha = Mathf.Lerp(1f, 0f, (timer / flashFadeDuration));
+           yield return null;
+       }
+       flash.alpha = 0f;
+   }
 }

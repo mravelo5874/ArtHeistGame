@@ -55,7 +55,7 @@ public class CanvasObject : MonoBehaviour
             }
 
             // player must hold down mouse button for certain amount of time
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && !CameraItem.cameraOn)
             {
                 PlayerMovementHelper.ToggleMovement(true); // restrict player movement
 
@@ -79,18 +79,27 @@ public class CanvasObject : MonoBehaviour
             else
             {
                 timer = 0f; // reset timer if player stops holding down button
-                PlayerMovementHelper.ToggleMovement(false);
+
+                if (!CameraItem.cameraOn)
+                {
+                    PlayerMovementHelper.ToggleMovement(false);
+                    CameraHelper.ResetFOV();
+                }
+                
                 CircleFillHelper.SetFillAmount(0f);
-                CameraHelper.ResetFOV();
             }
         }
         else
         {
             if (!firstTimeLooking)
             {
-                PlayerMovementHelper.ToggleMovement(false);
+                if (!CameraItem.cameraOn)
+                {
+                    PlayerMovementHelper.ToggleMovement(false);
+                    CameraHelper.ResetFOV();
+                }
+                
                 CircleFillHelper.SetFillAmount(0f);
-                CameraHelper.ResetFOV();
                 firstTimeLooking = true;
             }
         }

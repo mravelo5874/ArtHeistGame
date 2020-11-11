@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         // switch between 3rd person and 1st person
-        if (Input.GetKeyDown(KeyCode.X) && !MouseLook.instance.thirdPerson)
+        if (Input.GetKeyDown(KeyCode.X) && !MouseLook.instance.thirdPerson && !CameraItem.cameraOn)
         {
             MouseLook.instance.thirdPerson = true;
             playerBodyModel.SetActive(true);

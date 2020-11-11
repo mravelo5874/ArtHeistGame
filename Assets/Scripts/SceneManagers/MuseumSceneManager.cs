@@ -67,6 +67,7 @@ public class MuseumSceneManager : MonoBehaviour
             if (levelData == null)
             {
                 levelData = defaultLevel;
+                GameHelper.SetGetLevelData(0);
             }
 
             player.position = levelData.startPos;

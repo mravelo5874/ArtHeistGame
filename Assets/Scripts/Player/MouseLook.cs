@@ -28,6 +28,7 @@ public class MouseLook : MonoBehaviour
 
     public float cameraHeightFirstPersonValue = 5f;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +70,8 @@ public class MouseLook : MonoBehaviour
             }
 
             
-        } else
+        } 
+        else
         {
             // initial movement of camera to third person position
             //if (transform.position == playerBody.position)
