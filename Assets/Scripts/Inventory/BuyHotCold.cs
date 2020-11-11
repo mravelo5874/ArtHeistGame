@@ -10,6 +10,10 @@ public class BuyHotCold : MonoBehaviour
     private void OnMouseDown()
     {
         InventoryScript.buyHotCold();
+    }
+
+    private void OnMouseOver()
+    {
         ShopItemInfo.ChangeItemInfo(name, info);
     }
 }

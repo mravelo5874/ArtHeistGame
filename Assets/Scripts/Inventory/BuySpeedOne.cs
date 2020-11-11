@@ -12,4 +12,9 @@ public class BuySpeedOne : MonoBehaviour
         InventoryScript.buySpeedOne();
         ShopItemInfo.ChangeItemInfo(name, info);
     }
+
+    private void OnMouseOver()
+    {
+        ShopItemInfo.ChangeItemInfo(name, info);
+    }
 }
