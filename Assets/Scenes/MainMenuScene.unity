@@ -1959,7 +1959,7 @@ GameObject:
   - component: {fileID: 234128737}
   - component: {fileID: 234128736}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: LevelsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10467,7 +10467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: Levels
 --- !u!222 &1729746584
 CanvasRenderer:
   m_ObjectHideFlags: 0
