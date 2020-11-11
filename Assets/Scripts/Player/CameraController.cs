@@ -50,7 +50,7 @@ public class CameraController : MonoBehaviour
         if (!camOn)
         {
             fps_cam.fieldOfView = num;
-            print ("setting FOV to: " + num);
+            //print ("setting FOV to: " + num);
         }
     }
 

@@ -36,6 +36,8 @@ public static class InventoryScript
             return;
         }
 
+        // doing it again cause maybe didn't exist yet...
+        speedPills = GameObject.Find("SpeedOnePills");
         speedPills.GetComponent<Renderer>().material.SetColor("_Color",
             new Color(speedPills.GetComponent<Renderer>().material.color.r, speedPills.GetComponent<Renderer>().material.color.g, speedPills.GetComponent<Renderer>().material.color.b, 0.1f));
         speedPills.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");

@@ -224,6 +224,10 @@ public class PaintingJudgingSceneManager : MonoBehaviour
         {
             LevelTrackerStaticClass.levelNum = 3;
             InventoryScript.money = 300;
+        } else if (LevelTrackerStaticClass.levelNum == 3)
+        {
+            // unlock the demo level at the end
+            LevelTrackerStaticClass.levelNum = 4;
         }
 
         // load the shop scene so they can buy the thing...

@@ -18,26 +18,26 @@ public class LevelSeletorManager : MonoBehaviour
 
     public void OnLevel1ScenePressed()
     {
-        Level level = GameHelper.SetGetLevelData(0);
+        Level level = GameHelper.SetGetLevelData(1);
         GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel2ScenePressed()
     {
         // TODO: could figure out if able to press this yet?
-        Level level = GameHelper.SetGetLevelData(1);
+        Level level = GameHelper.SetGetLevelData(2);
         GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel3ScenePressed()
     {
-        Level level = GameHelper.SetGetLevelData(2);
+        Level level = GameHelper.SetGetLevelData(3);
         GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel4ScenePressed()
     {
-        Level level = GameHelper.SetGetLevelData(3);
+        Level level = GameHelper.SetGetLevelData(4);
         GameHelper.LoadScene(level.sceneName, true);
     }
 

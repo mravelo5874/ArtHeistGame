@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 577d6220cdcf1ea4281de47e3f73fcfa, type: 3}
-  m_Name: DemoLevel(Level_0)
+  m_Name: FreePlay
   m_EditorClassIdentifier: 
   levelName: Demo
   sceneName: MuseumScene
-  startPos: {x: 64, y: 1, z: 12}
+  startPos: {x: 64, y: 0, z: 12}
   endPos: {x: 44, y: 0, z: 12}
   randomizeObjectivePaintings: 1
-  objectiveCount: 3
+  objectiveCount: 1
   objectivePaintings: []
   lockDoor0: 1
   museumSection0: 1

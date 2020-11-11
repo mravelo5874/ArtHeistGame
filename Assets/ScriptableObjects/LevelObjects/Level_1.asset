@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577d6220cdcf1ea4281de47e3f73fcfa, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  levelName: Level 1
+  levelName: Level 2
   sceneName: MuseumScene
+  startPos: {x: 64, y: 0, z: 12}
+  endPos: {x: 44, y: 0, z: 12}
+  randomizeObjectivePaintings: 1
+  objectiveCount: 2
+  objectivePaintings: []
+  lockDoor0: 1
+  museumSection0: 1
