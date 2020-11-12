@@ -36,7 +36,7 @@ public class VisionScript : MonoBehaviour
 
                 if (hit.collider.gameObject == player)
                 {
-                    Debug.Log("RUN.");
+                    // Debug.Log("RUN.");
                     if (!playerInSight)
                     {
                         Movement.StartChasing();

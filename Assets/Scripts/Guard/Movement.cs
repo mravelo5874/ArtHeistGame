@@ -95,7 +95,8 @@ public class Movement : MonoBehaviour
                 if (!stopUpdating)
                 {
                     stopUpdating = true;
-                    GameHelper.LoadScene("LevelSelectorScene", true);
+                    CaughtText.updateDisplay();
+                    GameHelper.LoadScene("LevelSelectorScene", true, 3) ; // need to load a separate scene or some text that says you got caught
                 }
 
 
