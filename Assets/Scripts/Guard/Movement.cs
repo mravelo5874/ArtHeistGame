@@ -90,7 +90,7 @@ public class Movement : MonoBehaviour
             agent.SetDestination(playerToChase.transform.position);
             if (Vector3.Distance(transform.position, playerToChase.transform.position) < 1f)
             {
-                Debug.Log("Caught.");
+                // Debug.Log("Caught.");
                 PlayerMovement.speed = 0f;
                 if (!stopUpdating)
                 {

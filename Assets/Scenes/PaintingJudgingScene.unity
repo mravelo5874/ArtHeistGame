@@ -376,6 +376,7 @@ MonoBehaviour:
     position: {x: -32.5, y: 18.2, z: -95}
   cam: {fileID: 212019681}
   timeChangeCameraPos: 1
+  accuracyCounter: 0
 --- !u!4 &260935411
 Transform:
   m_ObjectHideFlags: 0
@@ -738,7 +739,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -243.61893, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

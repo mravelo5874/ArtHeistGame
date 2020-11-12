@@ -8,6 +8,9 @@ public static class InventoryScript
 
     public static int money = 300;
 
+    public static int difficultySetting = 0; // 0 is easy, 1 is medium, 2 is hard (expert)
+    public static int[] difficultyThreshholds = { -100, 40, 80 };
+
     public static bool hasSpeedOnePills = false;
     public static GameObject speedPills = GameObject.Find("SpeedOnePills");
 

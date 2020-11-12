@@ -26,6 +26,8 @@ public class PaintingJudgingSceneManager : MonoBehaviour
     public float timeChangeCameraPos;
     private IEnumerator moveCamCoroutine;
 
+    public double accuracyCounter;
+
     void Awake() 
     {
         GameHelper.SceneInit(true);
@@ -33,6 +35,7 @@ public class PaintingJudgingSceneManager : MonoBehaviour
 
     void Start()
     {
+        accuracyCounter = 0;
         nextButton.gameObject.SetActive(false);
         canvases = new List<RecreateCanvasObject>();
         paintings = GameHelper.GetRecreatedPaintingList();
@@ -163,7 +166,9 @@ public class PaintingJudgingSceneManager : MonoBehaviour
         // show percentage of accuracy to original painting
         StartCoroutine(RandomAccuracyGenerator(3f));
         yield return new WaitForSeconds(3f);
-        accuracyText.text = "Accuracy: " + System.Math.Round(GetTruePaintingAccuracy(index), 2) + "%";
+        double accuracyNumber = System.Math.Round(GetTruePaintingAccuracy(index), 2);
+        accuracyCounter += accuracyNumber;
+        accuracyText.text = "Accuracy: " + accuracyNumber + "%";
 
         // show how much money is awarded
         
@@ -203,35 +208,51 @@ public class PaintingJudgingSceneManager : MonoBehaviour
 
     private void EndScene()
     {
-        StartCoroutine(SmoothChangeAccuracyAlpha(false, 0.5f));
+        // StartCoroutine(SmoothChangeAccuracyAlpha(false, 0.5f));
 
-        // TODO: change their money here, cause they will earn it and then go to the shop scene
+        // accuracy number = total accuracy added up (50% + 60% + 40% = 150)
+        // divide by number of paintings that were analyzed
+        // see if that number is above a certain threshhold...
 
-        // string levelName = GameHelper.GetCurrentLevel().levelName;
+        int accuracy = (int)Mathf.Floor((float)(accuracyCounter / canvases.Count));
+        //Debug.Log(accuracy);
 
-        // TODO: figure out if they did well enough to progress through to the next level...
-        // also figure out based on if it is easy mode or hard mode (or anything else that might affect it...)
+        // if they weren't good enough
+        if (accuracy < InventoryScript.difficultyThreshholds[InventoryScript.difficultySetting])
+        {
+            // TODO: show message that they weren't good enough...
+            accuracyText.text = "Failed: needed " + InventoryScript.difficultyThreshholds[InventoryScript.difficultySetting] + "% average";
+            GameHelper.LoadScene(0, true, 5); // load the main menu...?
+        } else
+        {
+            // they were good enough, progress through the levels...(only if they aren't on a previous level)
 
-        if (LevelTrackerStaticClass.levelNum == 0)
-        {
-            LevelTrackerStaticClass.levelNum = 1;
-            InventoryScript.money = 100;
-        } else if (LevelTrackerStaticClass.levelNum == 1)
-        {
-            LevelTrackerStaticClass.levelNum = 2;
-            InventoryScript.money = 200;
-        } else if (LevelTrackerStaticClass.levelNum == 2)
-        {
-            LevelTrackerStaticClass.levelNum = 3;
-            InventoryScript.money = 300;
-        } else if (LevelTrackerStaticClass.levelNum == 3)
-        {
-            // unlock the demo level at the end
-            LevelTrackerStaticClass.levelNum = 4;
+            if (LevelTrackerStaticClass.levelNum == 0 && LevelTrackerStaticClass.currentLevel == 0)
+            {
+                LevelTrackerStaticClass.levelNum = 1;
+                InventoryScript.money = 100;
+            }
+            else if (LevelTrackerStaticClass.levelNum == 1 && LevelTrackerStaticClass.currentLevel == 1)
+            {
+                LevelTrackerStaticClass.levelNum = 2;
+                InventoryScript.money = 200;
+            }
+            else if (LevelTrackerStaticClass.levelNum == 2 && LevelTrackerStaticClass.currentLevel == 2)
+            {
+                LevelTrackerStaticClass.levelNum = 3;
+                InventoryScript.money = 300;
+            }
+            else if (LevelTrackerStaticClass.levelNum == 3 && LevelTrackerStaticClass.currentLevel == 3)
+            {
+                // unlock the demo level at the end
+                LevelTrackerStaticClass.levelNum = 4;
+            }
+
+            // load the shop scene so they can buy the thing...
+            GameHelper.LoadScene(3, true);
         }
 
-        // load the shop scene so they can buy the thing...
-        GameHelper.LoadScene(3, true);
+        
     }
 
     private void NextPainting()
