@@ -12,14 +12,14 @@ public class LevelSeletorManager : MonoBehaviour
 
     public void OnDemoScenePressed()
     {
-        Level level = GameHelper.SetGetLevelData(0);
+        Level level = GameHelper.SetGetLevelData(4);
         LevelTrackerStaticClass.currentLevel = 4; // TODO: not sure how to handle this yet, be careful
         GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel1ScenePressed()
     {
-        Level level = GameHelper.SetGetLevelData(1);
+        Level level = GameHelper.SetGetLevelData(0);
         LevelTrackerStaticClass.currentLevel = 0;
         GameHelper.LoadScene(level.sceneName, true);
     }
@@ -27,21 +27,21 @@ public class LevelSeletorManager : MonoBehaviour
     public void OnLevel2ScenePressed()
     {
         // TODO: could figure out if able to press this yet?
-        Level level = GameHelper.SetGetLevelData(2);
+        Level level = GameHelper.SetGetLevelData(1);
         LevelTrackerStaticClass.currentLevel = 1;
         GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel3ScenePressed()
     {
-        Level level = GameHelper.SetGetLevelData(3);
+        Level level = GameHelper.SetGetLevelData(2);
         LevelTrackerStaticClass.currentLevel = 2;
         GameHelper.LoadScene(level.sceneName, true);
     }
 
     public void OnLevel4ScenePressed()
     {
-        Level level = GameHelper.SetGetLevelData(4);
+        Level level = GameHelper.SetGetLevelData(3);
         LevelTrackerStaticClass.currentLevel = 3;
         GameHelper.LoadScene(level.sceneName, true);
     }

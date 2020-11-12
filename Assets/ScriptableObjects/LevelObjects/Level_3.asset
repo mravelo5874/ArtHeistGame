@@ -17,7 +17,7 @@ MonoBehaviour:
   startPos: {x: 64, y: 0, z: 12}
   endPos: {x: 44, y: 0, z: 12}
   randomizeObjectivePaintings: 1
-  objectiveCount: 4
+  objectiveCount: 3
   objectivePaintings: []
   lockDoor0: 1
   museumSection0: 1

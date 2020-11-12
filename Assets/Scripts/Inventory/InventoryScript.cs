@@ -6,7 +6,7 @@ public static class InventoryScript
 {
     // GLOBAL SCRIPT FOR INVENTORY -> use by simply calling 'InventoryScript.Variable' or 'InventoryScript.Function()'
 
-    public static int money = 300;
+    public static int money = 0;
 
     public static int difficultySetting = 0; // 0 is easy, 1 is medium, 2 is hard (expert)
     public static int[] difficultyThreshholds = { -100, 40, 80 };
@@ -56,7 +56,7 @@ public static class InventoryScript
             Debug.Log("Already have Hot-or-Cold Pills!");
             return; // feedback to user if any check fails...
         }
-        else if (money < 100)
+        else if (money < 200)
         {
             Debug.Log("Not enough money for Hot-or-Cold Pills!");
             return;
@@ -78,7 +78,7 @@ public static class InventoryScript
         }
 
         hasFilmCamera = true;
-        money -= 100;
+        money -= 300;
     }
 
     public static void buyDigitalCamera()

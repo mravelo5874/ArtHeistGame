@@ -231,25 +231,33 @@ public class PaintingJudgingSceneManager : MonoBehaviour
             {
                 LevelTrackerStaticClass.levelNum = 1;
                 InventoryScript.money = 100;
+                // load the shop scene so they can buy the thing...
+                GameHelper.LoadScene(3, true);
             }
             else if (LevelTrackerStaticClass.levelNum == 1 && LevelTrackerStaticClass.currentLevel == 1)
             {
                 LevelTrackerStaticClass.levelNum = 2;
                 InventoryScript.money = 200;
+                // load the shop scene so they can buy the thing...
+                GameHelper.LoadScene(3, true);
             }
             else if (LevelTrackerStaticClass.levelNum == 2 && LevelTrackerStaticClass.currentLevel == 2)
             {
                 LevelTrackerStaticClass.levelNum = 3;
                 InventoryScript.money = 300;
+                // load the shop scene so they can buy the thing...
+                GameHelper.LoadScene(3, true);
             }
             else if (LevelTrackerStaticClass.levelNum == 3 && LevelTrackerStaticClass.currentLevel == 3)
             {
                 // unlock the demo level at the end
                 LevelTrackerStaticClass.levelNum = 4;
+
+                // load the credits scene
+                GameHelper.LoadScene(7, true, 6); // slow fade for credits
             }
 
-            // load the shop scene so they can buy the thing...
-            GameHelper.LoadScene(3, true);
+            
         }
 
         
