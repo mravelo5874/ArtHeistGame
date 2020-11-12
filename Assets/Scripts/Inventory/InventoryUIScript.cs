@@ -28,8 +28,8 @@ public class InventoryUIScript : MonoBehaviour
         GameItem2Empty.SetActive(!InventoryScript.hasHotCold);
         GameItem2.SetActive(InventoryScript.hasHotCold);
 
-        GameItem3Empty.SetActive(true);
-        GameItem3.SetActive(false);
+        GameItem3Empty.SetActive(!InventoryScript.hasDigitalCamera);
+        GameItem3.SetActive(InventoryScript.hasDigitalCamera);
 
         GameItem4Empty.SetActive(true);
         GameItem4.SetActive(false);
@@ -45,8 +45,8 @@ public class InventoryUIScript : MonoBehaviour
         GameItem2Empty.SetActive(!InventoryScript.hasHotCold);
         GameItem2.SetActive(InventoryScript.hasHotCold);
 
-        GameItem3Empty.SetActive(true);
-        GameItem3.SetActive(false);
+        GameItem3Empty.SetActive(!InventoryScript.hasDigitalCamera);
+        GameItem3.SetActive(InventoryScript.hasDigitalCamera);
 
         GameItem4Empty.SetActive(true);
         GameItem4.SetActive(false);
