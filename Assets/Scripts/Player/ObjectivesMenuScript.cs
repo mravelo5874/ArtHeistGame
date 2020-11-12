@@ -83,6 +83,8 @@ public class ObjectivesMenuScript : MonoBehaviour
 
     public void CheckCompleteObjective(Painting painting)
     {
+        IntroHelpScript.currentTask = 8; // called when any painting is gotten? (may need to move below to only progress after objective is gotten)
+
         foreach (ObjectiveTag objective in objectiveTags)
         {
             if (objective.painting == painting && !objective.isComplete)

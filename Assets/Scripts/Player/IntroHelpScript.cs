@@ -8,7 +8,7 @@ public class IntroHelpScript : MonoBehaviour
 
     public TextMeshProUGUI helperText;
 
-    int currentTask = 0;
+    public static int currentTask = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,19 +31,34 @@ public class IntroHelpScript : MonoBehaviour
             currentTask = 2;
         }
 
-        if (Input.GetKey(KeyCode.R) && currentTask == 2)
+        if (Input.GetKey(KeyCode.LeftShift) && currentTask == 2)
         {
             currentTask = 3;
         }
 
-        if (Input.GetKey(KeyCode.Tab) && currentTask == 3)
+        if (Input.GetKey(KeyCode.LeftControl) && currentTask == 3)
         {
             currentTask = 4;
         }
 
-        if (Input.GetMouseButtonDown(0) && currentTask == 4)
+        if (Input.GetKey(KeyCode.R) && currentTask == 4)
         {
             currentTask = 5;
+        }
+
+        if (Input.GetKey(KeyCode.R) && currentTask == 5)
+        {
+            currentTask = 6; // need to unpause, so hit R again
+        }
+
+        if (Input.GetKey(KeyCode.Tab) && currentTask == 6)
+        {
+            currentTask = 7;
+        }
+
+        if (Input.GetMouseButtonDown(0) && currentTask == 7)
+        {
+            //currentTask = 8; // handled by ObjectivesMenuScript -> CheckCompleteObjective()
         }
 
         if (GameHelper.GetCurrentLevel().levelName == "Level 1")
@@ -51,22 +66,42 @@ public class IntroHelpScript : MonoBehaviour
             if (currentTask == 0)
             {
                 helperText.text = "WASD to Move";
-            } else if (currentTask == 1)
-            {
-                helperText.text = "X to switch between POVs";
-            } else if (currentTask == 2)
-            {
-                helperText.text = "R to open Pause Menu";
-            } else if (currentTask == 3)
-            {
-                helperText.text = "TAB to open Objectives";
-            } else if (currentTask == 4)
-            {
-                helperText.text = "Hold Left Mouse When \nLooking at a painting to \nadd it";
-            } else if (currentTask == 5)
-            {
-                helperText.text = "";
             }
+            else if (currentTask == 1)
+            {
+                helperText.text = "X to switch POV";
+            }
+            else if (currentTask == 2)
+            {
+                helperText.text = "LeftShift to Run";
+            }
+            else if (currentTask == 3)
+            {
+                helperText.text = "LeftControl to Crouch";
+            }
+            else if (currentTask == 4)
+            {
+                helperText.text = "R to Pause";
+            }
+            else if (currentTask == 5)
+            {
+                helperText.text = ""; // don't interfere with pause menu text 
+            }
+            else if (currentTask == 6)
+            {
+                helperText.text = "Tab for Objectives";
+            }
+            else if (currentTask == 7)
+            {
+                helperText.text = "Look at paintings - click and hold to capture";
+            }
+            else if (currentTask == 8)
+            {
+                helperText.text = "Find all objectives, then exit on the green circle.";
+            }
+
+
+
         } else
         {
             helperText.text = "";

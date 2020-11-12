@@ -12102,7 +12102,7 @@ MonoBehaviour:
   canvasesMuseumSection0: {fileID: 1549083358}
   oms: {fileID: 873612043}
   pausedScreen: {fileID: 31255701}
-  defaultLevel: {fileID: 11400000, guid: 7b435ed43bf1f5e408ae8c11975db8e1, type: 2}
+  defaultLevel: {fileID: 0}
 --- !u!1 &760109992
 GameObject:
   m_ObjectHideFlags: 0
