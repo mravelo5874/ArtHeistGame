@@ -12,6 +12,6 @@ public class ScriptToUpdateMoney : MonoBehaviour
 
     void Update()
     {
-        moneyText.text = "Money: $" + InventoryScript.money;
+        moneyText.text = "$" + InventoryScript.money;
     }
 }
