@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using TMPro;
+//using UnityEditor.Scripting.Python;
 
 [System.Serializable]
 public class PaintingData
@@ -47,11 +48,35 @@ public static class PaintingDataHelper
 public class DevMakePaintingSceneManager : MonoBehaviour
 {
     [SerializeField] private RecreateSceneManager rsm;
-    public const string jsonSavePath = "Assets/PaintingDataExportFile/used/";
-    [SerializeField] private TMP_InputField paintingNameInput;
+    public const string folderSavePath = "Assets/ScriptableObjects/PaintingObjects/";
+
+    private bool exportPopupActive;
+    [SerializeField] private GameObject exportPopupWindow;
+    [SerializeField] private TMP_InputField fileNameInput;
+    [SerializeField] private TMP_InputField paintingTitleInput;
+    [SerializeField] private TMP_InputField artistNameInput;
+    [SerializeField] private TMP_InputField mediumInput;
+    [SerializeField] private TMP_InputField yearMadeInput;
+
+    void Start() 
+    {
+        exportPopupActive = false;
+        exportPopupWindow.SetActive(false);
+    }
+
+    public void ToggleExportPopupWindow()
+    {
+        exportPopupActive = !exportPopupActive;
+        exportPopupWindow.SetActive(exportPopupActive);
+    }
 
     public void ExportPaintingData()
     {
+        // create folder 
+        var folder = Directory.CreateDirectory(folderSavePath + fileNameInput);
+        print ("{Painting data file created @ " + folder.FullName + "}");
+
+        // create json data
         Vector2Int canvasSize = rsm.GetWidthHeight();
 
         List<CellData> canvasCells = new List<CellData>();
@@ -66,21 +91,24 @@ public class DevMakePaintingSceneManager : MonoBehaviour
         PaintingData data = new PaintingData(canvasSize, hexColors, canvasCells);
 
         string jsonData = JsonUtility.ToJson(data , true);
-        File.WriteAllText(jsonSavePath + paintingNameInput.text + "_data.txt", jsonData);
+        File.WriteAllText(folder.FullName + fileNameInput.text + "_data.txt", jsonData);
+        print ("{json data file created @ " + folder.FullName + fileNameInput.text + "_data.txt}");
 
-        print ("{Painting data file created @ " + jsonSavePath + paintingNameInput.text + "_data.txt}");
+        // create png image
+        //PythonRunnner.
     }
 
-    public void ImportPaintingData()
-    {
-        if (File.Exists(jsonSavePath + paintingNameInput.text + "_data.txt"))
-        {
-            print ("{Painting data file found @ " + jsonSavePath + paintingNameInput.text + "_data.txt}");
+    
+    // public void ImportPaintingData()
+    // {
+    //     if (File.Exists(jsonSavePath + paintingNameInput.text + "_data.txt"))
+    //     {
+    //         print ("{Painting data file found @ " + jsonSavePath + paintingNameInput.text + "_data.txt}");
             
-            string fileString = File.ReadAllText(jsonSavePath + paintingNameInput.text + "_data.txt");
-            PaintingData paintingData = JsonUtility.FromJson<PaintingData>(fileString);
+    //         string fileString = File.ReadAllText(jsonSavePath + paintingNameInput.text + "_data.txt");
+    //         PaintingData paintingData = JsonUtility.FromJson<PaintingData>(fileString);
 
-            rsm.LoadPainting(paintingData);
-        }
-    }
+    //         rsm.LoadPainting(paintingData);
+    //     }
+    // }
 }
