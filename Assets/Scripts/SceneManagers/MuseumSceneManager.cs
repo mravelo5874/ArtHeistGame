@@ -36,6 +36,12 @@ public class MuseumSceneManager : MonoBehaviour
     [SerializeField] private List<CanvasObject> canvasObjects;
     [SerializeField] private GameObject roof;
 
+    [SerializeField] private GameObject guard;
+    [SerializeField] private GameObject guardspot0;
+    [SerializeField] private GameObject guardspot1;
+    [SerializeField] private GameObject guardspot2;
+    [SerializeField] private GameObject guardspot3;
+
     public List<CanvasObject> objectiveCanvases;
 
 
@@ -70,9 +76,22 @@ public class MuseumSceneManager : MonoBehaviour
                 GameHelper.SetGetLevelData(0);
             }
 
+            // should have 3 doors, but could error here if not properly set
+            doors[0].SetActive(levelData.lockDoor0);
+            doors[1].SetActive(levelData.lockDoor1);
+            doors[2].SetActive(levelData.lockDoor2);
+
+            guard.SetActive(levelData.guardEnabled);
+            // guard starts at the first spot? (should probably be tested) (makes more sense to not start exactly on the first spot but a little away from it? (could have data for this))
+            guard.transform.position = levelData.guardspot0;
+
+            guardspot0.transform.position = levelData.guardspot0;
+            guardspot1.transform.position = levelData.guardspot1;
+            guardspot2.transform.position = levelData.guardspot2;
+            guardspot3.transform.position = levelData.guardspot3;
+
             player.position = levelData.startPos;
             exitPos.position = levelData.endPos;
-            doors[0].SetActive(levelData.lockDoor0);
 
             if (levelData.museumSection0)
             {

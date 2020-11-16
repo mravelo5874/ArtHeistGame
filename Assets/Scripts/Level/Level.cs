@@ -14,7 +14,18 @@ public class Level : ScriptableObject
     public int objectiveCount;
     public List<Painting> objectivePaintings;
 
-    public bool lockDoor0;
+    public bool guardEnabled;
 
+    // used for the patrol path the guard takes in the level
+    public Vector3 guardspot0;
+    public Vector3 guardspot1;
+    public Vector3 guardspot2;
+    public Vector3 guardspot3;
+
+    public bool lockDoor0; // locked on level 0, unlocked level 1
+    public bool lockDoor1; // unlocked level 2
+    public bool lockDoor2; // unlocked level 3
+
+    // similar to lockDoors?
     public bool museumSection0;
 }
