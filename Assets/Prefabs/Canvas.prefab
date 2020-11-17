@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a75ba2607bf97a4db440856b98035ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  painting: {fileID: 11400000, guid: 885689e37d8d9db43b682eaa77aa351a, type: 2}
+  painting: {fileID: 0}
   outlineWidth: 1.1
   outlineSpeed: 0.2
   outlineCompletedColor: {r: 0, g: 1, b: 0.57301307, a: 1}

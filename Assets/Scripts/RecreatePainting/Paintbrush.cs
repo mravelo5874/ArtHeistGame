@@ -154,7 +154,7 @@ public class Paintbrush : MonoBehaviour
         
         CanvasCell cell = canvas[pos.x, pos.y];
 
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(0);
 
         if (cell.isFilled)
             yield break;

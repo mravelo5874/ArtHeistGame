@@ -79,6 +79,17 @@ public class RecreateSceneManager : MonoBehaviour
             currCanvas = canvases[0];
             currCanvasIndex = 0;
             SetCameraPosition();
+
+            // set brush size
+            PaintbrushHelper.SetBrushSize(1);
+            brushSizeLabel.text = PaintbrushHelper.GetBrushSize().ToString();
+
+            // set grid tool
+            SetGrid(showGrid);
+
+            // set fill tool
+            SetFillLabels();
+            return;
         }
         else if (paintings.Count > 0)
         {

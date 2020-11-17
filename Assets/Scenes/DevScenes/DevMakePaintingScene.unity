@@ -823,7 +823,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rsm: {fileID: 1060560118}
-  paintingNameInput: {fileID: 0}
   exportPopupWindow: {fileID: 1107326654}
   fileNameInput: {fileID: 48535475}
   paintingTitleInput: {fileID: 658621791}
@@ -5101,6 +5100,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1119563131, guid: 2e48ac280be31654f89b5db4b88f781a, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2217028596534136320, guid: 2e48ac280be31654f89b5db4b88f781a, type: 3}
       propertyPath: m_Name
       value: TheGameManager
@@ -7653,7 +7656,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 124227598}
         m_TargetAssemblyTypeName: DevMakePaintingSceneManager, Assembly-CSharp
-        m_MethodName: ToggleExportPopupWindow
+        m_MethodName: ExportPaintingData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
