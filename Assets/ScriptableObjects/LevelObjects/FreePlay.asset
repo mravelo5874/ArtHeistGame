@@ -19,5 +19,7 @@ MonoBehaviour:
   randomizeObjectivePaintings: 1
   objectiveCount: 1
   objectivePaintings: []
-  lockDoor0: 1
+  lockDoor0: 0
+  lockDoor1: 0
+  lockDoor2: 0
   museumSection0: 1
