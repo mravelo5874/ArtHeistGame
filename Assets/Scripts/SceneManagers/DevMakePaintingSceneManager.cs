@@ -48,8 +48,7 @@ public static class PaintingDataHelper
 public class DevMakePaintingSceneManager : MonoBehaviour
 {
     [SerializeField] private RecreateSceneManager rsm;
-    public const string folderSavePath = "Assets/ScriptableObjects/PaintingObjects/";
-    public const string pythonArgumentsPath = "Assets/Python/python_arguments.txt";
+    public const string folderSavePath = "Assets\\Resources\\PaintingObjects\\";
 
     private bool exportPopupActive;
     [SerializeField] private GameObject exportPopupWindow;
@@ -108,15 +107,20 @@ public class DevMakePaintingSceneManager : MonoBehaviour
 
         // create png from json data
         Texture2D texture = CreatePNG(data, folder.FullName + "\\" + fileNameInput.text + "_img.png");
+        texture.filterMode = FilterMode.Point;
         print ("{PNG data file created @ " +  folder.FullName + "\\" + fileNameInput.text + "_img.png");
 
         // create material 
-        var material = new Material(Shader.Find("Standard"));
+        Material material = new Material(Shader.Find("Standard"));
         material.SetTexture("_MainTex", texture);
-        AssetDatabase.CreateAsset(material, folder.FullName + "\\" + fileNameInput.text + "_mat.mat");
+        string mat_path = "Assets\\Resources\\" + fileNameInput.text + "_mat.mat";
+        AssetDatabase.CreateAsset(material, mat_path);
+        print ("{Material data file created @ " + "Assets\\Resources\\" + fileNameInput.text + "_mat.mat}");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        print ("{Material data file created @ " +  folder.FullName + "\\" + fileNameInput.text + "_mat.mat}");
+        File.Move(mat_path, folder.FullName + "\\" + fileNameInput.text + "_mat.mat");
+        print ("{Material data file moved to @ " + folder.FullName + "\\" + fileNameInput.text + "_mat.mat}");
+        
 
         // create painting object
         Painting painting = new Painting();
@@ -127,21 +131,15 @@ public class DevMakePaintingSceneManager : MonoBehaviour
         painting.dateMade = yearMadeInput.text;
         painting.mat = material;
         painting.paintingData_Json = textAsset;
-        AssetDatabase.CreateAsset(painting, folder.FullName + "\\" + fileNameInput.text + "_obj");
+        string obj_path = "Assets\\Resources\\" + fileNameInput.text + "_obj";
+        AssetDatabase.CreateAsset(painting, obj_path);
+        print ("{Painting data file created @ " + "Assets\\Resources\\" + fileNameInput.text + "_obj}");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        print ("{Painting data file created @ " +  folder.FullName + "\\" + fileNameInput.text + "_obj}");
+        File.Move(obj_path, folder.FullName + "\\" + fileNameInput.text + "_obj");
+        print ("{Painting data file move to @ " + folder.FullName + "\\" + fileNameInput.text + "_obj}");
+        
     }
-
-    TextAsset ConvertStringToTextAsset(string text) 
-    {
-        string temporaryTextFileName = "TemporaryTextFile";
-        File.WriteAllText(Application.dataPath +  "/Resources/" + temporaryTextFileName + ".txt", text);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-        TextAsset textAsset = Resources.Load(temporaryTextFileName) as TextAsset;
-        return textAsset;
-     }
 
     private Texture2D CreatePNG(PaintingData data, string pngSavePath)
     {
