@@ -103,23 +103,36 @@ public class DevMakePaintingSceneManager : MonoBehaviour
         AssetDatabase.Refresh();
         print ("{json data file created @ " + folder.FullName + "\\" + fileNameInput.text + "_data.txt}");
         TextAsset jsonText = new TextAsset();
-        TextAsset textAsset = Resources.Load(folder.FullName + "\\" + fileNameInput.text + "_data.txt") as TextAsset;
+        TextAsset textAsset = Resources.Load(folder.FullName + "\\" + fileNameInput.text + "_data") as TextAsset;
 
         // create png from json data
-        Texture2D texture = CreatePNG(data, folder.FullName + "\\" + fileNameInput.text + "_img.png");
-        texture.filterMode = FilterMode.Point;
+        CreatePNG(data, folder.FullName + "\\" + fileNameInput.text + "_img.png");
         print ("{PNG data file created @ " +  folder.FullName + "\\" + fileNameInput.text + "_img.png");
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Texture2D texture = Resources.Load("PaintingObjects\\" + fileNameInput.text + "\\" + fileNameInput.text + "_img") as Texture2D;
+        
+        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(folder.FullName + "\\" + fileNameInput.text + "_img.png");
+        importer.filterMode = FilterMode.Point;
+        
 
         // create material 
         Material material = new Material(Shader.Find("Standard"));
-        material.SetTexture("_MainTex", texture);
         string mat_path = "Assets\\Resources\\" + fileNameInput.text + "_mat.mat";
         AssetDatabase.CreateAsset(material, mat_path);
         print ("{Material data file created @ " + "Assets\\Resources\\" + fileNameInput.text + "_mat.mat}");
+        File.Move(mat_path, folder.FullName + "\\" + fileNameInput.text + "_mat.mat");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        File.Move(mat_path, folder.FullName + "\\" + fileNameInput.text + "_mat.mat");
         print ("{Material data file moved to @ " + folder.FullName + "\\" + fileNameInput.text + "_mat.mat}");
+        Material loaded_material = Resources.Load("PaintingObjects\\" + fileNameInput.text + "\\" + fileNameInput.text + "_mat") as Material;
+        if (loaded_material != null)
+        {
+            loaded_material.SetTexture("_MainTex", texture);
+            print ("material updated!");
+        }
+        else
+            Debug.LogError("Loaded material is NULL!");
         
 
         // create painting object
