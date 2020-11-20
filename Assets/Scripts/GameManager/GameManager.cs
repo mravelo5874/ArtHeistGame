@@ -181,7 +181,7 @@ public class GameManager : DontDestroy<GameManager>
 
     public Level SetGetLevelData(int levelIndex)
     {
-        if (levelIndex < levels.Count && levelIndex > 0)
+        if (levelIndex < levels.Count && levelIndex >= 0)
             this.currLevel = levels[levelIndex];
         else
         {
