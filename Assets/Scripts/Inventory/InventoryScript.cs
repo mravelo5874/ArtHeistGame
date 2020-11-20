@@ -55,6 +55,8 @@ public static class InventoryScript
             return;
         }
 
+        hotCold = GameObject.Find("HotCold");
+
         hotCold.GetComponent<Renderer>().material.SetColor("_Color",
             new Color(hotCold.GetComponent<Renderer>().material.color.r, hotCold.GetComponent<Renderer>().material.color.g, hotCold.GetComponent<Renderer>().material.color.b, 0.1f));
         hotCold.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
@@ -75,6 +77,8 @@ public static class InventoryScript
             Debug.Log("Not enough money for the Camera!");
             return;
         }
+
+        digitalCamera = GameObject.Find("DigitalCamera");
 
         digitalCamera.GetComponent<Renderer>().material.SetColor("_Color",
             new Color(digitalCamera.GetComponent<Renderer>().material.color.r, digitalCamera.GetComponent<Renderer>().material.color.g, digitalCamera.GetComponent<Renderer>().material.color.b, 0.1f));

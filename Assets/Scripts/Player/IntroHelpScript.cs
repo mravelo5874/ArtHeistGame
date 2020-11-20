@@ -56,9 +56,11 @@ public class IntroHelpScript : MonoBehaviour
             currentTask = 7;
         }
 
-        if (Input.GetMouseButtonDown(0) && currentTask == 7)
+        // currentTask = 8; // handled by ObjectivesMenuScript -> CheckCompleteObjective()
+
+        if (Input.GetKey(KeyCode.F) && currentTask == 8)
         {
-            //currentTask = 8; // handled by ObjectivesMenuScript -> CheckCompleteObjective()
+            currentTask = 9;
         }
 
         if (GameHelper.GetCurrentLevel().levelName == "Level 1")
@@ -99,12 +101,21 @@ public class IntroHelpScript : MonoBehaviour
             {
                 helperText.text = "Find all objectives, then exit on the green circle.";
             }
-
-
-
         } else
         {
             helperText.text = "";
+        }
+
+        if (GameHelper.GetCurrentLevel().levelName == "Level 4" && InventoryScript.hasDigitalCamera)
+        {
+            if (currentTask == 8)
+            {
+                helperText.text = "Press F to toggle the camera";
+            }
+            else if (currentTask == 9)
+            {
+                helperText.text = "";
+            }
         }
     }
 }
