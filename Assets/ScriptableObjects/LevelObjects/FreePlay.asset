@@ -12,14 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577d6220cdcf1ea4281de47e3f73fcfa, type: 3}
   m_Name: FreePlay
   m_EditorClassIdentifier: 
-  levelName: Demo
+  levelName: FreePlay
   sceneName: MuseumScene
-  startPos: {x: 64, y: 0, z: 12}
+  startPos: {x: 64, y: 1, z: 12}
   endPos: {x: 44, y: 0, z: 12}
   randomizeObjectivePaintings: 1
   objectiveCount: 1
   objectivePaintings: []
-  lockDoor0: 0
-  lockDoor1: 0
-  lockDoor2: 0
+  guardEnabled: 0
+  guardspot0: {x: 0, y: 0, z: 0}
+  guardspot1: {x: 0, y: 0, z: 0}
+  guardspot2: {x: 0, y: 0, z: 0}
+  guardspot3: {x: 0, y: 0, z: 0}
+  lockDoors0: 0
+  lockDoors1: 0
+  lockDoors2: 0
+  lockDoors3: 0
   museumSection0: 1
+  museumSection1: 1
+  museumSection2: 1
+  museumSection3: 1
+  museumSection4: 1

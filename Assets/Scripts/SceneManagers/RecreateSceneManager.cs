@@ -144,22 +144,74 @@ public class RecreateSceneManager : MonoBehaviour
 
     public void OnFinshedButtonPressed()
     {
-        if (currCanvasIndex != paintings.Count - 1) // go to next canvas
+        // prompt "Are you sure?" popup
+        StartCoroutine(AreYouSureCoroutine());
+    }
+
+    private bool areYouSure_no = false;
+    private bool areYouSure_yes = false;
+    [SerializeField] private GameObject AreYouSurePopup;
+    [SerializeField] private GameObject raycastblocker;
+
+    private IEnumerator AreYouSureCoroutine()
+    {
+        // show popup
+        DetectCellHelper.BlockRaycasts(true);
+        raycastblocker.SetActive(true);
+        AreYouSurePopup.SetActive(true);
+
+        while(true)
         {
-            GoToRightCanvas();
-            PaintingIntroManager.SetStartPainting_static(paintings[currCanvasIndex]);
-        }
-        else // go to judging scene
-        {
-            // save player painting data in GameManager
-            GameHelper.ClearRecreatedPaintingList();
-            foreach (RecreateCanvasObject canvas in canvases)
+            if (areYouSure_no)
             {
-                GameHelper.AddPaintingToRecreatedList(canvas.GetPaintingData());
+                break;
             }
-            
-            GameHelper.LoadScene("PaintingJudgingScene", true);
+            else if (areYouSure_yes)
+            {
+                if (currCanvasIndex != paintings.Count - 1) // go to next canvas
+                {
+                    GoToRightCanvas();
+                    PaintingIntroManager.SetStartPainting_static(paintings[currCanvasIndex]);
+                }
+                else // go to judging scene
+                {
+                   EndScene();
+                }
+                break;
+            }
+
+            yield return null;
         }
+
+        areYouSure_no = false;
+        areYouSure_yes = false;
+
+        // remove popup
+        DetectCellHelper.BlockRaycasts(false);
+        raycastblocker.SetActive(false);
+        AreYouSurePopup.SetActive(false);
+    }
+
+    public void AreYouSure_YES()
+    {
+        areYouSure_yes = true;
+    }
+
+    public void AreYouSure_NO()
+    {
+        areYouSure_no = true;
+    }
+
+    private void EndScene()
+    {
+        // save player painting data in GameManager
+        GameHelper.ClearRecreatedPaintingList();
+        foreach (RecreateCanvasObject canvas in canvases)
+        {
+            GameHelper.AddPaintingToRecreatedList(canvas.GetPaintingData());
+        }
+        
+        GameHelper.LoadScene("PaintingJudgingScene", true);
     }
 
     public void GoToLeftCanvas()

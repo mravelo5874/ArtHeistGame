@@ -15,6 +15,7 @@ public class PaintingIntroManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI paintingText;
     [SerializeField] private TextMeshProUGUI timeLeftText;
     [SerializeField] private RawImage paintingImage;
+    [SerializeField] private GameObject raycastBlocker;
 
     void Awake()
     {
@@ -36,7 +37,8 @@ public class PaintingIntroManager : MonoBehaviour
         paintingText.text = "Recreating: " + painting.title;
         timeLeftText.text = "Time left: " + timeToShowIntro;
         paintingImage.texture = painting.texture;
-        paintingImage.rectTransform.sizeDelta = new Vector2(painting.size.x * 150f, painting.size.y * 150f);
+        paintingImage.rectTransform.sizeDelta = new Vector2(painting.size.x * 100f, painting.size.y * 100f);
+        raycastBlocker.SetActive(true);
 
         StartCoroutine(PaintingIntroCoroutine());
     }
@@ -73,6 +75,7 @@ public class PaintingIntroManager : MonoBehaviour
 
         canvasGroup.alpha = 0f;
         DetectCellHelper.BlockRaycasts(false);
+        raycastBlocker.SetActive(false);
     }
 
     public void SkipIntro()
@@ -95,5 +98,6 @@ public class PaintingIntroManager : MonoBehaviour
 
         canvasGroup.alpha = 0f;
         DetectCellHelper.BlockRaycasts(false);
+        raycastBlocker.SetActive(false);
     }
 }

@@ -44,8 +44,11 @@ public class MuseumSceneManager : MonoBehaviour
 
     public List<CanvasObject> objectiveCanvases;
 
-
     [SerializeField] private MuseumSection canvasesMuseumSection0;
+    [SerializeField] private MuseumSection canvasesMuseumSection1;
+    [SerializeField] private MuseumSection canvasesMuseumSection2;
+    [SerializeField] private MuseumSection canvasesMuseumSection3;
+    [SerializeField] private MuseumSection canvasesMuseumSection4;
 
     [SerializeField] private ObjectivesMenuScript oms;
     [SerializeField] private GameObject pausedScreen;
@@ -77,9 +80,10 @@ public class MuseumSceneManager : MonoBehaviour
             }
 
             // should have 3 doors, but could error here if not properly set
-            doors[0].SetActive(levelData.lockDoor0);
-            doors[1].SetActive(levelData.lockDoor1);
-            doors[2].SetActive(levelData.lockDoor2);
+            doors[0].SetActive(levelData.lockDoors0);
+            doors[1].SetActive(levelData.lockDoors1);
+            doors[2].SetActive(levelData.lockDoors2);
+            doors[3].SetActive(levelData.lockDoors3);
 
             guard.SetActive(levelData.guardEnabled);
             // guard starts at the first spot? (should probably be tested) (makes more sense to not start exactly on the first spot but a little away from it? (could have data for this))
@@ -93,9 +97,26 @@ public class MuseumSceneManager : MonoBehaviour
             player.position = levelData.startPos;
             exitPos.position = levelData.endPos;
 
+            // add correct canvases
             if (levelData.museumSection0)
             {
                 canvasObjects.AddRange(canvasesMuseumSection0.canavses);
+            }
+            if (levelData.museumSection1)
+            {
+                canvasObjects.AddRange(canvasesMuseumSection1.canavses);
+            }
+            if (levelData.museumSection2)
+            {
+                canvasObjects.AddRange(canvasesMuseumSection2.canavses);
+            }
+            if (levelData.museumSection3)
+            {
+                canvasObjects.AddRange(canvasesMuseumSection3.canavses);
+            }
+            if (levelData.museumSection4)
+            {
+                canvasObjects.AddRange(canvasesMuseumSection4.canavses);
             }
 
             if (levelData.randomizeObjectivePaintings)
@@ -123,6 +144,8 @@ public class MuseumSceneManager : MonoBehaviour
                     unusedPaintings.Remove(unusedPaintings[index]);
                 }
                 
+                // set objective paintings
+                GameHelper.ClearPaintingList();
                 for (int i = 0; i < levelData.objectiveCount; i++)
                 {
                     int index = Random.Range(0, usedPaintings.Count - 1);
@@ -174,6 +197,7 @@ public class MuseumSceneManager : MonoBehaviour
                 if (canvas.painting == painting) // if the canvas object has the matching objective painting info?
                 {
                     objectiveCanvases.Add(canvas);
+                    canvas.isObjective = true;
                     break;
                 }
             }

@@ -106,16 +106,9 @@ public class DevMakePaintingSceneManager : MonoBehaviour
         TextAsset textAsset = Resources.Load(folder.FullName + "\\" + fileNameInput.text + "_data") as TextAsset;
 
         // create png from json data
-        CreatePNG(data, folder.FullName + "\\" + fileNameInput.text + "_img.png");
+        Texture2D texture = CreatePNG(data, folder.FullName + "\\" + fileNameInput.text + "_img.png");
         print ("{PNG data file created @ " +  folder.FullName + "\\" + fileNameInput.text + "_img.png");
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-        Texture2D texture = Resources.Load("PaintingObjects\\" + fileNameInput.text + "\\" + fileNameInput.text + "_img") as Texture2D;
         
-        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(folder.FullName + "\\" + fileNameInput.text + "_img.png");
-        importer.filterMode = FilterMode.Point;
-        
-
         // create material 
         Material material = new Material(Shader.Find("Standard"));
         string mat_path = "Assets\\Resources\\" + fileNameInput.text + "_mat.mat";
@@ -136,7 +129,7 @@ public class DevMakePaintingSceneManager : MonoBehaviour
         
 
         // create painting object
-        Painting painting = new Painting();
+        Painting painting = ScriptableObject.CreateInstance("Painting") as Painting;
         painting.title = paintingTitleInput.text;
         painting.size = data.canvasSize;
         painting.medium = "Pixel on Canvas";
@@ -144,13 +137,13 @@ public class DevMakePaintingSceneManager : MonoBehaviour
         painting.dateMade = yearMadeInput.text;
         painting.mat = material;
         painting.paintingData_Json = textAsset;
-        string obj_path = "Assets\\Resources\\" + fileNameInput.text + "_obj";
+        string obj_path = "Assets\\Resources\\" + fileNameInput.text + "_obj.asset";
         AssetDatabase.CreateAsset(painting, obj_path);
-        print ("{Painting data file created @ " + "Assets\\Resources\\" + fileNameInput.text + "_obj}");
+        print ("{Painting data file created @ " + "Assets\\Resources\\" + fileNameInput.text + "_obj.asset}");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        File.Move(obj_path, folder.FullName + "\\" + fileNameInput.text + "_obj");
-        print ("{Painting data file move to @ " + folder.FullName + "\\" + fileNameInput.text + "_obj}");
+        File.Move(obj_path, folder.FullName + "\\" + fileNameInput.text + "_obj.asset");
+        print ("{Painting data file move to @ " + folder.FullName + "\\" + fileNameInput.text + "_obj.asset}");
         
     }
 
@@ -159,6 +152,7 @@ public class DevMakePaintingSceneManager : MonoBehaviour
         int width = data.canvasSize.x * GameManager.canvasToPixelRatio;
         int height = data.canvasSize.y * GameManager.canvasToPixelRatio;
         Texture2D texture = new Texture2D(width, height);
+        texture.filterMode = FilterMode.Point;
 
         foreach (CellData cell in data.cellData)
         {
@@ -169,7 +163,9 @@ public class DevMakePaintingSceneManager : MonoBehaviour
         }        
 
         byte[] bytes = texture.EncodeToPNG();
-        File.WriteAllBytes(pngSavePath, bytes);
+        System.IO.File.WriteAllBytes(pngSavePath, bytes);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
 
         return texture;
     }

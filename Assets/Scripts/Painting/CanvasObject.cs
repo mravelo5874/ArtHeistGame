@@ -15,6 +15,7 @@ public class CanvasObject : MonoBehaviour
     private float timer;
     public float timeToAddToList;
     public float minPaintingFOV;
+    public bool isObjective;
     
     [SerializeField] private MeshRenderer canvasMeshRenderer;
     [SerializeField] private MeshRenderer paintingMeshRenderer;
@@ -22,6 +23,7 @@ public class CanvasObject : MonoBehaviour
 
     void Start()
     {
+        isObjective = false;
         isLookedAt = false;
         addedToList = false;
         firstTimeLooking = true;
@@ -55,7 +57,7 @@ public class CanvasObject : MonoBehaviour
             }
 
             // player must hold down mouse button for certain amount of time
-            if (Input.GetMouseButton(0) && !CameraItem.cameraOn)
+            if (Input.GetMouseButton(0) && !CameraItem.cameraOn && isObjective)
             {
                 PlayerMovementHelper.ToggleMovement(true); // restrict player movement
 

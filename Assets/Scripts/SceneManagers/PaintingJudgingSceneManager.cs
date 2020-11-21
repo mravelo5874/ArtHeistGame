@@ -208,6 +208,7 @@ public class PaintingJudgingSceneManager : MonoBehaviour
 
     private void EndScene()
     {
+        GameHelper.ClearRecreatedPaintingList();
         // StartCoroutine(SmoothChangeAccuracyAlpha(false, 0.5f));
 
         // accuracy number = total accuracy added up (50% + 60% + 40% = 150)
@@ -265,7 +266,7 @@ public class PaintingJudgingSceneManager : MonoBehaviour
 
     private void NextPainting()
     {
-         StartCoroutine(SmoothChangeAccuracyAlpha(false, 0.5f));
+        StartCoroutine(SmoothChangeAccuracyAlpha(false, 0.5f));
         cpm.MoveToRightCanvas();
         pauseLoop = false;
     }

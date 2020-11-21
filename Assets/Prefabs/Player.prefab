@@ -238,6 +238,7 @@ MonoBehaviour:
   flash: {fileID: 0}
   lookScript: {fileID: 8943438084991121229}
   playerScript: {fileID: 8943438084187815190}
+  photoCountText: {fileID: 0}
 --- !u!1 &8943438084252921450
 GameObject:
   m_ObjectHideFlags: 0

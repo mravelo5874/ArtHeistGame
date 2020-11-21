@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577d6220cdcf1ea4281de47e3f73fcfa, type: 3}
   m_Name: Level_3
   m_EditorClassIdentifier: 
-  levelName: Level 4
+  levelName: Level 3
   sceneName: MuseumScene
-  startPos: {x: 64, y: 0, z: 12}
-  endPos: {x: 44, y: 0, z: 12}
+  startPos: {x: -63, y: 1, z: 12.5}
+  endPos: {x: 0, y: 0, z: 52}
   randomizeObjectivePaintings: 1
   objectiveCount: 3
   objectivePaintings: []
@@ -24,7 +24,12 @@ MonoBehaviour:
   guardspot1: {x: 71, y: 1, z: 20}
   guardspot2: {x: 70, y: 1, z: -6}
   guardspot3: {x: 43.5, y: 1, z: -15.3}
-  lockDoor0: 0
-  lockDoor1: 0
-  lockDoor2: 0
+  lockDoors0: 0
+  lockDoors1: 0
+  lockDoors2: 0
+  lockDoors3: 0
   museumSection0: 1
+  museumSection1: 1
+  museumSection2: 1
+  museumSection3: 1
+  museumSection4: 1

@@ -26,8 +26,8 @@ public class ScreenShotHandler : MonoBehaviour
             renderResult.ReadPixels(rect, 0, 0);
 
             byte[] byteArray = renderResult.EncodeToPNG();
-            System.IO.File.WriteAllBytes(Application.dataPath + "/CameraPhotos/CameraPhoto_" + CameraItem.photoCount + ".png", byteArray);
-            Debug.Log("Saved Photo to " + Application.dataPath + "/CameraPhotos/CameraPhoto_" + CameraItem.photoCount + ".png");
+            System.IO.File.WriteAllBytes(Application.dataPath + "/Resources/CameraPhotos/CameraPhoto_" + CameraItem.photoCount + ".png", byteArray);
+            Debug.Log("Saved Photo to " + Application.dataPath + "/Resources/CameraPhotos/CameraPhoto_" + CameraItem.photoCount + ".png");
 
             RenderTexture.ReleaseTemporary(renderTexture);
             cam.targetTexture = null;

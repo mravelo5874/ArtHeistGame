@@ -22,10 +22,15 @@ public class Level : ScriptableObject
     public Vector3 guardspot2;
     public Vector3 guardspot3;
 
-    public bool lockDoor0; // locked on level 0, unlocked level 1
-    public bool lockDoor1; // unlocked level 2
-    public bool lockDoor2; // unlocked level 3
+    public bool lockDoors0; // locked on level 0, unlocked level 1
+    public bool lockDoors1; // unlocked level 2
+    public bool lockDoors2; // unlocked level 3
+    public bool lockDoors3;
 
     // similar to lockDoors?
     public bool museumSection0;
+    public bool museumSection1;
+    public bool museumSection2;
+    public bool museumSection3;
+    public bool museumSection4;
 }
