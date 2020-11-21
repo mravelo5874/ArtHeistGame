@@ -7,10 +7,13 @@ public class BuySpeedOne : MonoBehaviour
     public static string name = "Speed Pills";
     public static string info = "These make ye go fast.";
     public static Color startColor;
+    public static GameObject outline;
 
     private void Start()
     {
         startColor = gameObject.GetComponent<Renderer>().material.color;
+        outline = GameObject.Find("SpeedOnePillsOutline");
+        outline.GetComponent<Renderer>().enabled = false;
 
         if (InventoryScript.hasSpeedOnePills)
         {
@@ -28,10 +31,15 @@ public class BuySpeedOne : MonoBehaviour
     private void OnMouseEnter()
     {
         ShopItemInfo.ChangeItemInfo(name, info);
+        if (!InventoryScript.hasSpeedOnePills)
+        {
+            outline.GetComponent<Renderer>().enabled = true;
+        }
     }
 
     private void OnMouseExit()
     {
         ShopItemInfo.ChangeItemInfo("", "");
+        outline.GetComponent<Renderer>().enabled = false;
     }
 }

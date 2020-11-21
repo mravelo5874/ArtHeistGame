@@ -7,10 +7,13 @@ public class BuyDigitalCamera : MonoBehaviour
     public static string name = "Digital Camera";
     public static string info = "This allows you to take pictures.";
     public static Color startColor;
+    public static GameObject outline;
 
     private void Start()
     {
         startColor = gameObject.GetComponent<Renderer>().material.color;
+        outline = GameObject.Find("DigitalCameraOutline");
+        outline.GetComponent<Renderer>().enabled = false;
 
         if (InventoryScript.hasDigitalCamera)
         {
@@ -28,10 +31,15 @@ public class BuyDigitalCamera : MonoBehaviour
     private void OnMouseEnter()
     {
         ShopItemInfo.ChangeItemInfo(name, info);
+        if(!InventoryScript.hasDigitalCamera)
+        {
+            outline.GetComponent<Renderer>().enabled = true;
+        }
     }
 
     private void OnMouseExit()
     {
         ShopItemInfo.ChangeItemInfo("", "");
+        outline.GetComponent<Renderer>().enabled = false;
     }
 }

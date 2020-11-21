@@ -7,10 +7,13 @@ public class BuyHotCold : MonoBehaviour
     public static string name = "Hot-or-Cold Pills";
     public static string info = "These tell ya if you're close to a painting.";
     public static Color startColor;
+    public static GameObject outline;
 
     private void Start()
     {
         startColor = gameObject.GetComponent<Renderer>().material.color;
+        outline = GameObject.Find("HotColdOutline");
+        outline.GetComponent<Renderer>().enabled = false;
 
         if (InventoryScript.hasHotCold)
         {
@@ -28,10 +31,15 @@ public class BuyHotCold : MonoBehaviour
     private void OnMouseEnter()
     {
         ShopItemInfo.ChangeItemInfo(name, info);
+        if (!InventoryScript.hasHotCold)
+        {
+            outline.GetComponent<Renderer>().enabled = true;
+        }
     }
 
     private void OnMouseExit()
     {
         ShopItemInfo.ChangeItemInfo("", "");
+        outline.GetComponent<Renderer>().enabled = false;
     }
 }
