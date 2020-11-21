@@ -14,9 +14,6 @@ public class InventoryUIScript : MonoBehaviour
     public GameObject GameItem3Empty;
     public GameObject GameItem3;
 
-    public GameObject GameItem4Empty;
-    public GameObject GameItem4;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +27,6 @@ public class InventoryUIScript : MonoBehaviour
 
         GameItem3Empty.SetActive(!InventoryScript.hasDigitalCamera);
         GameItem3.SetActive(InventoryScript.hasDigitalCamera);
-
-        GameItem4Empty.SetActive(true);
-        GameItem4.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -47,8 +40,5 @@ public class InventoryUIScript : MonoBehaviour
 
         GameItem3Empty.SetActive(!InventoryScript.hasDigitalCamera);
         GameItem3.SetActive(InventoryScript.hasDigitalCamera);
-
-        GameItem4Empty.SetActive(true);
-        GameItem4.SetActive(false);
     }
 }
