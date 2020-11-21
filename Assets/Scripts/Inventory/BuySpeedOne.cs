@@ -6,14 +6,19 @@ public class BuySpeedOne : MonoBehaviour
 {
     public static string name = "Speed Pills";
     public static string info = "These make ye go fast.";
+    public static Color startColor;
+    public static GameObject outline;
 
     private void Start()
     {
+        startColor = gameObject.GetComponent<Renderer>().material.color;
+        outline = GameObject.Find("SpeedOnePillsOutline");
+        outline.GetComponent<Renderer>().enabled = false;
+
         if (InventoryScript.hasSpeedOnePills)
         {
             // make it look like it was bought
-            gameObject.GetComponent<Renderer>().material.SetColor("_Color",
-            new Color(gameObject.GetComponent<Renderer>().material.color.r, gameObject.GetComponent<Renderer>().material.color.g, gameObject.GetComponent<Renderer>().material.color.b, 0.1f));
+            gameObject.GetComponent<Renderer>().material.SetColor("_Color", new Color(startColor.r, startColor.g, startColor.b, 0.1f));
             gameObject.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
         }
     }
@@ -21,11 +26,20 @@ public class BuySpeedOne : MonoBehaviour
     private void OnMouseDown()
     {
         InventoryScript.buySpeedOne();
-        ShopItemInfo.ChangeItemInfo(name, info);
     }
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
         ShopItemInfo.ChangeItemInfo(name, info);
+        if (!InventoryScript.hasSpeedOnePills)
+        {
+            outline.GetComponent<Renderer>().enabled = true;
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        ShopItemInfo.ChangeItemInfo("", "");
+        outline.GetComponent<Renderer>().enabled = false;
     }
 }
