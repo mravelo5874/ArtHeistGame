@@ -23,7 +23,7 @@ public class MouseLook : MonoBehaviour
     float xRotationOffset = 59f;
 
     public bool thirdPerson = true;
-    bool tempLookat = false;
+    bool tempLookat = true;
     public GameObject painting = null;
 
     public float cameraHeightFirstPersonValue = 5f;
