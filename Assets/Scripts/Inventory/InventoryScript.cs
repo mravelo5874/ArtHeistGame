@@ -85,7 +85,7 @@ public static class InventoryScript
         digitalCamera.GetComponent<Renderer>().material.SetColor("_Color",
             new Color(digitalCamera.GetComponent<Renderer>().material.color.r, digitalCamera.GetComponent<Renderer>().material.color.g, digitalCamera.GetComponent<Renderer>().material.color.b, 0.1f));
         digitalCamera.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
-        speedPills.GetComponent<AudioSource>().Play(0);
+        //speedPills.GetComponent<AudioSource>().Play(0);
 
         hasDigitalCamera = true;
         money -= 300;
