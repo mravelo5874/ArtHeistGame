@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: le_cypres_obj
+  m_EditorClassIdentifier: 
+  title: Le Cypres
+  artist: Vincent Van Gogh
+  medium: Pixel on Canvas
+  dateMade: 1889
+  size: {x: 1, y: 2}
+  mat: {fileID: 2100000, guid: 15dc16ae459ce1a4eb8640fa8fb96346, type: 2}
+  paintingData_Json: {fileID: 0}
+  texture: {fileID: 0}
