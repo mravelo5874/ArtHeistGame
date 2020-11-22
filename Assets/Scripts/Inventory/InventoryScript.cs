@@ -61,7 +61,7 @@ public static class InventoryScript
         hotCold.GetComponent<Renderer>().material.SetColor("_Color",
             new Color(hotCold.GetComponent<Renderer>().material.color.r, hotCold.GetComponent<Renderer>().material.color.g, hotCold.GetComponent<Renderer>().material.color.b, 0.1f));
         hotCold.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
-        //speedPills.GetComponent<AudioSource>().Play(0);
+        hotCold.GetComponent<AudioSource>().Play(0);
 
         hasHotCold = true;
         money -= 100; // TODO: use constant instead of value
@@ -85,7 +85,7 @@ public static class InventoryScript
         digitalCamera.GetComponent<Renderer>().material.SetColor("_Color",
             new Color(digitalCamera.GetComponent<Renderer>().material.color.r, digitalCamera.GetComponent<Renderer>().material.color.g, digitalCamera.GetComponent<Renderer>().material.color.b, 0.1f));
         digitalCamera.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
-        //speedPills.GetComponent<AudioSource>().Play(0);
+        digitalCamera.GetComponent<AudioSource>().Play(0);
 
         hasDigitalCamera = true;
         money -= 300;
