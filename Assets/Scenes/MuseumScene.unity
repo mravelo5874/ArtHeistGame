@@ -29317,6 +29317,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -15.081665
       objectReference: {fileID: 0}
+    - target: {fileID: 1021803867069886661, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021803867069886661, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021803867069886661, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021803867069886661, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 1941925521236034158, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -65982,7 +65998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5039310786038513193, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5039310786038513197, guid: 809394a1e551b0e4b9c2e5c4b56450a5, type: 3}
       propertyPath: currentMoveSpot
