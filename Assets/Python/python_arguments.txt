@@ -1,1 +1,0 @@
-000_pink_test;C:\Users\Marco\Documents\GitHub\ArtHeistGame\Assets\ScriptableObjects\PaintingObjects\000_pink_test\000_pink_test_data.txt;C:\Users\Marco\Documents\GitHub\ArtHeistGame\Assets\ScriptableObjects\PaintingObjects\000_pink_test\000_pink_test_img.png

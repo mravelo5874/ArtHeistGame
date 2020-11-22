@@ -168,4 +168,9 @@ public class PlayerMovement : MonoBehaviour
     {
         restrictMovement = opt;
     }
+
+    public void SetPosition(Vector3 pos)
+    {
+        this.transform.position = pos;
+    }
 }

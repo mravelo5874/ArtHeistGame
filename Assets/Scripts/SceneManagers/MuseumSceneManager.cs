@@ -29,8 +29,9 @@ public class MuseumSceneManager : MonoBehaviour
     private Level levelData;
     private bool isPaused = false;
 
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform exitPos;
+    [SerializeField] private PlayerMovement player;
+    [SerializeField] private GameObject exitPos;
+
     [SerializeField] private List<GameObject> doors;
     [SerializeField] private List<Painting> objectives;
     [SerializeField] private List<CanvasObject> canvasObjects;
@@ -69,15 +70,18 @@ public class MuseumSceneManager : MonoBehaviour
     {
         canvasObjects = new List<CanvasObject>();
 
-
         if (loadLevelData)
         {
+            print ("loading level data...");
+
             levelData = GameHelper.GetCurrentLevel();
             if (levelData == null)
             {
                 levelData = defaultLevel;
                 GameHelper.SetGetLevelData(0);
             }
+
+            print ("level: " + levelData.name);
 
             // should have 3 doors, but could error here if not properly set
             doors[0].SetActive(levelData.lockDoors0);
@@ -92,10 +96,7 @@ public class MuseumSceneManager : MonoBehaviour
             guardspot0.transform.position = levelData.guardspot0;
             guardspot1.transform.position = levelData.guardspot1;
             guardspot2.transform.position = levelData.guardspot2;
-            guardspot3.transform.position = levelData.guardspot3;
-
-            player.position = levelData.startPos;
-            exitPos.position = levelData.endPos;
+            guardspot3.transform.position = levelData.guardspot3;    
 
             // add correct canvases
             if (levelData.museumSection0)
@@ -154,9 +155,16 @@ public class MuseumSceneManager : MonoBehaviour
                 }
             }
             else
-            {
+            {   
 
             }
+
+            print ("player pos: " + player.transform.position);
+            print ("level data start pos: " + levelData.startPos);
+            player.SetPosition(levelData.startPos);
+            print ("NEW player pos: " + player.transform.position);
+
+            exitPos.transform.position = levelData.endPos;        
         }
 
         oms.SetObjectives(objectives);
@@ -164,7 +172,9 @@ public class MuseumSceneManager : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        print ("### player pos: " + player.transform.position);
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             isPaused = !isPaused;

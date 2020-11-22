@@ -10,13 +10,6 @@ public class LevelSeletorManager : MonoBehaviour
         AudioHelper.PlaySong(Song.hot_swing);
     }
 
-    public void OnDemoScenePressed()
-    {
-        Level level = GameHelper.SetGetLevelData(4);
-        LevelTrackerStaticClass.currentLevel = 4; // TODO: not sure how to handle this yet, be careful
-        GameHelper.LoadScene(level.sceneName, true);
-    }
-
     public void OnLevel1ScenePressed()
     {
         Level level = GameHelper.SetGetLevelData(0);
@@ -43,6 +36,13 @@ public class LevelSeletorManager : MonoBehaviour
     {
         Level level = GameHelper.SetGetLevelData(3);
         LevelTrackerStaticClass.currentLevel = 3;
+        GameHelper.LoadScene(level.sceneName, true);
+    }
+
+    public void OnFreePlayScenePressed()
+    {
+        Level level = GameHelper.SetGetLevelData(4);
+        LevelTrackerStaticClass.currentLevel = 4; // TODO: not sure how to handle this yet, be careful
         GameHelper.LoadScene(level.sceneName, true);
     }
 
