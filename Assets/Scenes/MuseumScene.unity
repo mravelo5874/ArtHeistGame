@@ -23813,6 +23813,7 @@ MonoBehaviour:
   oms: {fileID: 873612043}
   pausedScreen: {fileID: 31255701}
   defaultLevel: {fileID: 11400000, guid: 714d01ba6cc9e7345aa586b03ed991bd, type: 2}
+  playerTransform: {fileID: 8943438085684812346}
 --- !u!1001 &759708470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60116,3 +60117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b51ef76a1a5f14196820ab2d5f9098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &8943438085684812346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8943438084187815189, guid: 166978e1b6b9a4a48bcad483876e483a, type: 3}
+  m_PrefabInstance: {fileID: 8943438085684812344}
+  m_PrefabAsset: {fileID: 0}

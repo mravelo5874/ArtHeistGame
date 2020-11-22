@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
         playerBodyModel.SetActive(false);
     }
 
+    private void Start()
+    {
+        gameObject.transform.position = GameHelper.GetCurrentLevel().startPos;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -162,6 +167,14 @@ public class PlayerMovement : MonoBehaviour
             MouseLook.instance.thirdPerson = false;
             MuseumHelper.SetRoofActive(true);
         }
+
+        // test hack stuff
+        if (LevelTrackerStaticClass.updateHackTracker < 10)
+        {
+            LevelTrackerStaticClass.updateHackTracker += 1;
+            gameObject.transform.position = GameHelper.GetCurrentLevel().startPos;
+        }
+        //gameObject.transform.position = GameHelper.GetCurrentLevel().startPos;
     }
 
     public void ToggleMovement(bool opt)

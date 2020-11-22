@@ -56,6 +56,8 @@ public class MuseumSceneManager : MonoBehaviour
     [SerializeField] private Level defaultLevel;
 
     public static MuseumSceneManager instance;
+
+    public GameObject playerObj;
     
 
     void Awake()
@@ -64,6 +66,8 @@ public class MuseumSceneManager : MonoBehaviour
         AudioHelper.PlaySong(Song.faster_does_it);
 
         instance = this;
+
+        playerObj = GameObject.Find("Player");
     }
 
     void Start()
@@ -82,6 +86,8 @@ public class MuseumSceneManager : MonoBehaviour
             }
 
             print ("level: " + levelData.name);
+
+            LevelTrackerStaticClass.updateHackTracker = 0;
 
             // should have 3 doors, but could error here if not properly set
             doors[0].SetActive(levelData.lockDoors0);
@@ -162,6 +168,7 @@ public class MuseumSceneManager : MonoBehaviour
             print ("player pos: " + player.transform.position);
             print ("level data start pos: " + levelData.startPos);
             player.SetPosition(levelData.startPos);
+            playerObj.transform.position = levelData.startPos;
             print ("NEW player pos: " + player.transform.position);
 
             exitPos.transform.position = levelData.endPos;        
@@ -173,7 +180,20 @@ public class MuseumSceneManager : MonoBehaviour
 
     void Update()
     {   
-        print ("### player pos: " + player.transform.position);
+
+        // hacky hack stuff
+        //if (LevelTrackerStaticClass.updateHackTracker < 1000)
+        //{
+        //    LevelTrackerStaticClass.updateHackTracker += 1;
+        //    player.SetPosition(levelData.startPos);
+        //    playerObj.transform.position = levelData.startPos;
+        //    playerObj.transform.position = playerObj.transform.position + new Vector3(0, LevelTrackerStaticClass.updateHackTracker, 0);
+        //    print("reset position" + LevelTrackerStaticClass.updateHackTracker);
+        //}
+
+        print("### player pos: " + player.transform.position);
+
+
 
         if (Input.GetKeyDown(KeyCode.R))
         {
