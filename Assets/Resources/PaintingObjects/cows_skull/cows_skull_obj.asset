@@ -17,6 +17,6 @@ MonoBehaviour:
   medium: Pixel on Canvas
   dateMade: 1931
   size: {x: 1, y: 2}
-  mat: {fileID: 2100000, guid: 45a430e400e1fa34693f1120390c565b, type: 2}
-  paintingData_Json: {fileID: 0}
-  texture: {fileID: 0}
+  mat: {fileID: 2100000, guid: 3ce513b339385a94890ac3f27cf37ecb, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: d6938ace544f00441b72eab275436f5a, type: 3}
+  texture: {fileID: 2800000, guid: d770403ccd584c748814f320a3573c9f, type: 3}
