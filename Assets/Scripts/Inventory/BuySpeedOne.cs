@@ -20,6 +20,8 @@ public class BuySpeedOne : MonoBehaviour
             // make it look like it was bought
             gameObject.GetComponent<Renderer>().material.SetColor("_Color", new Color(startColor.r, startColor.g, startColor.b, 0.1f));
             gameObject.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 

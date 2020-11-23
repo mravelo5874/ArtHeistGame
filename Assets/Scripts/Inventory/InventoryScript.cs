@@ -38,8 +38,9 @@ public static class InventoryScript
             new Color(speedPills.GetComponent<Renderer>().material.color.r, speedPills.GetComponent<Renderer>().material.color.g, speedPills.GetComponent<Renderer>().material.color.b, 0.1f));
         speedPills.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
         speedPills.GetComponent<AudioSource>().Play(0);
-
         hasSpeedOnePills = true;
+        speedPills.GetComponent<MeshRenderer>().enabled = false;
+        speedPills.GetComponent<CapsuleCollider>().enabled = false;
         money -= 200; // TODO: could make the cost of 'speedOnePills' into a variable listed at the top for easy access
     }
 
@@ -62,7 +63,8 @@ public static class InventoryScript
             new Color(hotCold.GetComponent<Renderer>().material.color.r, hotCold.GetComponent<Renderer>().material.color.g, hotCold.GetComponent<Renderer>().material.color.b, 0.1f));
         hotCold.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
         hotCold.GetComponent<AudioSource>().Play(0);
-
+        hotCold.GetComponent<MeshRenderer>().enabled = false;
+        hotCold.GetComponent<CapsuleCollider>().enabled = false;
         hasHotCold = true;
         money -= 100; // TODO: use constant instead of value
     }
@@ -86,7 +88,8 @@ public static class InventoryScript
             new Color(digitalCamera.GetComponent<Renderer>().material.color.r, digitalCamera.GetComponent<Renderer>().material.color.g, digitalCamera.GetComponent<Renderer>().material.color.b, 0.1f));
         digitalCamera.GetComponent<Renderer>().material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
         digitalCamera.GetComponent<AudioSource>().Play(0);
-
+        digitalCamera.GetComponent<MeshRenderer>().enabled = false;
+        digitalCamera.GetComponent<CapsuleCollider>().enabled = false;
         hasDigitalCamera = true;
         money -= 300;
     }
