@@ -5,6 +5,15 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.AI;
 
+public static class GuardMovementHelper
+{
+    public static void ToggleMovement(bool opt)
+    {
+        var info = GameObject.Find("Guard").GetComponent<Movement>();
+        info.ToggleMovement(opt);
+    }
+}
+
 public class Movement : MonoBehaviour
 {
     private float waitTime;
@@ -14,17 +23,27 @@ public class Movement : MonoBehaviour
     public static bool isChasing;
 
     public Animator guardAnimator;
-    public GameObject guardBodyModel;
 
     public GameObject currentMoveSpot;
     public GameObject playerToChase;
     public static NavMeshAgent agent;
 
+    bool restrictMovement;
+    public static Movement instance;
+    public GameObject guardBodyModel;
+
+    void Awake()
+    {
+        restrictMovement = false;
+        instance = this;
+    }
+
     void Start()
     {
-        waitTime = startWaitTime;
+        waitTime = -1.0f;
         isChasing = false;
         agent = GetComponent<NavMeshAgent>();
+        gameObject.transform.position = GameHelper.GetCurrentLevel().guardspot0;
     }
 
     bool stopUpdating = false;
@@ -133,6 +152,18 @@ public class Movement : MonoBehaviour
 
         }
 
+        // test hack stuff
+        if (LevelTrackerStaticClass.updateHackTracker < 10)
+        {
+            LevelTrackerStaticClass.updateHackTracker += 1;
+            agent.transform.position = GameHelper.GetCurrentLevel().guardspot0;
+            agent.speed = 1000.0f;
+        } else if(LevelTrackerStaticClass.updateHackTracker == 10)
+        {
+            LevelTrackerStaticClass.updateHackTracker += 1;
+            agent.speed = 3.5f;
+        }
+
     }
 
     // Makes the guard begin chasing and changes its speed so that it runs.
@@ -147,6 +178,16 @@ public class Movement : MonoBehaviour
     {
         isChasing = false;
         agent.speed = 3.5f;
+    }
+
+    public void ToggleMovement(bool opt)
+    {
+        restrictMovement = opt;
+    }
+
+    public void SetPosition(Vector3 pos)
+    {
+        this.transform.position = pos;
     }
 
 }
