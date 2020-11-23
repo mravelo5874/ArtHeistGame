@@ -15,7 +15,7 @@ MonoBehaviour:
   levelName: Level 2
   sceneName: MuseumScene
   startPos: {x: 0, y: 1, z: 10}
-  endPos: {x: 0, y: 0, z: -45}
+  endPos: {x: 2, y: 0, z: -27}
   randomizeObjectivePaintings: 1
   objectiveCount: 2
   objectivePaintings: []

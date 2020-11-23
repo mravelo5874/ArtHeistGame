@@ -120,7 +120,7 @@ public class DevMakePaintingSceneManager : MonoBehaviour
             string[] splitValue = cell.colorHex.Split('~');
             Color color = new Color();
             ColorUtility.TryParseHtmlString(splitValue[0], out color);
-            texture.SetPixel(cell.pos.x, cell.pos.y, color);
+            texture.SetPixel(width - cell.pos.x, cell.pos.y, color);
         }        
 
         byte[] bytes = texture.EncodeToPNG();

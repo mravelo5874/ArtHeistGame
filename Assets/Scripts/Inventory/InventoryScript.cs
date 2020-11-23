@@ -6,7 +6,7 @@ public static class InventoryScript
 {
     // GLOBAL SCRIPT FOR INVENTORY -> use by simply calling 'InventoryScript.Variable' or 'InventoryScript.Function()'
 
-    public static int money = 3000;
+    public static int money = 0;
 
     public static int difficultySetting = 0; // 0 is easy, 1 is medium, 2 is hard (expert)
     public static int[] difficultyThreshholds = { -100, 40, 80 };
