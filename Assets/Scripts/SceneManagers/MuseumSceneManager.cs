@@ -74,6 +74,8 @@ public class MuseumSceneManager : MonoBehaviour
         instance = this;
 
         playerObj = GameObject.Find("Player");
+
+        guard = GameObject.Find("Guard");
     }
 
     void Start()
