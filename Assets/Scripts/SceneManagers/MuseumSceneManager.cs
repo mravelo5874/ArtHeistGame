@@ -64,6 +64,7 @@ public class MuseumSceneManager : MonoBehaviour
     public static MuseumSceneManager instance;
 
     public GameObject playerObj;
+    //public GameObject guardObj;
     
 
     void Awake()
@@ -75,7 +76,7 @@ public class MuseumSceneManager : MonoBehaviour
 
         playerObj = GameObject.Find("Player");
 
-        guard = GameObject.Find("Guard");
+        //guardObj = GameObject.Find("Guard");
     }
 
     void Start()

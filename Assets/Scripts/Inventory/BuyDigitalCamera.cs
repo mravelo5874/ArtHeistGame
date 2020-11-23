@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuyDigitalCamera : MonoBehaviour
 {
     public static string name = "Digital Camera";
-    public static string info = "This allows you to take pictures.";
+    public static string info = "Allows you to bring up a camera and take pictures for easier painting recreation.";
     public static Color startColor;
     public static GameObject outline;
 

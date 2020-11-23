@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BuyHotCold : MonoBehaviour
 {
-    public static string name = "Hot-or-Cold Pills";
-    public static string info = "These tell ya if you're close to a painting.";
+    public static string name = "Proximity Device";
+    public static string info = "Displays a distance counter to track proximity to objective paintings.";
     public static Color startColor;
     public static GameObject outline;
 

@@ -32,6 +32,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
+        Debug.Log(transform.position.x + " " + transform.position.y + " " + transform.position.z);
+
         if (MuseumHelper.GetPaused())
         {
             agent.enabled = false;

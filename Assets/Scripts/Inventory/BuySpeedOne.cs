@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BuySpeedOne : MonoBehaviour
 {
-    public static string name = "Speed Pills";
-    public static string info = "These make ye go fast.";
+    public static string name = "\"Speed\" Pills";
+    public static string info = "These unidentified pharmaceuticals will allow you to run faster.";
     public static Color startColor;
     public static GameObject outline;
 
