@@ -19,4 +19,4 @@ MonoBehaviour:
   size: {x: 1, y: 1}
   mat: {fileID: 2100000, guid: 58b89d13c4daa1e479be1f4cb6c1d874, type: 2}
   paintingData_Json: {fileID: 4900000, guid: 87a567e2752bf2b4aa7f143ae9b48278, type: 3}
-  texture: {fileID: 2800000, guid: 4f5c1c11a2a45854098ee659f0331608, type: 3}
+  texture: {fileID: 2800000, guid: 276138de33139684385eb79db769a191, type: 3}
