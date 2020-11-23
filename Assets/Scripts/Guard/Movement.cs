@@ -153,16 +153,20 @@ public class Movement : MonoBehaviour
         }
 
         // test hack stuff
+        /*
         if (LevelTrackerStaticClass.updateHackTracker < 10)
         {
-            LevelTrackerStaticClass.updateHackTracker += 1;
+            gameObject.transform.position = GameHelper.GetCurrentLevel().guardspot0;
             agent.transform.position = GameHelper.GetCurrentLevel().guardspot0;
             agent.speed = 1000.0f;
+            agent.acceleration = 0.0f;
         } else if(LevelTrackerStaticClass.updateHackTracker == 10)
         {
             LevelTrackerStaticClass.updateHackTracker += 1;
             agent.speed = 3.5f;
+            agent.acceleration = 32.0f;
         }
+        */
 
     }
 
