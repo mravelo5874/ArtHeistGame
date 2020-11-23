@@ -31,6 +31,12 @@ public static class GameHelper
         return gm.GetGlobalPaintings();
     }
 
+    public static void SecretUnlock()
+    {
+        FindGameManager();
+        gm.SecretUnlock();
+    }
+
     /* 
     ################################################
     #   SCENE MANAGEMENT

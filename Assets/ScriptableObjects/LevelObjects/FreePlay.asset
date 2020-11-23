@@ -17,7 +17,7 @@ MonoBehaviour:
   startPos: {x: 64, y: 1, z: 12}
   endPos: {x: 44, y: 0, z: 12}
   randomizeObjectivePaintings: 1
-  objectiveCount: 1
+  objectiveCount: 3
   objectivePaintings: []
   guardEnabled: 0
   guardspot0: {x: 0, y: 0, z: 0}

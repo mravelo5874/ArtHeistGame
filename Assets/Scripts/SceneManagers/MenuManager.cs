@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject secretUnlockText;
+
     void Awake()
     {
         GameHelper.SceneInit(true); // every scene must call this in Awake()
         AudioHelper.PlaySong(Song.hot_swing);
+
+        secretUnlockText.SetActive(false);
     }
 
     public void OnLevelSelectorScenePressed()
@@ -34,5 +38,11 @@ public class MenuManager : MonoBehaviour
     public void OnQuitGamePressed()
     {
         Application.Quit();
+    }
+
+    public void SecretButton()
+    {
+        GameHelper.SecretUnlock();
+        secretUnlockText.SetActive(true);
     }
 }

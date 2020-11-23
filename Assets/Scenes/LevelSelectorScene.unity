@@ -1902,7 +1902,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 530561783}
         m_TargetAssemblyTypeName: LevelSeletorManager, Assembly-CSharp
-        m_MethodName: OnDemoScenePressed
+        m_MethodName: OnFreePlayScenePressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

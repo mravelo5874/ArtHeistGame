@@ -81,6 +81,14 @@ public class GameManager : DontDestroy<GameManager>
         return globalPaintingPool.paintings;
     }
 
+    public void SecretUnlock()
+    {
+        LevelTrackerStaticClass.levelNum = 4;
+        LevelTrackerStaticClass.currentLevel = 5;
+
+        InventoryScript.money = 9999;
+    }
+
     /* 
     ################################################
     #   SCENE MANAGEMENT
