@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: marooned_obj
+  m_EditorClassIdentifier: 
+  title: Marooned
+  artist: Howard Pyle
+  medium: Pixel on Canvas
+  dateMade: 1909
+  size: {x: 2, y: 1}
+  mat: {fileID: 2100000, guid: fb4eebd581722ce41b5610625e58bd57, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 8b15f8faa8bdb3545b4931f255ba50f9, type: 3}
+  texture: {fileID: 2800000, guid: 41883092985d7854e87d6d1ab1c850c2, type: 3}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: red_boats_obj
+  m_EditorClassIdentifier: 
+  title: Red Boats
+  artist: Claude Monet
+  medium: Pixel on Canvas
+  dateMade: 1875
+  size: {x: 2, y: 2}
+  mat: {fileID: 2100000, guid: 67034d2607a8c034da6b4a95f72dfade, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: c9c564ba8b57dac4bb1a41518c77c440, type: 3}
+  texture: {fileID: 2800000, guid: 2d03851355064ef43afe8052ff70cec1, type: 3}

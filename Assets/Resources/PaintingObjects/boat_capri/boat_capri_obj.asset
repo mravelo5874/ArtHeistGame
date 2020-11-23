@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: boat_capri_obj
+  m_EditorClassIdentifier: 
+  title: A Boat in the Waters off Capri
+  artist: John Singer Sargent
+  medium: Pixel on Canvas
+  dateMade: 1878
+  size: {x: 1, y: 1}
+  mat: {fileID: 2100000, guid: dbc1e09414a4ee146bd7c2db9ad91e9b, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 7c6f8fc898aa3e048b790f57979fe18d, type: 3}
+  texture: {fileID: 2800000, guid: 4444fb9ec35af724f8a995badfb957df, type: 3}

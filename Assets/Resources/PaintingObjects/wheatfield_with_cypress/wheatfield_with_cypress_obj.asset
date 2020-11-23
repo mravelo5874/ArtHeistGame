@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: wheatfield_with_cypress_obj
+  m_EditorClassIdentifier: 
+  title: Wheatfield with Cypress
+  artist: Vincent Van Gogh
+  medium: Pixel on Canvas
+  dateMade: 1889
+  size: {x: 2, y: 1}
+  mat: {fileID: 2100000, guid: aa5e60eb2efb07341b30972b7c802eb0, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 64fc5fffcf4c7384d8a3286e17baf826, type: 3}
+  texture: {fileID: 2800000, guid: af10c9120360a9c4a875e2a68e4e4ea9, type: 3}

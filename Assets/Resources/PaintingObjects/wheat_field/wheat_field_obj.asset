@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: wheat_field_obj
+  m_EditorClassIdentifier: 
+  title: Wheat Field With Crows
+  artist: Vincent Van Gogh
+  medium: Pixel on Canvas
+  dateMade: 1890
+  size: {x: 2, y: 1}
+  mat: {fileID: 2100000, guid: cf0ed31769c7e954e9eb23f9b251ff0f, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 735eaec228f3fff4083a4e2ffc65d37c, type: 3}
+  texture: {fileID: 2800000, guid: 1f08cd859656d284d99cb93e0b93d523, type: 3}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: skull_obj
+  m_EditorClassIdentifier: 
+  title: Skull with Burning Cigarette
+  artist: Vincent Van Gogh
+  medium: Pixel on Canvas
+  dateMade: 1885
+  size: {x: 2, y: 2}
+  mat: {fileID: 2100000, guid: 675f8509a2ff65948b7fc13c72a689f8, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 5cc23307ef52b8848abd5d65c15a3196, type: 3}
+  texture: {fileID: 2800000, guid: 9aef9213caf5d7e48b789c5b1d487e9a, type: 3}

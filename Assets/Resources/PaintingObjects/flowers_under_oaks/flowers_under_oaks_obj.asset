@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827509c9736fbf478c980f91e8981d9, type: 3}
+  m_Name: flowers_under_oaks_obj
+  m_EditorClassIdentifier: 
+  title: Flowers Under the Oaks
+  artist: Granville Redmond
+  medium: Pixel on Canvas
+  dateMade: 1876
+  size: {x: 2, y: 2}
+  mat: {fileID: 2100000, guid: 5e0dec0fac5c9e648a1977df92a4179d, type: 2}
+  paintingData_Json: {fileID: 4900000, guid: 2486510091b243f4bba936684e28ff79, type: 3}
+  texture: {fileID: 2800000, guid: b2ffbd9f1f2648f419293506e8e96e3b, type: 3}
