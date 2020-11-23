@@ -158,7 +158,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a5e232985ab09564dad4a36c239da755, type: 2}
+  - {fileID: 2100000, guid: 625a33077e27c264f8267011ae761c24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,6 +211,7 @@ MonoBehaviour:
   outlineCompletedColor: {r: 0, g: 1, b: 0.57301307, a: 1}
   timeToAddToList: 3
   minPaintingFOV: 45
+  isObjective: 0
   canvasMeshRenderer: {fileID: 7847144917348545378}
   paintingMeshRenderer: {fileID: 7847144916659204419}
   canvasThickness: 0.2
