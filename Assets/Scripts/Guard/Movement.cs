@@ -137,7 +137,7 @@ public class Movement : MonoBehaviour
     public static void StartChasing()
     {
         isChasing = true;
-        agent.speed = 14f;
+        agent.speed = 8.0f;
     }
 
     // Makes the guard stop chasing and alters the speed back to normal.
