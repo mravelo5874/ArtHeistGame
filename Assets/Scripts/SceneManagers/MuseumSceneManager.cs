@@ -21,6 +21,12 @@ public static class MuseumHelper
         var info = GameObject.Find("MuseumSceneManager").GetComponent<MuseumSceneManager>();
         return info.GetPaused();
     }
+
+    public static bool IsObjective(Painting painting)
+    {
+        var info = GameObject.Find("MuseumSceneManager").GetComponent<MuseumSceneManager>();
+        return info.IsObjective(painting);
+    }
 }
 
 public class MuseumSceneManager : MonoBehaviour
@@ -165,12 +171,9 @@ public class MuseumSceneManager : MonoBehaviour
 
             }
 
-            print ("player pos: " + player.transform.position);
-            print ("level data start pos: " + levelData.startPos);
+
             player.SetPosition(levelData.startPos);
             playerObj.transform.position = levelData.startPos;
-            print ("NEW player pos: " + player.transform.position);
-
             exitPos.transform.position = levelData.endPos;        
         }
 
@@ -190,9 +193,6 @@ public class MuseumSceneManager : MonoBehaviour
         //    playerObj.transform.position = playerObj.transform.position + new Vector3(0, LevelTrackerStaticClass.updateHackTracker, 0);
         //    print("reset position" + LevelTrackerStaticClass.updateHackTracker);
         //}
-
-        print("### player pos: " + player.transform.position);
-
 
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -228,6 +228,7 @@ public class MuseumSceneManager : MonoBehaviour
                 {
                     objectiveCanvases.Add(canvas);
                     canvas.isObjective = true;
+                    print("set objective canvas bool!");
                     break;
                 }
             }
@@ -265,5 +266,13 @@ public class MuseumSceneManager : MonoBehaviour
     public bool GetPaused()
     {
         return isPaused;
+    }
+
+    public bool IsObjective(Painting painting)
+    {
+        if (objectives.Contains(painting))
+            return true;
+        else
+            return false;
     }
 }

@@ -16,11 +16,13 @@ public class ShowPicturesController : MonoBehaviour
 
     [SerializeField] private GameObject pictureHolder;
     [SerializeField] private Transform contentHolder;
+    [SerializeField] private GameObject noPicturesText;
 
     void Start()
     {
         defaultPos = transform.position;
         openPos = new Vector2(0f, defaultPos.y);
+        int count = 0;
 
         // get pictures from folder
         string path = Application.dataPath + CameraItem.photoFolder;
@@ -37,7 +39,13 @@ public class ShowPicturesController : MonoBehaviour
                 texture.LoadImage(imageData);
 
                 image.texture = texture;
+                count++;
             }
+
+            if (count <= 0)
+                noPicturesText.SetActive(true);
+            else
+                noPicturesText.SetActive(false);
         }
     }
 

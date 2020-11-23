@@ -154,6 +154,9 @@ public class PaintingJudgingSceneManager : MonoBehaviour
 
     private IEnumerator JudgePainting(int index)
     {
+        // deactivate next button
+        nextButton.gameObject.SetActive(false);
+
         // set current canvas
         currCanvas = canvases[index];
 

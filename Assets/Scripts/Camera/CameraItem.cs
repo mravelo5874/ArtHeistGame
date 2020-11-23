@@ -51,10 +51,10 @@ public class CameraItem : MonoBehaviour
     void Update()
     {
         // if they didn't buy the camera, they can't use it (wouldn't be able to get it on levels 0,1,2)
-        if (!InventoryScript.hasDigitalCamera || LevelTrackerStaticClass.levelNum < 3)
-        {
-            return;
-        }
+        // if (!InventoryScript.hasDigitalCamera || LevelTrackerStaticClass.levelNum < 3)
+        // {
+        //     return;
+        // }
 
         if (!cameraOn && !lookScript.thirdPerson && Input.GetKeyDown(KeyCode.F)) // turn cam on
         {

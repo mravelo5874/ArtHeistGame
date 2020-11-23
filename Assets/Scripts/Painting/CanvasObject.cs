@@ -56,8 +56,13 @@ public class CanvasObject : MonoBehaviour
                 timer = 0f;
             }
 
+            if (!MuseumHelper.IsObjective(this.painting))
+            {   
+                return;
+            }
+
             // player must hold down mouse button for certain amount of time
-            if (Input.GetMouseButton(0) && !CameraItem.cameraOn && isObjective)
+            if (Input.GetMouseButton(0) && !CameraItem.cameraOn)
             {
                 PlayerMovementHelper.ToggleMovement(true); // restrict player movement
 
