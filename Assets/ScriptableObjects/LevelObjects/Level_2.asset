@@ -19,7 +19,7 @@ MonoBehaviour:
   randomizeObjectivePaintings: 1
   objectiveCount: 2
   objectivePaintings: []
-  guardEnabled: 0
+  guardEnabled: 1
   guardspot0: {x: 18.843, y: 1, z: 9.93}
   guardspot1: {x: 1.5, y: 1, z: 51}
   guardspot2: {x: 12.4, y: 1, z: -21.9}
