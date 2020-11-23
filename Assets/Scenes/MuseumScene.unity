@@ -34069,6 +34069,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 1408015095219930662, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9fa5ec81a9ca435479f425f26af4a51d, type: 3}
     - target: {fileID: 1941925521236034158, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -34177,6 +34181,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4142568172906391833, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 8c93e250b002e4f4ebd29a46be4c2ffd, type: 3}
     - target: {fileID: 6229736353645610643, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -34193,6 +34201,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8507532026180346075, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 873b01dacdc0df842ad7e799e6a8aca0, type: 3}
     - target: {fileID: 8574349635605347932, guid: b4f762a8b11f30243863809c0c9334f1, type: 3}
       propertyPath: playerObject
       value: 
@@ -59468,6 +59480,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 554922346}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 35e7e9a518675104fbe4937c0b65d031, type: 3}
+      propertyPath: m_RootOrder
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01d758586ee594a4c917fdca9b500b51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.95
@@ -59531,10 +59547,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 01d758586ee594a4c917fdca9b500b51, type: 3}
       propertyPath: m_Name
       value: lightrack (12)
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 35e7e9a518675104fbe4937c0b65d031, type: 3}
-      propertyPath: m_RootOrder
-      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35e7e9a518675104fbe4937c0b65d031, type: 3}
