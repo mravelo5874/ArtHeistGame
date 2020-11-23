@@ -73,7 +73,7 @@ public class RecreateCanvasObject : MonoBehaviour
         if (opt)
         {
             foreach(CanvasCell cell in canvas)
-                cell.SetOutlineWidth(1.1f);
+                cell.SetOutlineWidth(1.2f);
         }
         else
         {

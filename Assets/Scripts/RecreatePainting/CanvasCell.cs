@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasCell : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class CanvasCell : MonoBehaviour
     public GameObject highlightCellObject;
 
     private MeshRenderer mr;
+    [SerializeField] private Image COLOR_IMG;
 
     void Awake()
     {
@@ -31,7 +33,7 @@ public class CanvasCell : MonoBehaviour
     public void SetColor(Color color)
     {
         this.color = color;
-        mr.material.color = color;
+        COLOR_IMG.color = color;
         //print ("color set to: " + '#' + ColorUtility.ToHtmlStringRGBA(color));
     }
 
